@@ -1,26 +1,22 @@
 # View Wireframes
 
-## New Session
-![new-session]
+## Landing Page
+![landing-page]
 
-## Feed Show (landing page)
+## Feed Show
 ![feed-show]
 
-## Blog Show
-![blog-show]
+## Story Show
+![story-show]
 
-## Post Show
-![post-show]
+## User Profile
+![user-profile]
 
-## Post Form
-![post-form]
+## Story Form
+![story-form]
 
-## Search Results
-![search-results]
-
-[new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
-[search-results]: ./wireframes/search_results.png
+[landing-page]: ./wireframes/1-Landing.png
+[feed-show]: ./wireframes/2-Feed.png
+[story-show]: ./wireframes/3-StoryShow.png
+[user-profile]: ./wireframes/4-Profile.png
+[story-form]: ./wireframes/5-NewStory.png
