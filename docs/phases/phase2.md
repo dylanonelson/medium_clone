@@ -1,29 +1,23 @@
-# Phase 2: Viewing Blogs and Posts
+# Phase 2: Follows and feeds
 
 ## Rails
 ### Models
+* Follow
 
 ### Controllers
-Api::BlogsController (create, destroy, index, show)
-Api::PostsController (create, destroy, show, update)
+* Api::StoriesController (#feed)
 
 ### Views
-* blogs/show.json.jbuilder
+* stories/show.json.jbuilder
 
 ## Backbone
 ### Models
-* Blog (parses nested `posts` association)
-* Post
 
 ### Collections
-* Blogs
-* Posts
+* Stories
 
 ### Views
-* BlogForm
-* BlogShow (composite view, contains PostsIndex subview)
-* PostsIndex (composite view, contains PostsIndexItem subviews)
-* PostsIndexItem
-* PostShow
+* StoriesShow (composite view, contains StoryShow subview)
 
 ## Gems/Libraries
+* Kaminari for pagination

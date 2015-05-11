@@ -1,21 +1,28 @@
-# Phase 3: Editing and Displaying Posts
+# Phase 3: Tags and taggings
 
 ## Rails
 ### Models
+* Tag
+* Tagging
+* Follow (make polymorphic)
+* User (add polymorphic association)
 
 ### Controllers
+* Api::TagsController
+* Api::TaggingsController
 
 ### Views
+* tags/show.json.jbuilder
+* tags/index.json.jbuilder
 
 ## Backbone
 ### Models
+* Tag
 
 ### Collections
+* Tags
 
 ### Views
-* PostForm
+* TagShow
 
 ## Gems/Libraries
-* Filepicker
-* Markdown-js
-* Bootstrap Markdown

@@ -1,20 +1,23 @@
-# Phase 4: User Feeds
+# Phase 4: Composition view
+I have slotted three days for this phase because it will require research on
+how to serialize text formatting and rerender it.
 
 ## Rails
 ### Models
 
 ### Controllers
-Api::PostsController (feed)
 
 ### Views
-posts/feed.json.jbuilder
 
 ## Backbone
 ### Models
+* Story (???)
 
 ### Collections
 
 ### Views
-* FeedShow (composite view, contains PostsIndex subview)
+* StoryShow
+* StoryForm
 
 ## Gems/Libraries
+* ???
