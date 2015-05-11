@@ -1,7 +1,7 @@
-# Medium Rare
+# Medium Spare
 
 ## Minimum Viable Product
-Medium Rare is a clone of Medium built on Rails and Backbone. Users can:
+Medium Spare is a clone of Medium built on Rails and Backbone. Users can:
 
 - [ ] Create accounts
 - [ ] Create sessions (log in)
