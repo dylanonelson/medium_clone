@@ -6,5 +6,8 @@ class CreateSessions < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :sessions, :user_id
+    add_index :sessions, :session_token
   end
 end
