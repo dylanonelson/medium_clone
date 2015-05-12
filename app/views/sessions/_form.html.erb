@@ -1,0 +1,11 @@
+<%= form_for @user, url: { action: @action }, namespace: "user" do |f| %>
+
+  <label for="user_username">Username</label>
+  <%= f.text_field :username %>
+
+  <label for="user_password">Password</label>
+  <%= f.password_field :password %>
+
+  <button>Log in</button>
+  
+<% end %>
