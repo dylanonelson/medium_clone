@@ -4,10 +4,13 @@ how to serialize text formatting and rerender it.
 
 ## Rails
 ### Models
+* Story
 
 ### Controllers
+* StoriesController
 
 ### Views
+* stories/show
 
 ## Backbone
 ### Models

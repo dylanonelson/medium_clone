@@ -49,7 +49,7 @@ association to return the appropriate posts.
 
 [Details][phase-three]
 
-### Phase 4: Tags and taggings (~2 days)
+### Phase 4: Tags and taggings (~1 days)
 I will add new Rails models, tags and taggings, that belong to posts. Post views
 will display the tags that they have. I will make follows into a polymorphic
 association that can belong to either users or tags. Posts either from users or
@@ -59,7 +59,8 @@ from tags will appear in users' feeds.
 
 ### Phase 5: Composition view (~3 days)
 I will add formatting to the post composition page. I have no idea how I will do
-this, but I would like to emulate Medium's formatting toolbar.
+this, but I would like to emulate Medium's formatting toolbar. In this phase, I will
+also add image uploading for story banners.
 
 [Details][phase-five]
 
