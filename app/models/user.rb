@@ -1,9 +1,12 @@
 class User < ActiveRecord::Base
 
+  EMAIL_REGEX = /\A([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})\z/
+
   attr_reader :password
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
+  validates_format_of :email, with: EMAIL_REGEX
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validates :password_digest, presence: true
 
