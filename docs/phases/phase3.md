@@ -1,28 +1,23 @@
-# Phase 3: Tags and taggings
+# Phase 2: Follows and feeds
 
 ## Rails
 ### Models
-* Tag
-* Tagging
-* Follow (make polymorphic)
-* User (add polymorphic association)
+* Follow
 
 ### Controllers
-* Api::TagsController
-* Api::TaggingsController
+* Api::StoriesController (#feed)
 
 ### Views
-* tags/show.json.jbuilder
-* tags/index.json.jbuilder
+* stories/show.json.jbuilder
 
 ## Backbone
 ### Models
-* Tag
 
 ### Collections
-* Tags
+* Stories
 
 ### Views
-* TagShow
+* StoriesShow (composite view, contains StoryShow subview)
 
 ## Gems/Libraries
+* Kaminari for pagination

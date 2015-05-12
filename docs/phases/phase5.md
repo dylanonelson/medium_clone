@@ -1,26 +1,23 @@
-# Phase 5: Searching for users and tags
+# Phase 4: Composition view
+I have slotted three days for this phase because it will require research on
+how to serialize text formatting and rerender it.
 
 ## Rails
 ### Models
-*
 
 ### Controllers
-* Api::SearchController
 
 ### Views
-* search/index.json.jbuilder
 
 ## Backbone
 ### Models
-* User
-* Tag
+* Story (???)
 
 ### Collections
-* Users
-* Tags
 
 ### Views
-* SearchResults
-* SearchShow (composite view, contains BlogsIndex and PostsIndex subviews)
+* StoryShow
+* StoryForm
 
 ## Gems/Libraries
+* ???
