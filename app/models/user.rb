@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validates :password_digest, presence: true
 
-  has_many :sessions
+  has_many :sessions, dependent: :destroy
 
   def self.find_by_credentials(un, pw)
     u = User.find_by(username: un)
