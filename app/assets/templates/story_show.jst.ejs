@@ -2,7 +2,7 @@
   <h3><%= story.get('title') %></h3>
   <a 
     class="view-story-link" 
-    data-id="<%= story.id %>">
+    href="#stories/<%= story.id %>">
     View story
   </a>
   <h4><%= story.author && story.author.get('username') %></h4>
