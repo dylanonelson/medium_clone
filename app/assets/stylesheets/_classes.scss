@@ -1,0 +1,32 @@
+// Session form
+.new_user, .new_session {
+  width: 450px;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 15px;
+
+  line-height: 1;
+
+  border: 1px solid #888;
+  border-radius: 10px;
+}
+
+.new_user > *, .new_session > * {
+  margin-bottom: 15px;
+}
+
+.new_user > label, .new_session > label {
+  display: block;
+}
+
+.new_user > input, .new_session > input {
+  display: block;
+
+  border: 1px solid #888;
+}
+
+.sign-up-link, .log-in-link {
+  display: block;
+  text-align: center;
+}

@@ -1,0 +1,32 @@
+h1, h2, h3, h4, p, main, section, 
+article, header, footer, a, form, 
+button, input, ul, li, html, body {
+  margin: 0;
+  padding: 0;
+
+  background: inherit;
+  outline: 0;
+  border: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  line-height: inherit;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  font-family: sans-serif;
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}

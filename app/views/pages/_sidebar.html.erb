@@ -1,7 +1,10 @@
-<input type="text" value="Search">
-<h3>
-  <a href="#">
-    <%= current_user.username %>
-  </a>
-</h3>
-<a href="#stories/new">New story</a>
+<nav>
+  <input type="text" value="Search">
+  <h2>
+    <a href="#">
+      <%= current_user.username %>
+    </a>
+  </h2>
+  <%= button_to "Log out", session_url(current_session), method: :delete %>
+  <a href="#stories/new">New story</a>
+</nav>

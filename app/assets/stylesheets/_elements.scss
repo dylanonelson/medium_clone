@@ -1,0 +1,76 @@
+html {
+}
+
+body {
+  width: $body-width;
+  margin: auto;
+
+  background: #fff;
+}
+
+header {
+  border-bottom: 4px double #000;
+}
+
+h1 {
+  padding-top: 36px;
+  padding-bottom: 18px;
+
+  text-align: center;
+  font-size: 54px;
+}
+
+nav {
+  display: block;
+  width: 100px;
+  float: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  margin-top: 25px;
+  margin-bottom: 15px;
+
+  line-height: 1.5;
+
+  border: 1px solid #000;
+}
+
+nav > * {
+  padding: 5px;
+  width: 100%;
+}
+
+h2, a, p {
+  font-size: $base-fz;
+}
+
+main {
+  padding-top: 25px;
+  padding-left: 25px;
+  width: 500px;
+  float: left;
+}
+
+article {
+  margin-bottom: 36px;
+  padding: 15px;
+
+  border: 1px solid #888;
+  border-radius: 10px;
+}
+
+article > a {
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #888;
+}
+
+button {
+  padding: 5px;
+
+  border-radius: 5px;
+  background: #888;
+}

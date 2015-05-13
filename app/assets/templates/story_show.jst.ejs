@@ -1,9 +1,8 @@
 <article>
-  <h3><%= story.get('title') %></h3>
-  <a 
-    class="view-story-link" 
-    href="#stories/<%= story.id %>">
-    View story
+  <a href="#stories/<%= story.id %>">
+    <h3>
+      <%= story.get('title') %>
+    </h3>
   </a>
   <h4><%= story.author && story.author.get('username') %></h4>
   <p><%= story.get('body') %></p>
