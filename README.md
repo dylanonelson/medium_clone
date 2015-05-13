@@ -3,8 +3,8 @@
 ## Minimum Viable Product
 A clone of Medium built on Rails and Backbone. Users can:
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
+- [x] Create accounts
+- [x] Create sessions (log in)
 - [ ] Create stories
 - [ ] Save drafts of stories
 - [ ] Follow other users
@@ -23,11 +23,11 @@ A clone of Medium built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: Users and stories (~1 day)
-I will implement basic user authentication in Rails so that users can stay
-signed in on one computer. By the end of this phase, users will be able to
-create stories using a simple text form in a Rails view and view those stories
-in a simple Backbone view.
+### Phase 1: Users and stories (~2 day)
+I will implement basic user authentication in Rails so that users can log in from 
+multiple computers simultaneously. Moving into Backbone, I will add story display 
+and creation. By the end of this phase, users will be able to log in, create stories,
+and view them.
 
 [Details][phase-one]
 
