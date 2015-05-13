@@ -1,6 +1,10 @@
 module Api
   class StoriesController < ApplicationController
 
+    def index
+      @stories = current_user.stories
+    end
+
     def show
       @story = Story.includes(:author).find(params[:id])
       render :show
