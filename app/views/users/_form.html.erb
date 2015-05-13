@@ -1,0 +1,14 @@
+<%= form_for @user, namespace: "user" do |f| %>
+
+  <label for="user_username">Username</label>
+  <%= f.text_field :username %>
+
+  <label for="user_email">Email</label>
+  <%= f.text_field :email %>
+
+  <label for="user_password">Password</label>
+  <%= f.password_field :password %>
+
+  <button>Sign up</button>
+  
+<% end %>

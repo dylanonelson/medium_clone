@@ -1,7 +1,7 @@
-# Medium Spare
+# Medium Clone
 
 ## Minimum Viable Product
-Medium Spare is a clone of Medium built on Rails and Backbone. Users can:
+A clone of Medium built on Rails and Backbone. Users can:
 
 - [ ] Create accounts
 - [ ] Create sessions (log in)
