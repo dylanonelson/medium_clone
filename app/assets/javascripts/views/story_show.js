@@ -15,8 +15,7 @@ MediumClone.Views.StoryShow = Backbone.View.extend({
   },
 
   initialize : function () {
-    this.model.fetch();
-    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(MediumClone.stories, "sync", this.render);
   },
 
   events : {

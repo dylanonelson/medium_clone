@@ -12,7 +12,7 @@ MediumClone.Routers.Router = Backbone.Router.extend({
 
   indexStories : function  () {
     var indexStoriesView = new MediumClone.Views.StoriesIndex({
-      collection : new MediumClone.Collections.Stories(),
+      collection : MediumClone.stories,
     });
 
     this._swapView(indexStoriesView);
@@ -28,9 +28,7 @@ MediumClone.Routers.Router = Backbone.Router.extend({
 
   showStory : function (id) {
     var showStoryView = new MediumClone.Views.StoryShow({
-      model : new MediumClone.Models.Story({
-        id : id,
-      }),
+      model : MediumClone.stories.getOrFetch(id),
     });
 
     this._swapView(showStoryView);
