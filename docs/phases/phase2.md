@@ -1,23 +1,24 @@
-# Phase 2: Follows and feeds
+# Phase 2: Viewing and commenting on stories
 
 ## Rails
 ### Models
-* Follow
+* Comment
 
 ### Controllers
-* Api::StoriesController (#feed)
+* Api::CommentsController
 
 ### Views
-* stories/show.json.jbuilder
+* comments/show.json.jbuilder
 
 ## Backbone
 ### Models
+* Comment
 
 ### Collections
-* Stories
+* Comments
 
 ### Views
-* StoriesShow (composite view, contains StoryShow subview)
+* CommentShow
+* CommentForm
 
 ## Gems/Libraries
-* Kaminari for pagination
