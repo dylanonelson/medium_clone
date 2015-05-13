@@ -2,7 +2,7 @@ module Api
   class StoriesController < ApplicationController
 
     def show
-      @story = Story.find(params[:id])
+      @story = Story.includes(:author).find(params[:id])
       render :show
     end
 
