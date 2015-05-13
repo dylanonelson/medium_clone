@@ -4,10 +4,8 @@ MediumClone.Models.Story = Backbone.Model.extend({
 
   initialize : function (options) {
     if (options && options.author) {
-      this.author = new MediumClone.Model.User({
-        username : options.author.username,
-      });
-      this.author.fetch();
+      this.set('author', new MediumClone.Models.User(options.author));
+      this.get('author').fetch();
     }
   },
 
