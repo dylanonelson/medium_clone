@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
 
   has_many :sessions, dependent: :destroy
+  has_many :stories,
+    foreign_key: :author_id
 
   def self.find_by_credentials(un, pw)
     u = User.find_by(username: un)
