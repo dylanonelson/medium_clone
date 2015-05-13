@@ -5,8 +5,10 @@ A clone of Medium built on Rails and Backbone. Users can:
 
 - [x] Create accounts
 - [x] Create sessions (log in)
-- [ ] Create stories
-- [ ] Save drafts of stories
+- [x] Create stories
+- [x] See an index of all their stories
+- [x] View individual stories
+- [ ] Comment on stories
 - [ ] Follow other users
 - [ ] Follow tags
 - [ ] View a feed of subscribed users and tags
