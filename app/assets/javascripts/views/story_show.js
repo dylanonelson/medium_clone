@@ -15,8 +15,18 @@ MediumClone.Views.StoryShow = Backbone.View.extend({
   },
 
   initialize : function () {
-    this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model.get('author'), "sync", this.render);
+    this.model.fetch();
+    this.listenTo(this.model, 'sync', this.render);
   },
+
+  events : {
+    "click .view-story-link" : "viewStory",
+  },
+
+  viewStory : function (event) {
+    event.preventDefault();
+    $currentTarget = $(event.currentTarget);
+    Backbone.history.navigate('stories/' + $currentTarget.data('id'), { trigger : true });
+  }
 
 })

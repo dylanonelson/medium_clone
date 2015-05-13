@@ -26,6 +26,16 @@ MediumClone.Routers.Router = Backbone.Router.extend({
     this._swapView(newStoryView);
   },
 
+  showStory : function (id) {
+    var showStoryView = new MediumClone.Views.StoryShow({
+      model : new MediumClone.Models.Story({
+        id : id,
+      }),
+    });
+
+    this._swapView(showStoryView);
+  },
+
   _swapView : function (view) {
     this._currentView && this._currentView.remove();
     this._currentView = view;
