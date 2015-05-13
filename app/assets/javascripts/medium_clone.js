@@ -4,10 +4,9 @@ window.MediumClone = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    Backbone.history.start();
+    MediumRouter = new MediumClone.Routers.Router({
+      $root : $('#app'),
+    });
   }
 };
-
-$(document).ready(function(){
-  MediumClone.initialize();
-});
