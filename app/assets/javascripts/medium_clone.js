@@ -5,6 +5,7 @@ window.MediumClone = {
   Routers: {},
   initialize: function() {
     MediumClone.stories = new MediumClone.Collections.Stories();
+    MediumClone.stories.fetch();
 
     MediumRouter = new MediumClone.Routers.Router({
       $root : $('#app'),

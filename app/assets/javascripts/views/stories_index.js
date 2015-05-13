@@ -23,7 +23,6 @@ MediumClone.Views.StoriesIndex = Backbone.CompositeView.extend({
   },
 
   initialize : function () {
-    this.collection.fetch();
     this.listenTo(this.collection, "sync", this.render)
   }
 
