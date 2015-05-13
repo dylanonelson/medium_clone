@@ -2,7 +2,7 @@ module Api
   class StoriesController < ApplicationController
 
     def index
-      @stories = current_user.stories
+      @stories = current_user.stories.includes(:author)
     end
 
     def show
