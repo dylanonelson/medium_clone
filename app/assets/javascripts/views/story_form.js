@@ -51,6 +51,7 @@ MediumClone.Views.StoryForm = Backbone.View.extend({
     // Add unique IDs to each top-level element in the story
     $fragments.each(function (i, fragment) {
       fragment.setAttribute('data-id', thisView.generateFragmentId());
+      fragment.className = 'story-content';
     });
 
     var bodyContent = $bodyElement.html();

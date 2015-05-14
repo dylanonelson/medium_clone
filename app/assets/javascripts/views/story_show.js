@@ -1,8 +1,11 @@
 MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
 
+  className : 'story-show',
+
   template : JST['story_show'],
 
   render : function () {
+    console.log('rendered story show');
     view = this;
 
     var rendered = this.template({
@@ -22,7 +25,6 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
       var showView = new MediumClone.Views.CommentShow({
         model : comment,
       });
-      
       var fragmentSelector = '[data-id="' + comment.get('fragment_id') + '"]';
       thisView.addSubview(fragmentSelector, showView);
     })
@@ -34,10 +36,26 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
 
   events : {
     'click .story-view' : 'syncStory',
+    'mouseover .story-content' : 'revealCommentForm',
   },
 
   syncStory : function () {
     this.model.fetch();
+  },
+
+  revealCommentForm : function (event) {
+    if (this._commentForm) {
+      this._commentForm.remove();
+    }
+    
+    $currentTarget = $(event.currentTarget);
+    
+    var formView = new MediumClone.Views.CommentForm({
+      model : this.model,
+      fragment_id : $currentTarget.data('id'),
+    });
+    this._commentForm = formView;
+    formView.render().$el.insertAfter($currentTarget);
   },
 
 })
