@@ -6,7 +6,7 @@ module Api
     end
 
     def show
-      @story = Story.includes(:author).find(params[:id])
+      @story = Story.includes(:author, comments: :commenter).find(params[:id])
       render :show
     end
 
