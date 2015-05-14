@@ -1,7 +1,12 @@
-  <label for="story_title"></label>
-  <input name="story[title]" type="text" value="<%= story.escape('title') %>" id="story_title">
+<label for="story_title"></label>
+<input type="text" id="story_title" name="story[title]" type="text" value="<%= story.escape('title') %>" id="story_title">
 
-  <label for="story_body"></label>
-  <textarea name="story[body]" id="story_body"><%= story.escape('body') %></textarea>
+<label for="story_body"></label>
+<input type="hidden" id="story_body" name="story[body]" ><%= story.escape('body') %></textarea>
+<div id="body_content_editor" class="editable"><%= story.escape('body') %></div>
 
-  <button id="submit-story">Save</button>
+<button id="submit-story">Save</button>
+
+<script>
+  var editor = new MediumEditor('.editable');
+</script>

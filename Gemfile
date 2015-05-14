@@ -49,3 +49,4 @@ group :production do
 end
 
 gem 'backbone-on-rails'
+gem 'medium-editor-rails'

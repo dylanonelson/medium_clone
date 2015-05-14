@@ -23,8 +23,21 @@ MediumClone.Views.StoryForm = Backbone.View.extend({
     "click #submit-story" : "submitStory",
   },
 
+  setContent : function () {
+    var bodyContent = this.$el.find('#body_content_editor').html();
+    var titleContent = this.$el.find('#title_content_editor').html();
+
+    this.$el.find('#story_body').attr('value', bodyContent);
+    this.$el.find('#story_title').attr('value', titleContent);
+    
+    this.$el.find('.editable').remove();
+  },
+
   submitStory : function (event) {
     event.preventDefault();
+
+    this.setContent();
+
     var attr = this.$el.serializeJSON();
     attr.body = this.$el.find('.editable').serialize();
     var thisModel = this.model;

@@ -15,6 +15,7 @@
 //= require jquery.serializejson
 //= require underscore
 //= require backbone
+//= require medium-editor
 //= require composite_view
 //= require medium_clone
 //= require_tree ../templates
