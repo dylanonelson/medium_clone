@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
   has_many :stories,
     foreign_key: :author_id
 
+  has_many :comments,
+    foreign_key: :commenter_id
+
   def self.find_by_credentials(un, pw)
     u = User.find_by(username: un)
     return nil unless u
