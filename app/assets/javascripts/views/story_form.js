@@ -16,21 +16,12 @@ MediumClone.Views.StoryForm = Backbone.View.extend({
   },
 
   initialize : function () {
-    this.listenTo(this.model, 'sync', this.render)
+    this.listenTo(this.model, 'sync', this.render);
+    this.assignedIds = [];
   },
 
   events : {
     "click #submit-story" : "submitStory",
-  },
-
-  setContent : function () {
-    var bodyContent = this.$el.find('#body_content_editor').html();
-    var titleContent = this.$el.find('#title_content_editor').html();
-
-    this.$el.find('#story_body').attr('value', bodyContent);
-    this.$el.find('#story_title').attr('value', titleContent);
-    
-    this.$el.find('.editable').remove();
   },
 
   submitStory : function (event) {
@@ -47,6 +38,40 @@ MediumClone.Views.StoryForm = Backbone.View.extend({
       },
     });
     Backbone.history.navigate('', { trigger : true });
+  },
+
+  setContent : function () {
+    var titleContent = this.$el.find('#title_content_editor').html();
+    this.$el.find('#story_title').attr('value', titleContent);
+
+    var $bodyElement = this.$el.find('#body_content_editor')
+    var $fragments = $bodyElement.children();
+    var thisView = this;
+
+    // Add unique IDs to each top-level element in the story
+    $fragments.each(function (i, fragment) {
+      fragment.setAttribute('data-id', thisView.generateFragmentId());
+    });
+
+    var bodyContent = $bodyElement.html();
+    this.$el.find('#story_body').attr('value', bodyContent);
+    
+    this.$el.find('.editable').remove();
+  },
+
+  generateFragmentId : function () {
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    
+    do {  
+      var fragmentId = "";
+
+      for( var i = 0; i < 6; i++ ) {
+        fragmentId += possible.charAt(Math.floor(Math.random() * possible.length));
+      }
+    } while (this.assignedIds.indexOf(fragmentId) !== -1)
+
+    this.assignedIds.push(fragmentId);
+    return fragmentId;
   },
 
 })
