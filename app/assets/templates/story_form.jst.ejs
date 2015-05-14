@@ -2,6 +2,6 @@
   <input name="story[title]" type="text" value="<%= story.escape('title') %>" id="story_title">
 
   <label for="story_body"></label>
-  <textarea name="story[body]" id="story_body" cols="50" rows="25"><%= story.escape('body') %></textarea>
+  <textarea name="story[body]" id="story_body"><%= story.escape('body') %></textarea>
 
   <button id="submit-story">Save</button>

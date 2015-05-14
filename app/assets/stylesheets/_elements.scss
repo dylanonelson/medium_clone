@@ -9,6 +9,11 @@ body {
 }
 
 header {
+  display: block;
+  position: relative;
+  left: -50px;
+
+  width: $body-width + 100;
   border-bottom: 4px double #000;
 }
 
@@ -22,31 +27,35 @@ h1 {
 
 nav {
   display: block;
+  position: relative;
+  left: -50px;
   width: 100px;
   float: left;
-  padding-top: 5px;
-  padding-bottom: 5px;
-
   margin-top: 25px;
-  margin-bottom: 15px;
 
-  line-height: 1.5;
+  line-height: 1.75;
 
-  border: 1px solid #000;
+  border: 1px solid #888;
+  border-radius: 2px;
 }
 
 nav > * {
-  padding: 5px;
+  display: block;
   width: 100%;
+  padding: 5px;
 }
 
-h2, a, p {
-  font-size: $base-fz;
+nav *:hover {
+  background: #ccc;
+  cursor: pointer;
 }
 
 main {
+  position: relative;
+  left: -50px;
   padding-top: 25px;
   padding-left: 25px;
+  padding-right: 25px;
   width: 500px;
   float: left;
 }
@@ -72,5 +81,5 @@ button {
   padding: 5px;
 
   border-radius: 5px;
-  background: #888;
+  background: #ccc;
 }

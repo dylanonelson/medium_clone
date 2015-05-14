@@ -2,7 +2,7 @@ MediumClone.Views.StoryForm = Backbone.View.extend({
 
   tagName : 'form',
 
-  className : 'story-form',
+  className : 'new_story',
 
   template : JST['story_form'],
 
