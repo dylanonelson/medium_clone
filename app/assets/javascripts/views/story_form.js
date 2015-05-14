@@ -15,6 +15,10 @@ MediumClone.Views.StoryForm = Backbone.View.extend({
     return this;
   },
 
+  initialize : function () {
+    this.listenTo(this.model, 'sync', this.render)
+  },
+
   events : {
     "click #submit-story" : "submitStory",
   },
@@ -22,11 +26,14 @@ MediumClone.Views.StoryForm = Backbone.View.extend({
   submitStory : function (event) {
     event.preventDefault();
     var attr = this.$el.serializeJSON();
-    this.model.save(attr, {
+    attr.body = this.$el.find('.editable').serialize();
+    var thisModel = this.model;
+    thisModel.save(attr, {
       success : function () {
-        Backbone.history.navigate('', { trigger : true });
+        MediumClone.stories.add(thisModel);
       },
     });
+    Backbone.history.navigate('', { trigger : true });
   },
 
 })
