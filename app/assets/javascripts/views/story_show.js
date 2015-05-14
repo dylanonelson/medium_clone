@@ -44,11 +44,13 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
   },
 
   revealCommentForm : function (event) {
-    if (this._commentForm) {
-      this._commentForm.remove();
-    }
+    this._commentForm && this._commentForm.remove();
+    this._selectedEl && this._selectedEl.toggleClass('selected-for-comment');
     
     $currentTarget = $(event.currentTarget);
+
+    this._selectedEl = $currentTarget;
+    $currentTarget.toggleClass('selected-for-comment');
     
     var formView = new MediumClone.Views.CommentForm({
       model : this.model,

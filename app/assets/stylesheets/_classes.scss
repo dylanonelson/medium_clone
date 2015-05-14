@@ -55,14 +55,56 @@
 
 // Story show
 
-.story-show {
+.story-content {
   position: relative;
+}
+
+// Comment show
+
+.comment-view {
+  position: absolute;
+  width: 100px;
+  top: 0;
+  left: 459px;
+
+  border: 1px solid #888;
+  border-radius: 2px;
+  padding: 5px;
+
+  font-size: 14px;
+}
+
+.comment-view > p {
+  font-style: italic;
+}
+
+.comment-view:hover {
+  color: $selected-text;
 }
 
 // Comment form
 
 .comment-form {
-  // position: absolute;
-  // top: 0;
-  // right: -100%;
+  position: absolute;
+  width: 100px;
+  left: 500px;
+}
+
+.comment-form > textarea {
+  position: relative;
+  top: -24px;
+  width: 100px;
+  height: 150px;
+
+  border: 1px solid #888;
+  border-radius: 2px;
+}
+
+.comment-form > button {
+  display: block;
+  margin: auto;
+}
+
+.selected-for-comment {
+  color: $selected-text;
 }

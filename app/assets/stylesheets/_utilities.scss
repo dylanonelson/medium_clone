@@ -1,6 +1,7 @@
 h1, h2, h3, h4, p, main, section, 
-article, header, footer, a, form, 
-button, input, ul, li, html, body {
+article, header, footer, a, :visited, form, 
+button, input, ul, li, html, body,
+textarea, figure {
   margin: 0;
   padding: 0;
 
@@ -13,6 +14,7 @@ button, input, ul, li, html, body {
   font-weight: inherit;
   text-decoration: none;
   line-height: inherit;
+  color: inherit;
 }
 
 *, *:before, *:after {
@@ -23,6 +25,10 @@ html {
   font-family: sans-serif;
   box-sizing: border-box;
   line-height: 1;
+}
+
+body {
+  padding-bottom: 150px;
 }
 
 .clearfix:after {
