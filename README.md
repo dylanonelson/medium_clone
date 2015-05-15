@@ -8,12 +8,14 @@ A clone of Medium built on Rails and Backbone. Users can:
 - [x] Create stories
 - [x] See an index of all their stories
 - [x] View individual stories
-- [ ] Comment on stories
+- [x] Comment on stories
+- [ ] View a collection of story summaries
+- [ ] View aggregated comments on stories
 - [ ] Follow other users
 - [ ] Follow tags
 - [ ] View a feed of subscribed users and tags
 - [ ] Tag stories
-  [ ] Apply formatting to their posts
+- [ ] Apply formatting to their posts
 - [ ] Search for users, tags, and posts
 
 ## Design Docs
