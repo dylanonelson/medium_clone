@@ -54,7 +54,7 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
     });
 
     this._commentForm = sidebarView;
-    sidebarView.render().$el.insertAfter($currentTarget);
+    sidebarView.render().$el.insertBefore($currentTarget);
   },
 
   showCommentCounts : function () {
