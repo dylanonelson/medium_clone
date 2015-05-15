@@ -76,10 +76,20 @@
   color: $selected-text;
 }
 
+.comment-count {
+  position: absolute;
+  left: 400px;
+  top: 0;
+
+  z-index: 1;
+}
+
 // Comment show
 
 .comment-sidebar-frame {
   position: relative;
+  width: 0;
+  height: 0;
 }
 
 .comment-sidebar {

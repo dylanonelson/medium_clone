@@ -14,6 +14,7 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
     })
 
     this.$el.html(rendered);
+    this.showCommentCounts();
     return this;
   },
 
@@ -54,6 +55,32 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
 
     this._commentForm = sidebarView;
     sidebarView.render().$el.insertAfter($currentTarget);
+  },
+
+  showCommentCounts : function () {
+    var thisView = this;
+
+    this.$('article').children().each(function (index, fragment) {
+      var count = thisView.commentCountOf(fragment);
+      if (count > 0) {
+        var countEl = $('<figure>');
+        countEl.addClass('comment-count');
+        countEl.text(thisView.commentCountOf(fragment));
+        $fragment = $(fragment);
+        $fragment.append(countEl);
+      }
+    })
+  },
+ 
+  commentCountOf : function (fragment) {
+    var fragmentId = $(fragment).data('id');
+    if (typeof fragmentId === typeof undefined) {
+      return 0;
+    }
+
+    return this.comments.where({
+      fragment_id : fragmentId,
+    }).length;
   },
 
 })
