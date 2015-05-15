@@ -15,8 +15,4 @@ MediumClone.Views.CommentShow = Backbone.View.extend({
     return this;
   },
 
-  // initialize : function () {
-  //   this.listenTo(this.model, 'sync', this.render)
-  // },
-
 })

@@ -67,6 +67,7 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
         countEl.addClass('comment-count');
         countEl.text(thisView.commentCountOf(fragment));
         $fragment = $(fragment);
+        $fragment.children('.comment-count').remove()
         $fragment.append(countEl);
       }
     })
