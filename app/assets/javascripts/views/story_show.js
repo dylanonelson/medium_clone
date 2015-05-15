@@ -36,19 +36,25 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
 
   events : {
     'click .story-view' : 'syncStory',
-    'mouseover .story-content' : 'revealCommentForm',
+    'click .story-content' : 'toggleCommentForm',
   },
 
   syncStory : function () {
     this.model.fetch();
   },
 
-  revealCommentForm : function (event) {
-    this._commentForm && this._commentForm.remove();
-    this._selectedEl && this._selectedEl.toggleClass('selected-for-comment');
-    
+  toggleCommentForm : function (event) {
     $currentTarget = $(event.currentTarget);
 
+    this._commentForm && this._commentForm.remove();
+
+    if (this._selectedEl) {
+      this._selectedEl.toggleClass('selected-for-comment');
+      if (this._selectedEl.data('id') === $currentTarget.data('id')) {
+        return;
+      }
+    }
+    
     this._selectedEl = $currentTarget;
     $currentTarget.toggleClass('selected-for-comment');
     
