@@ -15,24 +15,11 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
     })
 
     this.$el.html(rendered);
-    this.model.get('comments') && this.renderComments();
     return this;
   },
 
-  renderComments : function () {
-    var thisView = this;
-
-    this.model.get('comments').each(function (comment) {
-      var showView = new MediumClone.Views.CommentShow({
-        model : comment,
-      });
-      var fragmentSelector = '[data-id="' + comment.get('fragment_id') + '"]';
-      thisView.addSubview(fragmentSelector, showView);
-    })
-  },
-
   initialize : function () {
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, 'sync', this.render)
   },
 
   events : {
@@ -44,6 +31,8 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
 
     this._commentForm && this._commentForm.remove();
 
+    // Remove highlight from previously selected class
+    // Return if the selected element was already selected
     if (this._selectedEl) {
       this._selectedEl.toggleClass('selected-for-comment');
       if (this._selectedEl.data('id') === $currentTarget.data('id')) {
@@ -54,12 +43,13 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
     this._selectedEl = $currentTarget;
     $currentTarget.toggleClass('selected-for-comment');
     
-    var formView = new MediumClone.Views.CommentForm({
+    var sidebarView = new MediumClone.Views.CommentSidebar({
       model : this.model,
       fragment_id : $currentTarget.data('id'),
     });
-    this._commentForm = formView;
-    formView.render().$el.insertAfter($currentTarget);
+
+    this._commentForm = sidebarView;
+    sidebarView.render().$el.insertAfter($currentTarget);
   },
 
 })
