@@ -1,5 +1,11 @@
 class Api::CommentsController < ApplicationController
 
+  def index
+    @story = Story.find(params[:story_id])
+    @comments = @story.comments
+    render :index
+  end
+
   def create
     @comment = Comment.new(comment_params)
     @comment.commenter_id = current_user.id
