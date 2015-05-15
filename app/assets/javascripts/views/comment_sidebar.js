@@ -11,11 +11,11 @@ MediumClone.Views.CommentSidebar = Backbone.CompositeView.extend({
     var rendered = this.template();
     this.$el.html(rendered);
 
-    var comments = this.model.get('comments').where({
+    var fragmentComments = this.collection.where({
       "fragment_id" : thisView.fragment_id,
     });
 
-    comments.forEach(function (comment) {
+    fragmentComments.forEach(function (comment) {
       var showView = new MediumClone.Views.CommentShow({
         model : comment,
       });
@@ -23,9 +23,15 @@ MediumClone.Views.CommentSidebar = Backbone.CompositeView.extend({
       thisView.addSubview('.comment-sidebar', showView);
     })
     
-    var formView = new MediumClone.Views.CommentForm({
+    var newComment = new MediumClone.Models.Comment({
+      story_id : this.collection.story.id,
       fragment_id : this.fragment_id,
-      model : this.model,
+    });
+
+    this.collection.add(newComment);
+
+    var formView = new MediumClone.Views.CommentForm({
+      model : newComment,
     });
 
     this.addSubview('.comment-sidebar', formView);
@@ -34,6 +40,7 @@ MediumClone.Views.CommentSidebar = Backbone.CompositeView.extend({
 
   initialize : function (options) {
     this.fragment_id = options.fragment_id;
+    this.listenTo(this.collection, 'sync', this.render);
   },
 
 })

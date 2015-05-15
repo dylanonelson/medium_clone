@@ -15,12 +15,4 @@ MediumClone.Views.StorySummary = Backbone.View.extend({
     return this;
   },
 
-  events : {
-    'click .story-view' : 'syncStory',
-  },
-
-  syncStory : function () {
-    this.model.fetch();
-  },
-
 })

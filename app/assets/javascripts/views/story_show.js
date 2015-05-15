@@ -5,7 +5,6 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
   template : JST['story_show'],
 
   render : function () {
-    console.log('rendered story show');
     view = this;
 
     var rendered = this.template({
@@ -19,6 +18,11 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
   },
 
   initialize : function () {
+    this.comments = new MediumClone.Collections.Comments({
+      story : this.model,
+    });
+    this.comments.fetch();
+
     this.listenTo(this.model, 'sync', this.render)
   },
 
@@ -44,7 +48,7 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
     $currentTarget.toggleClass('selected-for-comment');
     
     var sidebarView = new MediumClone.Views.CommentSidebar({
-      model : this.model,
+      collection : this.comments,
       fragment_id : $currentTarget.data('id'),
     });
 
