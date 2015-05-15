@@ -10,7 +10,8 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
 
     var rendered = this.template({
       story : view.model,
-      author : view.model.get("author"),
+      author : view.model.get('author'),
+      body : view.model.get('body'),
     })
 
     this.$el.html(rendered);
@@ -35,12 +36,7 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
   },
 
   events : {
-    'click .story-view' : 'syncStory',
     'click .story-content' : 'toggleCommentForm',
-  },
-
-  syncStory : function () {
-    this.model.fetch();
   },
 
   toggleCommentForm : function (event) {

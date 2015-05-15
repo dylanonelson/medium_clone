@@ -63,6 +63,19 @@
   color: $selected-text;
 }
 
+.author-name {
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.teaser {
+  display: block;
+  margin-top: 25px;
+
+  font-style: italic;
+  color: $selected-text;
+}
+
 // Comment show
 
 .comment-view {

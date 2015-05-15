@@ -14,16 +14,16 @@ MediumClone.Views.StoriesIndex = Backbone.CompositeView.extend({
   renderStories : function () {
     var view = this;
     this.collection.each(function (story) {
-      var storyShow = new MediumClone.Views.StoryShow({
+      var storySummary = new MediumClone.Views.StorySummary({
         model : story,
       });
 
-      view.addSubview('#stories-index', storyShow);
+      view.addSubview('#stories-index', storySummary);
     })
   },
 
   initialize : function () {
     this.listenTo(this.collection, "sync", this.render)
-  }
+  },
 
 })

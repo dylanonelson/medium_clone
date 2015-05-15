@@ -6,6 +6,6 @@
       <%= story.get('title') %>
     </h3>
   </a>
-  <h4 class='author-name'><%= author && author.get('username') %></h4>
-  <p><%= body %></p>
+  <h4><%= story.author && story.author.get('username') %></h4>
+  <p><%= storySummary %></p>
 </article>
