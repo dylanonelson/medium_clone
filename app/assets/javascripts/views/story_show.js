@@ -25,25 +25,25 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
     this.comments.fetch();
 
     this.listenTo(this.model, 'sync', this.render)
+    this.listenTo(this.comments, 'sync', this.showCommentCounts);
   },
 
   events : {
-    'click .story-content' : 'toggleCommentForm',
+    'click .story-content' : 'toggleCommentSidebar',
   },
 
-  toggleCommentForm : function (event) {
+  toggleCommentSidebar : function (event) {
     $currentTarget = $(event.currentTarget);
+    
+    if (this._selectedEl && $currentTarget.data('id') == this._selectedEl.data('id')) {
+      this._selectedEl && this._selectedEl.toggleClass('selected-for-comment');
+      this._commentForm && this._commentForm.remove();
+      this._selectedEl = null;
+      return;
+    }
 
     this._commentForm && this._commentForm.remove();
-
-    // Remove highlight from previously selected class
-    // Return if the selected element was already selected
-    if (this._selectedEl) {
-      this._selectedEl.toggleClass('selected-for-comment');
-      if (this._selectedEl.data('id') === $currentTarget.data('id')) {
-        return;
-      }
-    }
+    this._selectedEl && this._selectedEl.toggleClass('selected-for-comment');
     
     this._selectedEl = $currentTarget;
     $currentTarget.toggleClass('selected-for-comment');
