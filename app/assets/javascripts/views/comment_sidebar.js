@@ -28,10 +28,9 @@ MediumClone.Views.CommentSidebar = Backbone.CompositeView.extend({
       fragment_id : this.fragment_id,
     });
 
-    this.collection.add(newComment);
-
     var formView = new MediumClone.Views.CommentForm({
       model : newComment,
+      collection : this.collection,
     });
 
     this.addSubview('.comment-sidebar', formView);

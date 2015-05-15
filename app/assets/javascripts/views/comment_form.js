@@ -28,7 +28,11 @@ MediumClone.Views.CommentForm = Backbone.View.extend({
     var thisView = this;
 
     this.model.set('body', this.$el.serializeJSON().body);
-    this.model.save();
+    this.model.save({
+      success : function () {
+        thisView.collection.add(thisView.model)
+      }
+    });
   },
 
 })
