@@ -9,9 +9,10 @@ A clone of Medium built on Rails and Backbone. Users can:
 - [x] See an index of all their stories
 - [x] View individual stories
 - [x] Comment on stories
-- [ ] View a collection of story summaries
-- [ ] View aggregated comments on stories
+- [x] View a collection of story summaries
+- [x] View aggregated comments on stories
 - [ ] Follow other users
+- [ ] View their feed upon logging in
 - [ ] Follow tags
 - [ ] View a feed of subscribed users and tags
 - [ ] Tag stories
@@ -61,15 +62,19 @@ from tags will appear in users' feeds.
 
 [Details][phase-four]
 
-### Phase 5: Composition view (~3 days)
-I will add formatting to the post composition page. I have no idea how I will do
-this, but I would like to emulate Medium's formatting toolbar. In this phase, I will
-also add image uploading for story banners.
+### Phase 5: Advanced composition features (~2 days)
+I will use Paperclip, Figaro, and AWS to allow users to upload header images for
+their stories. I will also allow them to edit their stories and save them as drafts
+before making them public. If time allows, I would like to add more typographical
+features to user-generated text -- for example, using typographer's quotes and 
+genuine apostrophes for user generated text.
 
 [Details][phase-five]
 
 ### Bonus Features (TBD)
 - [ ] Search for users and tags
+- [ ] Mobile responsive stylesheet
+- [ ] View posts and users without signing in
 - [ ] Bookmark posts to read later
 - [ ] Automatically post stories to Twitter
 - [ ] Recommend posts
