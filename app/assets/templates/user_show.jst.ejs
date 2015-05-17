@@ -1,7 +1,10 @@
 <div id="user-show">
   <h2 class="user-show-username"><%= user.get('username') %></h2>
+  <button class="follow-user-button">
+    <% if (user.get('following')) { %>Unfollow<% } else { %>Follow<% } %>
+  </button>
 </div>
 
 <div id="stories-index">
-  
+
 </div>

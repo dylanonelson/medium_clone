@@ -49,9 +49,8 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(self.password_digest).is_password?(pw)
   end
 
-  def follow(other)
-    follow = Follow.new(follower_id: self.id, followed_id: other.id)
-    follow.save ? true : false
+  def follows?(other)
+    return self.followeds.include?(other)
   end
 
 end

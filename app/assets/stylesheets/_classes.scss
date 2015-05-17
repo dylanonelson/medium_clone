@@ -32,7 +32,7 @@
   width: 300px;
   margin: auto;
   padding-bottom: 12px;
-  margin-bottom: 36px;
+  margin-bottom: 12px;
 
   text-align: center;
   font-size: 36px;
@@ -42,6 +42,12 @@
 .empty-story-index {
   text-align: center;
   font-style: italic;
+}
+
+.follow-user-button {
+  display: block;
+  margin: auto;
+  margin-bottom: 36px;
 }
 
 // Story form
