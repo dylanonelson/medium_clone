@@ -2,7 +2,11 @@ module Api
   class StoriesController < ApplicationController
 
     def index
-      @stories = current_user.stories.includes(:author)
+      if params[:user_id]
+        @stories = User.find(params[:user_id]).stories.includes(:author)
+      else
+        @stories = current_user.stories.includes(:author)
+      end
     end
 
     def show

@@ -2,7 +2,18 @@ MediumClone.Collections.Stories = Backbone.Collection.extend({
 
   model : MediumClone.Models.Story,
 
-  url : 'api/stories',
+  url : function () {
+    if (this.user) {
+      return this.user.url() + '/stories';
+    }
+    return 'api/stories';
+  },
+
+  initialize : function (options) {
+    if (options) {
+      this.user = options.user
+    }
+  },
 
   getOrFetch : function (id) {
     if (this.get(id)) {
