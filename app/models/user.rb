@@ -53,4 +53,8 @@ class User < ActiveRecord::Base
     return self.followeds.include?(other)
   end
 
+  def feed
+    Story.where('author_id IN (?) OR author_id = ?', followed_ids, id)
+  end
+
 end

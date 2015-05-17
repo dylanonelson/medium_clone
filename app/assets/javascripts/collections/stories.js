@@ -6,12 +6,21 @@ MediumClone.Collections.Stories = Backbone.Collection.extend({
     if (this.user) {
       return this.user.url() + '/stories';
     }
+
+    if (this.feed) {
+      return 'api/feed';
+    }
+
     return 'api/stories';
   },
 
   initialize : function (options) {
-    if (options) {
+    if (options && options.user) {
       this.user = options.user
+    }
+
+    if (options && options.feed) {
+      this.feed = options.feed;
     }
   },
 

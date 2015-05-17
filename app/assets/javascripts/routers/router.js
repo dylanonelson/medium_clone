@@ -5,13 +5,26 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   routes : {
-    '' : 'indexStories',
+    '' : 'feed',
+    'stories' : 'indexStories',
     'stories/new' : 'newStory',
     'stories/:id' : 'showStory',
     'users/:id' : 'showUser',
   },
 
+  feed : function () {
+    MediumClone.feed.fetch();
+
+    var feedView = new MediumClone.Views.StoriesIndex({
+      collection : MediumClone.feed,
+    })
+
+    this._swapView(feedView);
+  },
+
   indexStories : function  () {
+    MediumClone.stories.fetch();
+
     var indexStoriesView = new MediumClone.Views.StoriesIndex({
       collection : MediumClone.stories,
     });

@@ -1,0 +1,1 @@
+json.array! @feed, partial: 'api/stories/story', as: :story
