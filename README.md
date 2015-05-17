@@ -11,8 +11,8 @@ A clone of Medium built on Rails and Backbone. Users can:
 - [x] Comment on stories
 - [x] View a collection of story summaries
 - [x] View aggregated comments on stories
-- [ ] Follow other users
-- [ ] View their feed upon logging in
+- [x] Follow other users
+- [x] View their feed upon logging in
 - [ ] Follow tags
 - [ ] View a feed of subscribed users and tags
 - [ ] Tag stories
@@ -45,12 +45,11 @@ is up and running.
 
 [Details][phase-two]
 
-### Phase 3: Follows and feeds (~2 days)
+### Phase 3: Follows and feeds (~1 days)
 I will add a new Rails model for following users. Users will be able to follow
 each other. Users' home page will be a Backbone index view that shows all the
 (published) posts from users they are following. To do this, I will create a
-feed route in the stories controller that uses the users' subscribed_authors
-association to return the appropriate posts.
+feeds controller that renders posts from the the users' subscribed authors.
 
 [Details][phase-three]
 
