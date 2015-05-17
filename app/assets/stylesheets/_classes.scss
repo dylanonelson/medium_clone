@@ -25,6 +25,25 @@
   text-align: center;
 }
 
+// User show
+
+.user-show-username {
+  display: block;
+  width: 300px;
+  margin: auto;
+  padding-bottom: 12px;
+  margin-bottom: 36px;
+
+  text-align: center;
+  font-size: 36px;
+  border-bottom: 4px double #888;
+}
+
+.empty-story-index {
+  text-align: center;
+  font-style: italic;
+}
+
 // Story form
 
 .new_story {
