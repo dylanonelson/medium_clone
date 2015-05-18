@@ -10,6 +10,7 @@ MediumClone.Routers.Router = Backbone.Router.extend({
     'stories/new' : 'newStory',
     'stories/:id' : 'showStory',
     'users/:id' : 'showUser',
+    'tags/:id' : 'showTag',
   },
 
   feed : function () {
@@ -65,6 +66,16 @@ MediumClone.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(showUserView);
+  },
+
+  showTag : function (id) {
+    var tag = MediumClone.tags.getOrFetch(id);
+
+    var showTagView = new MediumClone.Views.TagShow({
+      model : tag,
+    });
+
+    this._swapView(showTagView);
   },
 
   _swapView : function (view) {

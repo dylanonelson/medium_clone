@@ -1,5 +1,9 @@
-MediumClone.Models.Tag = Backbone.Model.extend({
+MediumClone.Models.Tag = Backbone.Model.extend(
+  _.extend({}, MediumClone.Mixins.Followable, {
 
-  urlRoot : 'api/tags',
+    urlRoot : 'api/tags',
 
-})
+    followableType : 'Tag',
+
+  })
+)

@@ -31,7 +31,6 @@ MediumClone.Views.UserShow = Backbone.CompositeView.extend({
 
   toggleFollowUser : function (event) {
     var thisView = this;
-
     this.model.toggleFollow(function () {
       thisView.model.fetch();
     });

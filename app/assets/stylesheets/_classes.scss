@@ -45,9 +45,9 @@
   text-align: center;
 }
 
-// User show
+// User show, tag show
 
-.user-show-username {
+.user-show-username, .tag-show-label {
   display: block;
   width: 300px;
   margin: auto;
@@ -64,7 +64,7 @@
   font-style: italic;
 }
 
-.follow-user-button {
+.follow-user-button, .follow-tag-button {
   display: block;
   margin: auto;
   margin-bottom: 36px;

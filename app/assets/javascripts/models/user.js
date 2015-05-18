@@ -1,30 +1,9 @@
-MediumClone.Models.User = Backbone.Model.extend({
-  
-  urlRoot : 'api/users',
+MediumClone.Models.User = Backbone.Model.extend(
+  _.extend({}, MediumClone.Mixins.Followable, {
 
-  followableType : 'User',
+    urlRoot : 'api/users',
 
-  toggleFollow : function (completionCallback) {
-    var type
-    var thisModel = this;
+    followableType : 'User',
 
-    if (this.get('following')) {
-      type = 'DELETE';
-    } else {
-      type = 'POST';
-    }
-
-    $.ajax({
-      url : 'api/follow',
-      type : type,
-      data : {
-        follow: {
-          followable_id : thisModel.id,
-          followable_type : thisModel.followableType,
-        }
-      },
-      success : completionCallback,
-    });
-  },
-
-})
+  })
+)
