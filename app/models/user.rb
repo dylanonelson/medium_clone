@@ -22,13 +22,20 @@ class User < ActiveRecord::Base
     class_name: "Follow",
     foreign_key: :follower_id
 
-  has_many :followeds,
+  has_many :followed_tags,
     through: :active_follows,
-    source: :followed
+    source: :followable,
+    source_type: 'Tag'
+
+  has_many :followed_authors,
+    through: :active_follows,
+    source: :followable,
+    source_type: 'User'
 
   has_many :passive_follows,
     class_name: "Follow",
-    foreign_key: :followed_id
+    foreign_key: :followable_id,
+    as: :followable
 
   has_many :followers,
     through: :passive_follows,
@@ -49,12 +56,16 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(self.password_digest).is_password?(pw)
   end
 
+  def follow(followable)
+    followable.followers << self
+  end
+
   def follows?(other)
     return self.followeds.include?(other)
   end
 
   def feed
-    Story.where('author_id IN (?) OR author_id = ?', followed_ids, id)
+    # Story.where('author_id IN (?) OR author_id = ?', followed_ids, id)
   end
 
 end
