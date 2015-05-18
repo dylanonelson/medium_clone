@@ -61,7 +61,14 @@ class User < ActiveRecord::Base
   end
 
   def follows?(other)
-    return self.followeds.include?(other)
+    case other
+    when User
+      self.followed_author_ids.include?(other.id)
+    when Tag
+      self.followed_tag_ids.include?(other.id)
+    else
+      false
+    end
   end
 
   def feed

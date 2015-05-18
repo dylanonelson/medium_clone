@@ -2,6 +2,8 @@ MediumClone.Models.User = Backbone.Model.extend({
   
   urlRoot : 'api/users',
 
+  followableType : 'User',
+
   toggleFollow : function (completionCallback) {
     var type
     var thisModel = this;
@@ -17,7 +19,8 @@ MediumClone.Models.User = Backbone.Model.extend({
       type : type,
       data : {
         follow: {
-          followed_id : thisModel.id,
+          followable_id : thisModel.id,
+          followable_type : thisModel.followableType,
         }
       },
       success : completionCallback,
