@@ -3,19 +3,23 @@ module Api
 
     def index
       if params[:user_id]
-        @stories = User.find(params[:user_id]).stories.includes(:author)
+        @stories = User.find(params[:user_id]).stories.includes(:author, :tags)
       else
-        @stories = current_user.stories.includes(:author)
+        @stories = current_user.stories.includes(:author, :tags)
       end
     end
 
     def show
-      @story = Story.includes(:author, comments: :commenter).find(params[:id])
+      @story = Story.includes(:author, :tags, comments: :commenter).find(params[:id])
       render :show
     end
 
     def create
       @story = current_user.stories.new(story_params)
+      
+      params[:tags].each do |tag|
+        @story.taggings.new(tag_id: tag)
+      end
 
       if @story.save
         render :show

@@ -12,7 +12,7 @@ class Story < ActiveRecord::Base
     through: :comments,
     source: :commenter
 
-  has_many :taggings
+  has_many :taggings, inverse_of: :story
 
   has_many :tags,
     through: :taggings,

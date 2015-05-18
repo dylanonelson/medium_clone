@@ -1,8 +1,9 @@
 class Tagging < ActiveRecord::Base
 
-  validates :story_id, uniqueness: { scope: :tag_id }
+  validates :story, uniqueness: { scope: :tag_id }
+  validates :story, presence: true
 
-  belongs_to :story
+  belongs_to :story, inverse_of: :taggings
   belongs_to :tag
 
 end

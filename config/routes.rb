@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
 
+    resources :tags, only: :index
+
     resource :feed, only: :show
     
     resource :follow, only: [:create, :destroy]
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
     
     resources :stories, only: [:index, :show, :create, :update] do
+      resources :tags, only: :index
       resources :comments, only: [:index]
     end
 
