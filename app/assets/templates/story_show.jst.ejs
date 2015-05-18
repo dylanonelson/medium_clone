@@ -6,7 +6,11 @@
       <%= story.get('title') %>
     </h3>
   </a>
-  <h4 class='author-name'><%= author && author.get('username') %></h4>
+  <h4 class='author-name'>
+    <a href="#users/<%= author && author.id %>">
+      <%= author && author.get('username') %>
+    </a>
+  </h4>
   <%= body %>
   <div id="tag-index-view"></div>
 </article>
