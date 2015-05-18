@@ -1,10 +1,8 @@
 <nav class="sidebar-nav">
   <input type="text" value="Search">
-  <h2>
-    <a href="#">
-      <%= current_user.username %>
-    </a>
-  </h2>
+  <a href="#">
+    <%= current_user.username %>
+  </a>
   <%= button_to "Log out", session_url(current_session), method: :delete %>
   <a href="#stories/new">New story</a>
 </nav>

@@ -14,7 +14,10 @@
   border-radius: 2px;
 }
 
-.sidebar-nav > * {
+.sidebar-nav > a, .sidebar-nav > input,
+.sidebar-nav input[type="submit"] {
+  display: block;
+  padding: 5px;
   width: 100%;
 }
 
