@@ -6,7 +6,7 @@ MediumClone.Collections.Comments = Backbone.Collection.extend({
 
   model : MediumClone.Models.Comment,
 
-  initialize : function (options) {
+  initialize : function (models, options) {
     this.story = options.story;
   },
 

@@ -4,13 +4,17 @@ window.MediumClone = {
   Views: {},
   Routers: {},
   initialize: function() {
-    MediumClone.stories = new MediumClone.Collections.Stories();
-
-    MediumClone.feed = new MediumClone.Collections.Stories({
-      feed : true,
+    MediumClone.stories = new MediumClone.Collections.Stories([], {
+      url : 'api/stories',
     });
 
-    MediumClone.tags = new MediumClone.Collections.Tags();
+    MediumClone.feed = new MediumClone.Collections.Stories([], {
+      url : 'api/feed',
+    });
+
+    MediumClone.tags = new MediumClone.Collections.Tags([], {
+      url : 'api/tags',
+    });
 
     MediumRouter = new MediumClone.Routers.Router({
       $root : $('#app'),

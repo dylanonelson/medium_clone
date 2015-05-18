@@ -55,8 +55,8 @@ MediumClone.Routers.Router = Backbone.Router.extend({
       id : id,
     });
 
-    var userStories = new MediumClone.Collections.Stories({
-      user : user,
+    var userStories = new MediumClone.Collections.Stories([], {
+      url : user.url() + '/stories',
     });
     
     var showUserView = new MediumClone.Views.UserShow({
