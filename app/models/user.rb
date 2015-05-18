@@ -65,7 +65,22 @@ class User < ActiveRecord::Base
   end
 
   def feed
-    # Story.where('author_id IN (?) OR author_id = ?', followed_ids, id)
+    followed_tag_story_ids = <<-SQL
+      SELECT
+        taggings.story_id
+      FROM
+        taggings
+      JOIN
+        follows
+      ON
+        follows.followable_id = taggings.tag_id
+      AND
+        follows.followable_type = 'Tag'
+      WHERE
+        follows.follower_id = #{self.id}
+    SQL
+
+    Story.where("stories.id IN (#{followed_tag_story_ids}) OR stories.author_id in (#{followed_author_ids.join(",")})").order(created_at: :desc)
   end
 
 end
