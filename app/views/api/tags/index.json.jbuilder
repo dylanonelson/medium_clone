@@ -1,1 +1,1 @@
-json.array! @tags, :label, :id
+json.array! @tags, partial: 'api/tags/tag',  as: :tag

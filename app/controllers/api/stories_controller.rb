@@ -4,6 +4,8 @@ module Api
     def index
       if params[:user_id]
         @stories = User.find(params[:user_id]).stories.includes(:author, :tags)
+      elsif params[:tag_id]
+        @stories = Tag.find(params[:tag_id]).stories.includes(:author, :tags)
       else
         @stories = current_user.stories.includes(:author, :tags)
       end

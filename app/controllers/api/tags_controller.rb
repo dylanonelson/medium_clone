@@ -1,5 +1,9 @@
 class Api::TagsController < ApplicationController
 
+  def show
+    @tag = Tag.find(params[:id])
+  end
+
   def index
     if params[:story_id]
       @tags = Story.find(params[:story_id]).tags
