@@ -87,7 +87,22 @@ class User < ActiveRecord::Base
         follows.follower_id = #{self.id}
     SQL
 
-    Story.where("stories.id IN (#{followed_tag_story_ids}) OR stories.author_id in (#{followed_author_ids.join(",")})").order(created_at: :desc)
+    followed_author_ids = <<-SQL
+      SELECT
+        users.id
+      FROM
+        users
+      JOIN
+        follows
+      ON
+        users.id = follows.followable_id
+      AND
+        follows.followable_type = 'User'
+      WHERE
+        follows.follower_id = #{self.id}
+    SQL
+
+    Story.where("stories.id IN (#{followed_tag_story_ids}) OR stories.author_id in (#{followed_author_ids})").order(created_at: :desc)
   end
 
 end
