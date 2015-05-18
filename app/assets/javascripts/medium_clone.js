@@ -3,6 +3,7 @@ window.MediumClone = {
   Collections: {},
   Views: {},
   Routers: {},
+  Mixins: {},
   initialize: function() {
     MediumClone.stories = new MediumClone.Collections.Stories([], {
       url : 'api/stories',

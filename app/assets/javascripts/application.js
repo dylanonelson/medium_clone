@@ -19,6 +19,7 @@
 //= require composite_view
 //= require medium_clone
 //= require_tree ../templates
+//= require_tree ./utils
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views
