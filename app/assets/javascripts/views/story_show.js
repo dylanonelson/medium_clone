@@ -15,6 +15,16 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
 
     this.$el.html(rendered);
     this.showCommentCounts();
+
+    var thisView = this;
+
+    var tagIndexView = new MediumClone.Views.TagIndex({
+      collection : new MediumClone.Collections.Tags({
+        story : thisView.model,
+      }),
+    });
+    this.addSubview('#tag-index-view', tagIndexView);
+
     return this;
   },
 
