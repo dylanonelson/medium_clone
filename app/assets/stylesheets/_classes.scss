@@ -78,7 +78,28 @@
   margin: auto;
 }
 
+.story_tag {
+  display: block;
+  outline: 1px solid #888;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label {
+  padding: 5px;
+  border-radius: 5px;
+  background: #ccc;
+}
+
+input[type="checkbox"]:checked + label {
+  background: $selected-text;
+}
+
+// ==========
 // Story show
+// ==========
 
 .story-content {
   position: relative;

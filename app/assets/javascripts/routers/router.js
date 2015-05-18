@@ -33,6 +33,8 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   newStory : function () {
+    MediumClone.tags.fetch();
+
     var newStoryView = new MediumClone.Views.StoryForm({
       model : new MediumClone.Models.Story(),
     })

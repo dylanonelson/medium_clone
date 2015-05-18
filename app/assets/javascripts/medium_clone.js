@@ -10,6 +10,8 @@ window.MediumClone = {
       feed : true,
     });
 
+    MediumClone.tags = new MediumClone.Collections.Tags();
+
     MediumRouter = new MediumClone.Routers.Router({
       $root : $('#app'),
     });

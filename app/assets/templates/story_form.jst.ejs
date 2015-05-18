@@ -1,9 +1,12 @@
 <label for="story_title"></label>
-<input type="text" id="story_title" name="story[title]" type="text" value="<%= story.escape('title') %>" id="story_title">
+<input id="story_title" name="story[title]" type="text" value="<%= story.escape('title') %>">
 
 <label for="story_body"></label>
 <input type="hidden" id="story_body" name="story[body]" ><%= story.escape('body') %></textarea>
 <div id="body_content_editor" class="editable"><%= story.escape('body') %></div>
+
+<h3>Tags</h3>
+<div id="tag-form-view"></div>
 
 <button id="submit-story">Save</button>
 

@@ -1,0 +1,4 @@
+<% tags.each(function(tag) { %>
+  <input id="tag-checkbox-<%= tag.id %>" type="checkbox" class="story_tag" name=tags[] value="<%= tag.id %>"/>
+  <label for="tag-checkbox-<%= tag.id %>"><%= tag.escape('label') %></label>
+<% }) %>

@@ -1,4 +1,4 @@
-MediumClone.Views.StoryForm = Backbone.View.extend({
+MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
 
   tagName : 'form',
 
@@ -12,10 +12,19 @@ MediumClone.Views.StoryForm = Backbone.View.extend({
     })
 
     this.$el.html(rendered);
+
+    var tagFormView = new MediumClone.Views.TagForm({
+      collection : MediumClone.tags,
+    });
+
+    this.addSubview('#tag-form-view', tagFormView);
+
     return this;
   },
 
   initialize : function () {
+    this.render();
+
     this.listenTo(this.model, 'sync', this.render);
     this.assignedIds = [];
   },
@@ -30,7 +39,7 @@ MediumClone.Views.StoryForm = Backbone.View.extend({
     this.setContent();
 
     var attr = this.$el.serializeJSON();
-    attr.body = this.$el.find('.editable').serialize();
+
     var thisModel = this.model;
     thisModel.save(attr, {
       success : function () {
