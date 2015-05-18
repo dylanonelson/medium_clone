@@ -113,6 +113,29 @@ input[type="checkbox"]:checked + label {
   background: $selected-text;
 }
 
+.new-tag-form {
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  border-top: 1px solid #888;
+  border-bottom: 1px solid #888;
+}
+
+.new-tag-form > label {
+  font-style: italic;
+}
+
+.new-tag-form > input {
+  width: 300px;
+}
+
+.new-tag-form > button {
+  float: right;
+}
+
 // ==========
 // Story show
 // ==========

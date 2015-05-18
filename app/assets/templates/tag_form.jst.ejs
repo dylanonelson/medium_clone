@@ -2,3 +2,9 @@
   <input id="tag-checkbox-<%= tag.id %>" type="checkbox" class="story_tag" name=tags[] value="<%= tag.id %>"/>
   <label for="tag-checkbox-<%= tag.id %>"><%= tag.escape('label') %></label>
 <% }) %>
+
+<section class="new-tag-form">
+  <label for="new-tag-form">Create a new tag</label>
+  <input id="new-tag-form" type="text">
+  <button>Save</button>
+</section>

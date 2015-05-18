@@ -18,6 +18,24 @@ MediumClone.Views.TagForm = Backbone.View.extend({
 
   events : {
     'click .story_tag' : 'selectTag',
+    'click button' : 'createTag',
+  },
+
+  createTag : function (event) {
+    event.preventDefault();
+    $currentTarget = $(event.currentTarget);
+
+    var newTag = new MediumClone.Models.Tag({
+      label : $('#new-tag-form').val(),
+    });
+
+    var thisView = this;
+
+    newTag.save({}, {
+      success : function () {
+        thisView.collection.add(newTag);
+      },
+    });
   },
 
 })
