@@ -8,21 +8,16 @@ MediumClone.Views.TagShow = Backbone.CompositeView.extend({
     });
 
     this.$el.html(rendered);
+    this.renderStories();
+    return this;
+  },
 
-    var thisView = this;
-
-    var tagStories = new MediumClone.Collections.Stories([], {
-      url : thisView.model.url() + '/stories',
-    });
-    
-    tagStories.fetch();
-
+  renderStories : function () {
     var tagStoriesIndex = new MediumClone.Views.StoriesIndex({
-      collection : tagStories,
+      collection : this.collection,
     });
 
     this.addSubview('#stories-index', tagStoriesIndex)
-    return this;
   },
 
   initialize : function () {

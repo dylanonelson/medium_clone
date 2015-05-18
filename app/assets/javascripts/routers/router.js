@@ -59,6 +59,9 @@ MediumClone.Routers.Router = Backbone.Router.extend({
     var userStories = new MediumClone.Collections.Stories([], {
       url : user.url() + '/stories',
     });
+
+    user.fetch();
+    userStories.fetch();
     
     var showUserView = new MediumClone.Views.UserShow({
       model : user,
@@ -71,8 +74,16 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   showTag : function (id) {
     var tag = MediumClone.tags.getOrFetch(id);
 
+    var tagStories = new MediumClone.Collections.Stories([], {
+      url : tag.url() + '/stories',
+    });
+
+    tag.fetch();
+    tagStories.fetch();
+
     var showTagView = new MediumClone.Views.TagShow({
       model : tag,
+      collection : tagStories,
     });
 
     this._swapView(showTagView);

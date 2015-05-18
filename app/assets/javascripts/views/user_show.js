@@ -8,19 +8,19 @@ MediumClone.Views.UserShow = Backbone.CompositeView.extend({
     });
 
     this.$el.html(rendered);
+    this.renderStories();
+    return this;
+  },
 
+  renderStories : function () {
     var storyIndexView = new MediumClone.Views.StoriesIndex({
       collection : this.collection,
     });
 
     this.addSubview('#stories-index', storyIndexView);
-
-    return this;
   },
 
   initialize : function () {
-    this.model.fetch();
-    this.collection.fetch();
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.collection, 'sync', this.render);
   },
