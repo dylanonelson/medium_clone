@@ -1,5 +1,7 @@
 MediumClone.Views.TagForm = Backbone.View.extend({
 
+  tagName : 'fieldset',
+
   template : JST['tag_form'],
 
   render : function () {
@@ -18,7 +20,7 @@ MediumClone.Views.TagForm = Backbone.View.extend({
 
   events : {
     'click .story_tag' : 'selectTag',
-    'click button' : 'createTag',
+    'click #create-new-tag' : 'createTag',
   },
 
   createTag : function (event) {
@@ -26,7 +28,7 @@ MediumClone.Views.TagForm = Backbone.View.extend({
     $currentTarget = $(event.currentTarget);
 
     var newTag = new MediumClone.Models.Tag({
-      label : $('#new-tag-form').val(),
+      label : $('#tag_label_editor').html(),
     });
 
     var thisView = this;

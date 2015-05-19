@@ -40,10 +40,20 @@ article {
 article > a {
 }
 
-h3 {
-  font-size: 24px;
-  margin-bottom: 18px;
-  border-bottom: 1px solid #888;
+article {
+  line-height: $base-line-height + 0px;
+}
+
+// =====
+// Forms
+// =====
+
+[contenteditable=true]:empty:before {
+  content: attr(placeholder);
+}
+
+[contenteditable=true]:focus {
+  outline: 0;
 }
 
 button {
@@ -51,8 +61,4 @@ button {
 
   border-radius: 5px;
   background: #ccc;
-}
-
-article {
-  line-height: 1.5;
 }

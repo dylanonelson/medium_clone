@@ -1,15 +1,25 @@
 <label for="story_title"></label>
-<input id="story_title" name="story[title]" type="text" value="<%= story.escape('title') %>">
+<input type="hidden" id="story_title" name="story[title]" value="<%= story.escape('title') %>">
+<div id="title_content_editor" class="editable" placeholder="Title"><%= story.escape('body') %></div>
 
 <label for="story_body"></label>
 <input type="hidden" id="story_body" name="story[body]" ><%= story.escape('body') %></textarea>
-<div id="body_content_editor" class="editable"><%= story.escape('body') %></div>
+<div id="body_content_editor" class="editable" placeholder="Write your story."><%= story.escape('body') %></div>
 
-<h3>Tags</h3>
 <div id="tag-form-view"></div>
 
 <button id="submit-story">Save</button>
 
 <script>
-  var editor = new MediumEditor('.editable');
+  var bodyEditor = new MediumEditor('#body_content_editor', {
+    cleanPastedHTML : true,
+    placeholder : '',
+    disableDoubleReturn : true,
+  });
+
+  var titleEditor = new MediumEditor('#title_content_editor', {
+    disableReturn : true,
+    disableToolbar : true,
+    placeholder : '',
+  });
 </script>

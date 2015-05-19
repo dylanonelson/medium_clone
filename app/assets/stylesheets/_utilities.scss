@@ -1,7 +1,7 @@
 h1, h2, h3, h4, p, main, section, 
 article, header, footer, a, :visited, form, 
 button, input, ul, li, html, body,
-textarea, figure {
+textarea, figure, fieldset {
   margin: 0;
   padding: 0;
 
@@ -27,7 +27,6 @@ ul {
 html {
   font-family: sans-serif;
   box-sizing: border-box;
-  line-height: 1;
 }
 
 body {

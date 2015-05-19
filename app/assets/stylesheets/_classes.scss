@@ -39,13 +39,13 @@
 }
 
 .user-sidebar > h3 {
-  padding-bottom: 5px;
+  padding-bottom: 10px;
   font-size: 14px;
   font-style: italic;
 }
 
 .followed-authors-list {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .user-sidebar li {
@@ -55,7 +55,7 @@
 .user-sidebar a {
   display: block;
   padding: 5px;
-  margin: 5px;
+  margin: 0px 5px 5px 0px;
   background: #ccc;
 }
 
@@ -124,26 +124,55 @@
   width: 475px;
 }
 
-#body_content_editor, #story_title {
+#title_content_editor {
   width: 100%;
-  margin-bottom: 10px;
+  min-height: $base-content-height + 0px;
+  margin-bottom: 25px;
 
-  border: 1px solid #888;
-  border-radius: 2px;
+  font-size: 36px;
+  font-weight: 700;
+  font-style: normal;
 }
 
 #body_content_editor {
   width: 100%;
-  height: 500px;
-  margin-bottom: 10px;
+  min-height: 500px;
 
-  border: 1px solid #888;
-  border-radius: 2px;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  margin-bottom: $base-font-size * $base-line-height + 0px;
+}
+
+#body_content_editor * {
+  margin-bottom: $base-content-height + 0px;
 }
 
 .new_story > button {
   display: block;
   margin: auto;
+}
+
+// ============
+// Tag form
+// ============
+
+
+#tag-form-view {
+  position: absolute;
+  top: $base-content-height + 0px;
+  left: 120%;
+  width: 250px;
+}
+
+.tag-select-form-head {
+  font-style: italic;
+  font-size: 14px;
+  margin-bottom: 10px
+}
+
+.tag-select-form {
+  border-top: 1px solid #888;
+  padding-top: 10px;
 }
 
 .story_tag {
@@ -156,13 +185,27 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"] + label {
+  display: block;
+  float: left;
   padding: 5px;
-  border-radius: 5px;
+  margin: 0px 5px 5px 0px;
   background: #ccc;
 }
 
 input[type="checkbox"]:checked + label {
   background: $selected-text;
+}
+
+#tag_label_editor {
+  width: 200px;
+  float: left;
+  line-height: $base-content-height / 14;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.new-tag-form > button {
+  float: right;
 }
 
 .new-tag-form {
@@ -176,21 +219,15 @@ input[type="checkbox"]:checked + label {
   border-bottom: 1px solid #888;
 }
 
-.new-tag-form > label {
-  font-style: italic;
-}
-
-.new-tag-form > input {
-  width: 300px;
-}
-
-.new-tag-form > button {
-  float: right;
-}
-
 // ==========
 // Story show
 // ==========
+
+.story-show-head {
+  font-size: 24px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #888;
+}
 
 .story-content {
   position: relative;

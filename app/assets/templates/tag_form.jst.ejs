@@ -1,10 +1,21 @@
+<fieldset class="tag-select-form clearfix">
+<h3 class="tag-select-form-head">Tags</h3>
 <% tags.each(function(tag) { %>
   <input id="tag-checkbox-<%= tag.id %>" type="checkbox" class="story_tag" name=tags[] value="<%= tag.id %>"/>
   <label for="tag-checkbox-<%= tag.id %>"><%= tag.escape('label') %></label>
 <% }) %>
+</fieldset>
 
-<section class="new-tag-form">
-  <label for="new-tag-form">Create a new tag</label>
-  <input id="new-tag-form" type="text">
-  <button>Save</button>
-</section>
+<fieldset class="new-tag-form clearfix">
+  <input id="new-tag-form" type="hidden">
+  <div id="tag_label_editor" placeholder="Create a new tag."></div>
+  <button id="create-new-tag">Save</button>
+</fieldset>
+
+<script>
+  var tagEditor = new MediumEditor('#tag_label_editor', {
+    disableToolbar : true,
+    disableReturn : true,
+    placeholder : '',
+  })
+</script>

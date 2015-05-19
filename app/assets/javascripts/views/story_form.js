@@ -53,8 +53,11 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
     var titleContent = this.$el.find('#title_content_editor').html();
     this.$el.find('#story_title').attr('value', titleContent);
 
-    var $bodyElement = this.$el.find('#body_content_editor')
+    var $bodyElement = this.$('#body_content_editor')
     var $fragments = $bodyElement.children();
+
+    var $titleElement = this.$('#title_content_editor');
+
     var thisView = this;
 
     // Add unique IDs to each top-level element in the story
@@ -65,6 +68,9 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
 
     var bodyContent = $bodyElement.html();
     this.$el.find('#story_body').attr('value', bodyContent);
+
+    var titleContent = $titleElement.html();
+    this.$('#story_title').attr('value', titleContent);
     
     this.$el.find('.editable').remove();
   },
