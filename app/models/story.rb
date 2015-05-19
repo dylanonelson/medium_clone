@@ -1,6 +1,8 @@
 class Story < ActiveRecord::Base
 
   validates :title, presence: true
+  validates :body, presence: true
+  validates_attachment_content_type :banner, content_type: /\Aimage\/.*\Z/
 
   belongs_to :author,
     class_name: "User",
@@ -20,6 +22,4 @@ class Story < ActiveRecord::Base
 
   has_attached_file :banner
 
-  validates_attachment_content_type :banner, content_type: /\Aimage\/.*\Z/
- 
 end

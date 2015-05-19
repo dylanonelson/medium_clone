@@ -18,10 +18,7 @@ module Api
 
     def create
       @story = current_user.stories.new(story_params)
-      
-      params[:tags].each do |tag|
-        @story.taggings.new(tag_id: tag)
-      end
+      @story.tag_ids = params[:story][:tag_ids]
 
       if @story.save
         render :show

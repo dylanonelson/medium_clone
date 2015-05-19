@@ -1,6 +1,6 @@
 class Tag < ActiveRecord::Base
 
-  validates :label, uniqueness: true
+  validates :label, uniqueness: true, presence: true
 
   before_save :ensure_lower_case
 

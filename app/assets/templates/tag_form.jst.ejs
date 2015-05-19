@@ -1,7 +1,8 @@
 <fieldset class="tag-select-form clearfix">
 <h3 class="tag-select-form-head">Tags</h3>
+  <input type="hidden" name="story[tag_ids][]" value="" />
 <% tags.each(function(tag) { %>
-  <input id="tag-checkbox-<%= tag.id %>" type="checkbox" class="story_tag" name=tags[] value="<%= tag.id %>"/>
+  <input id="tag-checkbox-<%= tag.id %>" type="checkbox" class="story_tag" name=story[tag_ids][] value="<%= tag.id %>"/>
   <label for="tag-checkbox-<%= tag.id %>"><%= tag.escape('label') %></label>
 <% }) %>
 </fieldset>
