@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
 
+    get 'profile', to: 'users#profile'
+
     resources :tags, only: :show
 
     resources :tags, only: [:index, :create] do
