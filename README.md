@@ -13,8 +13,8 @@ A clone of Medium built on Rails and Backbone. Users can:
 - [x] View aggregated comments on stories
 - [x] Follow other users
 - [x] View their feed upon logging in
-- [ ] Follow tags
-- [ ] View a feed of subscribed users and tags
+- [x] Follow tags
+- [x] View a feed of subscribed users and tags
 - [x] Tag stories
 - [x] Create new tags
 - [ ] Apply formatting to their posts
@@ -73,7 +73,7 @@ genuine apostrophes for user generated text.
 
 ###Phase 6: Featured stories (~2 days)
 I will implement authentication in Backbone so that users new to the site can still
-read stories. I will build a home page for the site that will feature new and popular
+read stories. I will build a home page for the site that will feature new or popular
 stories so that users can find new authors and tags to follow. In this phase I would
 also like to provide stable URLs for stories, whether or not you are signed in.
 
