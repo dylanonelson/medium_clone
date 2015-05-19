@@ -13,18 +13,24 @@ header {
 #sidebar {
   position: absolute;
   width: $sidebar-width + 0px;
-  top: $header-height + 25px;
-  left: 0;
+  top: $header-height + 4px;
   bottom: 0;
+  padding-top: 25px;
+  padding-right: 25px;
+  padding-left: 25px;
+
+  background: #eee;
 }
 
 #app {
   position: absolute;
-  top: $header-height + 25px;
+  top: $header-height + 0px;
   right: 0px;
   bottom: 0px;
   left: $sidebar-width + 0px;
   overflow: auto;
+
+  margin-top: 25px;
 }
 
 #app > * {
