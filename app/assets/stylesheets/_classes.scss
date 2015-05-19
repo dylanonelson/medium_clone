@@ -152,6 +152,55 @@
   margin: auto;
 }
 
+// =======
+// Toolbar
+// =======
+
+.medium-editor-toolbar {
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+}
+
+.medium-editor-toolbar-active {
+  position: absolute;
+  visibility: visible;
+  background: #ddd;
+  font-size: $base-font-size;
+  border-radius: 2px;
+  transition: top 0.075s ease-out, left 0.075s ease-out;
+}
+
+.medium-editor-toolbar li {
+  float: left;
+}
+
+.medium-editor-toolbar button {
+  background: transparent;
+  text-align: center;
+  width: 40px;
+}
+
+.medium-editor-toolbar button:hover {
+  background: #ccc;
+  border-radius: 2px;
+}
+
+.medium-editor-toolbar-actions:after {
+  display: block;
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  border-top: 8px solid #ddd;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+  border-bottom: 0px;
+}
+
 // ============
 // Tag form
 // ============
