@@ -1,0 +1,21 @@
+<h3>Authors you follow</h3>
+<ul class="followed-authors-list">
+  <% user.followedAuthors.each(function(author) { %>
+    <li class="followed-author clearfix">
+      <a href="#users/<%= author.id %>">
+        <%= author.escape('username') %>
+      </a>
+    </li>
+  <% }) %>
+</ul>
+
+<h3>Tags you follow</h3>
+<ul class="followed-tags-list">
+  <% user.followedTags().forEach(function(tag) { %>
+    <li class="followed-tag clearfix">
+      <a href="#tags/<%= tag.id %>">
+        <%= tag.escape('label') %>
+      </a>
+    </li>
+  <% }) %>
+</ul>

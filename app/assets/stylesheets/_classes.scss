@@ -1,12 +1,20 @@
 // Sidebar
 
+#sidebar {
+  float: left;
+}
+
+// ===========
+// Nav sidebar
+// ===========
+
 .sidebar-nav {
   display: block;
   position: relative;
   left: -50px;
   width: 100px;
-  float: left;
   margin-top: 25px;
+  margin-bottom: 25px;
 
   line-height: 1.75;
 
@@ -21,7 +29,45 @@
   width: 100%;
 }
 
+// ============
+// User sidebar
+// ============
+
+.user-sidebar {
+  display: block;
+  position: relative;
+  left: -50px;
+  width: 100px;
+  padding: 5px;
+  border: 1px solid #888;
+  border-radius: 2px;
+}
+
+.user-sidebar > * {
+  display: block;
+  font-size: 16px;
+}
+
+.user-sidebar > h3 {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.followed-authors-list {
+  margin-bottom: 25px;
+}
+
+.user-sidebar a {
+  display: block;
+  float: left;
+  padding: 5px;
+  background: #ccc;
+}
+
+// =====================
 // Session and user form
+// =====================
+
 .new_user, .new_session {
   width: 450px;
   margin: auto;
@@ -48,7 +94,9 @@
   text-align: center;
 }
 
+// ===================
 // User show, tag show
+// ===================
 
 .user-show-username, .tag-show-label {
   display: block;
@@ -73,7 +121,9 @@
   margin-bottom: 36px;
 }
 
+// ==========
 // Story form
+// ==========
 
 .new_story {
   width: 475px;
@@ -192,7 +242,9 @@ input[type="checkbox"]:checked + label {
   border-radius: 2px;
 }
 
+// ============
 // Comment show
+// ============
 
 .comment-sidebar-frame {
   position: relative;
@@ -225,7 +277,9 @@ input[type="checkbox"]:checked + label {
   color: $selected-text;
 }
 
+// ============
 // Comment form
+// ============
 
 .comment-form {
 }
