@@ -25,7 +25,7 @@ MediumClone.Views.TagShow = Backbone.CompositeView.extend({
   },
 
   events : {
-    'click button' : 'toggleFollowTag',
+    'click .follow-tag-button' : 'toggleFollowTag',
   },
 
   toggleFollowTag : function (event) {

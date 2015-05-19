@@ -3,6 +3,8 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   initialize : function (options) {
     this.$root = options.$root;
     
+    MediumClone.tags.fetch();
+
     MediumClone.currentUser = new MediumClone.Models.CurrentUser();
     MediumClone.currentUser.fetch();
 
@@ -87,7 +89,6 @@ MediumClone.Routers.Router = Backbone.Router.extend({
       url : tag.url() + '/stories',
     });
 
-    tag.fetch();
     tagStories.fetch();
 
     var showTagView = new MediumClone.Views.TagShow({
