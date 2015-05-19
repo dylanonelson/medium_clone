@@ -1,0 +1,35 @@
+
+
+header {
+  box-sizing: content-box;
+  display: block;
+  position: fixed;
+  top: 0px;
+  height: $header-height + 0px;
+  width: 100%;
+  border-bottom: 4px double #000;
+}
+
+#sidebar {
+  position: absolute;
+  width: $sidebar-width + 0px;
+  top: $header-height + 25px;
+  left: 0;
+  bottom: 0;
+}
+
+#app {
+  position: absolute;
+  top: $header-height + 25px;
+  right: 0px;
+  bottom: 0px;
+  left: $sidebar-width + 0px;
+  overflow: auto;
+}
+
+#app > * {
+  position: relative;
+  left: $main-offset + 0px;
+  margin: auto;
+  max-width: 600px;
+}
