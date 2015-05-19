@@ -30,23 +30,45 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
   },
 
   events : {
-    "click #submit-story" : "submitStory",
+    "click #publish-story" : "publishStory",
+    "click #upload-banner" : "uploadBanner",
+    "change #upload-banner-input" : 'bannerUploadChange',
   },
 
-  submitStory : function (event) {
+  publishStory : function (event) {
     event.preventDefault();
 
     this.setContent();
 
-    var attr = this.$el.serializeJSON();
-
     var thisModel = this.model;
-    thisModel.save(attr, {
+    thisModel.set(this.$el.serializeJSON().story);
+
+    thisModel.save({}, {
       success : function () {
         MediumClone.stories.add(thisModel);
       },
     });
     Backbone.history.navigate('', { trigger : true });
+  },
+
+  uploadBanner : function (event) {
+    event.preventDefault();
+    $('#upload-banner-input').trigger('click');
+  },
+
+  bannerUploadChange : function (event) {
+    var reader = new FileReader();
+    var file = event.currentTarget.files[0];
+
+    var thisView = this;
+
+    reader.onloadend = function () {
+      thisView.model._banner = reader.result;
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   },
 
   setContent : function () {

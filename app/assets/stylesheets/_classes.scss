@@ -149,7 +149,6 @@
 
 .new_story > button {
   display: block;
-  margin: auto;
 }
 
 // =======
@@ -201,16 +200,32 @@
   border-bottom: 0px;
 }
 
+// ==================
+// Story options form
+// ==================
+
+#story-options-view {
+  position: absolute;
+  top: $base-content-height + 0px;
+  left: 120%;
+  height: 100px;
+  width: 250px;
+}
+
+#story-options-view > input[type='file'] {
+  display: none;
+}
+
+#story-options-view > #upload-banner {
+  margin-bottom: 15px;
+}
+
 // ============
 // Tag form
 // ============
 
 
 #tag-form-view {
-  position: absolute;
-  top: $base-content-height + 0px;
-  left: 120%;
-  width: 250px;
 }
 
 .tag-select-form-head {

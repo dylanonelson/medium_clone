@@ -1,6 +1,8 @@
 module Api
   class StoriesController < ApplicationController
 
+    wrap_parameters false
+
     def index
       if params[:user_id]
         @stories = User.find(params[:user_id]).stories.includes(:author, :tags)
@@ -30,7 +32,7 @@ module Api
     private
 
     def story_params
-      params.require(:story).permit(:title, :body)
+      params.require(:story).permit(:title, :body, :banner)
     end
 
   end

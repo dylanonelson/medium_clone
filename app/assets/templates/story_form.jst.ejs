@@ -6,9 +6,12 @@
 <input type="hidden" id="story_body" name="story[body]" ><%= story.escape('body') %></textarea>
 <div id="body_content_editor" class="editable" placeholder="Write your story."><%= story.escape('body') %></div>
 
-<div id="tag-form-view"></div>
-
-<button id="submit-story">Save</button>
+<div id="story-options-view">
+  <button id="upload-banner">Add a banner</button>
+  <input type="file" id="upload-banner-input"></input>
+  <button id="publish-story">Save</button>
+  <div id="tag-form-view"></div>
+</div>
 
 <script>
   var bodyEditor = new MediumEditor('#body_content_editor', {

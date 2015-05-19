@@ -11,6 +11,16 @@ MediumClone.Models.Story = Backbone.Model.extend({
     return payload;
   },
 
+  toJSON : function () {
+    var json = {story: _.clone(this.attributes)};
+
+    if (this._banner) {
+      json.story.banner = this._banner
+    }
+
+    return json;
+  },
+
   getSummary : function () {
     var $body = $(this.get('body'));
     
