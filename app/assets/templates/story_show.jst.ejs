@@ -1,16 +1,18 @@
 <article>
-  <a 
-    class="story-view" 
-    href="#stories/<%= story.id %>">
-    <h3 class="story-show-head">
-      <%= story.get('title') %>
-    </h3>
-  </a>
-  <h4 class='author-name'>
-    <a href="#users/<%= author && author.id %>">
-      <%= author && author.get('username') %>
+  <header class="story-show-header">
+    <a 
+      class="story-view" 
+      href="#stories/<%= story.id %>">
+      <h3 class="story-show-head">
+        <%= story.get('title') %>
+      </h3>
     </a>
-  </h4>
+    <h4 class='author-name'>
+      <a href="#users/<%= author && author.id %>">
+        <%= author && author.get('username') %>
+      </a>
+    </h4>
+  </header>
   <%= body %>
   <div id="tag-index-view"></div>
 </article>
