@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518150210) do
+ActiveRecord::Schema.define(version: 20150519180011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,8 +53,12 @@ ActiveRecord::Schema.define(version: 20150518150210) do
     t.string   "title"
     t.text     "body"
     t.integer  "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
   end
 
   add_index "stories", ["title"], name: "index_stories_on_title", using: :btree

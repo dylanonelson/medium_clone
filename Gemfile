@@ -50,3 +50,6 @@ end
 
 gem 'backbone-on-rails'
 gem 'medium-editor-rails'
+gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
+gem 'figaro', '>= 1.0'
+gem 'aws-sdk'

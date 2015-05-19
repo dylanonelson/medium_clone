@@ -18,4 +18,8 @@ class Story < ActiveRecord::Base
     through: :taggings,
     source: :tag
 
+  has_attached_file :banner
+
+  validates_attachment_content_type :banner, content_type: /\Aimage\/.*\Z/
+ 
 end
