@@ -31,8 +31,7 @@ MediumClone.Views.CurrentUserProfileShow = Backbone.CompositeView.extend(
     },
 
     events : {
-      'mouseleave .current-user-avatar' : 'showUploadOption',
-      'click .current-user-avatar' : 'uploadAvatar',
+      'click .current-user-avatar-frame' : 'uploadAvatar',
       'change #current-user-avatar' : 'changeAvatar',
     },
 
