@@ -23,6 +23,8 @@ Rails.application.routes.draw do
       resources :stories, only: :index
     end
 
+    resource :user, only: :update
+
     resources :comments, only: [:create]
     
     resources :stories, only: [:index, :show, :create, :update] do

@@ -42,7 +42,8 @@ class User < ActiveRecord::Base
     source: :follower
 
   has_attached_file :avatar,
-    styles: { thumb: "200x200^" },
+    styles: { thumb: "200x200#" },
+    convert_options: { thumb: "-gravity center -crop '200x200+0+0'" },
     default_url: '/images/default_avatar.png'
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/

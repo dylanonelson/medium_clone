@@ -21,4 +21,38 @@ MediumClone.Views.ProfileShow = Backbone.CompositeView.extend({
     this.listenTo(MediumClone.stories, 'sync', this.render);
   },
 
+  events : {
+    'click .current-user-avatar' : 'uploadAvatar',
+    'change #current-user-avatar' : 'changeAvatar',
+  },
+
+  uploadAvatar : function (event) {
+    $('#current-user-avatar').trigger('click');
+  },
+
+  changeAvatar : function (event) {
+    event.preventDefault();
+    var reader = new FileReader();
+    var file = event.currentTarget.files[0];
+
+    reader.onloadend = function () {
+      $.ajax({
+        url : "api/user/",
+        type : "PUT",
+        data : {
+          user : {
+            avatar : reader.result,
+          }
+        },
+        success : function () {
+          MediumClone.currentUser.fetch();
+        },
+      })
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  },
+
 })

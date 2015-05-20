@@ -2,11 +2,43 @@
 // Profile show
 // ============
 
+.current-user-info {
+  position: relative;
+}
+
 .current-user-avatar {
+  position: relative;
   width: 75px;
   margin: auto;
-
   margin-bottom: $base-content-height * .75px;
+
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+
+.current-user-avatar:hover {
+  cursor: pointer;
+}
+
+.current-user-avatar-frame:hover:after {
+  content: 'change';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+
+  font-size: 14px;
+  line-height: (75 / 14);
+
+  color: #fff;
+
+  cursor: pointer;
+}
+
+#current-user-avatar {
+  display: none;
 }
 
 .profile-username-head {
@@ -254,8 +286,8 @@
 
   border-top: 8px solid #ddd;
   border-right: 6px solid transparent;
-  border-left: 6px solid transparent;
   border-bottom: 0px;
+  border-left: 6px solid transparent;
 }
 
 // ==================
@@ -354,6 +386,10 @@ input[type="checkbox"]:checked + label {
 // ==========
 // Story show
 // ==========
+
+.author-avatar {
+  border-radius: 50%;
+}
 
 .story-show-header {
   margin-bottom: $base-content-height * 1.5px;  
