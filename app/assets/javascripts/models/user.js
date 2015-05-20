@@ -9,21 +9,10 @@ MediumClone.Models.User = Backbone.Model.extend(
       this.followedAuthors().set(payload.followed_authors);
       delete payload.followed_authors;
 
-      this.followedTags().set(payload.followed_authors);
-      delete payload.followed_authors;
+      this.followedTags().set(payload.followed_tags);
+      delete payload.followed_tags;
       
       return payload;
-    },
-
-    stories : function () {
-      if (this._stories) {
-        return this._stories;
-      }
-
-      this._stories = new MediumClone.Collections.Stories([], {
-        url : this.url() + '/stories',
-      });
-      return this._stories;
     },
 
     followedAuthors : function () {

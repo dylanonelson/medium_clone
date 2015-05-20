@@ -14,7 +14,7 @@ MediumClone.Views.TagShow = Backbone.CompositeView.extend({
 
   renderStories : function () {
     var tagStoriesIndex = new MediumClone.Views.StoriesIndex({
-      collection : this.collection,
+      collection : this.model.stories(),
     });
 
     this.addSubview('#stories-index', tagStoriesIndex)
@@ -31,6 +31,11 @@ MediumClone.Views.TagShow = Backbone.CompositeView.extend({
   toggleFollowTag : function (event) {
     var thisView = this;
     this.model.toggleFollow(function () {
+      if (thisView.model.get('following')) { 
+        MediumClone.currentUser.followedTags().remove(thisView.model.id);
+      } else {
+        MediumClone.currentUser.followedTags().add(thisView.model);
+      }
       thisView.model.fetch();
     });
   },
