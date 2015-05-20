@@ -16,9 +16,9 @@ MediumClone.Views.UserSidebar = Backbone.View.extend({
   },
 
   initialize : function () {
-    this.listenTo(MediumClone.currentUser.followedAuthors, 'sync add remove', this.render);
+    this.listenTo(MediumClone.currentUser.get('followedAuthors'), 'sync add remove', this.render);
     this.listenTo(MediumClone.tags, 'sync', this.render);
-    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(MediumClone.currentUser, 'sync', this.render);
   },
 
 })

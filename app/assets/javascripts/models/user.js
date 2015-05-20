@@ -13,11 +13,11 @@ MediumClone.Models.CurrentUser = MediumClone.Models.User.extend({
   url : 'api/profile',
 
   initialize : function () {
-    this.followedAuthors = new MediumClone.Collections.Users();
+    this.set('followedAuthors', new MediumClone.Collections.Users());
   },
 
   parse : function (payload) {
-    this.followedAuthors.set(payload.followed_authors);
+    this.get('followedAuthors').set(payload.followed_authors);
     delete payload.followed_authors;
     return payload;
   },

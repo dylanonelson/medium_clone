@@ -1,6 +1,6 @@
 <h3>Authors you follow</h3>
 <ul class="followed-authors-list clearfix">
-  <% user.followedAuthors.each(function(author) { %>
+  <% user.get('followedAuthors').each(function(author) { %>
     <li class="followed-author clearfix">
       <a href="#users/<%= author.id %>">
         <%= author.escape('username') %>

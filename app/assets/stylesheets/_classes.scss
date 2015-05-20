@@ -13,7 +13,29 @@
   font-size: 36px;
   text-align: center;
 
+  margin-bottom: $base-content-height * 1px;
+}
+
+.current-user-stats {
+  width: 400px;
+  margin: auto;
+
   margin-bottom: $base-content-height * 1.5px;
+}
+
+.current-user-stats > li {
+  display: block;
+  width: 100px;
+  padding: 10px;
+  float: left;
+
+  font-style: italic;
+  text-align: center;
+}
+
+.current-user-stats-number {
+  font-style: normal;
+  font-weight: bold;
 }
 
 .profile-stories-head {
