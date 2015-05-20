@@ -35,6 +35,8 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   profile : function () {
+    MediumClone.currentUser.stories().fetch();
+
     var profileView = new MediumClone.Views.CurrentUserProfileShow({
       model : MediumClone.currentUser,
       collection : MediumClone.currentUser.stories(),
