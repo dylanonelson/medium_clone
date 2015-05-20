@@ -1,5 +1,13 @@
 <article>
   <header class="story-show-header">
+    <h4 class='author-name'>
+      <a href="#users/<%= author && author.id %>">
+        <%= author && author.get('username') %>
+      </a>
+    </h4>
+    <% if (story.get('banner_url')) { %>
+      <img class="story-banner" src="<%= story.get('banner_url').summary %>"/>
+    <% } %>
     <a 
       class="story-view" 
       href="#stories/<%= story.id %>">
@@ -7,11 +15,6 @@
         <%= story.get('title') %>
       </h3>
     </a>
-    <h4 class='author-name'>
-      <a href="#users/<%= author && author.id %>">
-        <%= author && author.get('username') %>
-      </a>
-    </h4>
   </header>
   <%= body %>
   <div id="tag-index-view"></div>

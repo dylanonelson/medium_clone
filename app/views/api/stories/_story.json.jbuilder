@@ -1,7 +1,12 @@
 json.id story.id
 json.title story.title
 json.body story.body
-json.banner_url asset_path(story.banner.url) if story.banner?
+if story.banner?
+  json.banner_url do 
+    json.summary asset_path(story.banner.url(:summary))
+    json.original asset_path(story.banner.url)
+  end
+end
 json.author do
   json.id story.author.id
   json.username story.author.username

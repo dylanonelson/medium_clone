@@ -19,7 +19,10 @@ class Story < ActiveRecord::Base
     through: :taggings,
     source: :tag
 
-  has_attached_file :banner
+  has_attached_file :banner, 
+    styles: { summary: "550x200^" }, 
+    convert_options: { summary: "-gravity center -crop '550x200+0+0'" }
+
   validates_attachment_content_type :banner, content_type: /\Aimage\/.*\Z/
 
 end

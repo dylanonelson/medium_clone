@@ -120,6 +120,11 @@
 // Story form
 // ==========
 
+.story-banner {
+  background: #000;
+  margin-bottom: $base-content-height * 1px;
+}
+
 .new_story {
   width: 475px;
 }
@@ -289,8 +294,7 @@ input[type="checkbox"]:checked + label {
 
 #stories-index {
   article {
-    background: #eee;
-    border-radius: 2px;
+    border-bottom: 1px solid #888;
   }
 }
 
@@ -309,6 +313,7 @@ input[type="checkbox"]:checked + label {
 }
 
 .author-name {
+  margin-bottom: $base-content-height * 1px;
   font-style: italic;
 }
 

@@ -27,3 +27,6 @@ rhinoceros_skin.tags.create!(label: "rhinoceroses")
 elephant.follow(Tag.find_by(label: "elephants"))
 leopard.follow(Tag.find_by(label: "leopards"))
 rhino.follow(Tag.find_by(label: "rhinoceroses"))
+
+elephants_child.banner = File.open('/Users/dylanonelson/Dropbox/Code/App Academy/medium_clone/db/images/elephants_child.jpg')
+elephants_child.save!
