@@ -2,6 +2,8 @@ class Story < ActiveRecord::Base
 
   validates :title, presence: true
   validates :body, presence: true
+  validates_inclusion_of :published, in: [true, false]
+  validates :published_at, presence: true, if: :published
 
   belongs_to :author,
     class_name: "User",
