@@ -7,10 +7,12 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
   render : function () {
     view = this;
 
+    var storyBodyHTML = this.parseStory(this.model.get('body'));
+
     var rendered = this.template({
       story : view.model,
       author : view.model.get('author'),
-      body : view.model.get('body'),
+      body : storyBodyHTML,
     })
 
     this.$el.html(rendered);
@@ -66,6 +68,16 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
 
     this._commentForm = sidebarView;
     sidebarView.render().$el.insertBefore($currentTarget);
+  },
+
+  parseStory : function (html) {
+    var $body = $('<div>').html(html);
+
+    $body.children().each(function (index, fragment) {
+      fragment.className = 'story-content';
+    });
+
+    return $body.html();
   },
 
   showCommentCounts : function () {

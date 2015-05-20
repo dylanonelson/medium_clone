@@ -23,32 +23,47 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
   },
 
   initialize : function () {
-    this.render();
-
-    this.listenTo(this.model, 'sync', this.render);
     this.assignedIds = [];
   },
 
   events : {
     "click #publish-story" : "publishStory",
+    "click #save-as-draft" : "saveStoryAsDraft",
     "click #upload-banner" : "uploadBanner",
     "change #upload-banner-input" : 'bannerUploadChange',
   },
 
   publishStory : function (event) {
     event.preventDefault();
+    this.model.set('published', true);
+    this.saveStory(MediumRouter.feed.bind(MediumRouter));
+  },
 
+  saveStoryAsDraft : function (event) {
+    event.preventDefault();
+    this.model.set('published', false);
+    this.saveStory(this.refreshStory.bind(this));
+  },
+
+  saveStory : function (completionCallback) {
     this.setContent();
 
     var thisModel = this.model;
     thisModel.set(this.$el.serializeJSON().story);
 
     thisModel.save({}, {
-      success : function () {
+      success : function (story) {
         MediumClone.stories.add(thisModel);
+        completionCallback && completionCallback(story);
       },
     });
-    Backbone.history.navigate('', { trigger : true });
+  },
+
+  refreshStory : function (storyData) {
+    this.$('#body_content_editor').html(storyData.get('body')).append($('<p>&#160;</p>'));
+    this.$('#title_content_editor').html(storyData.get('title'));
+    this.$('.last-edited-at').toggleClass('hidden');
+    this.$('#last-edited-at-date').text(storyData.get('last_edited_at'));
   },
 
   uploadBanner : function (event) {
@@ -83,9 +98,20 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
     var thisView = this;
 
     // Add unique IDs to each top-level element in the story
+    // Retain existing IDs that are duplicated by following elements
+    thisView.assignedIds = [];
     $fragments.each(function (i, fragment) {
-      fragment.setAttribute('data-id', thisView.generateFragmentId());
-      fragment.className = 'story-content';
+      var $fragment = $(fragment);
+      var fragmentId = $fragment.data('id');
+      if (fragmentId) {
+        if (_.contains(thisView.assignedIds, fragmentId)) {
+          $fragment.attr('data-id', thisView.generateFragmentId());
+        } else {
+          thisView.assignedIds.push(fragmentId);
+        }
+      } else {
+        $fragment.attr('data-id', thisView.generateFragmentId());
+      }
     });
 
     var bodyContent = $bodyElement.html();
@@ -93,8 +119,6 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
 
     var titleContent = $titleElement.html();
     this.$('#story_title').attr('value', titleContent);
-    
-    this.$el.find('.editable').remove();
   },
 
   generateFragmentId : function () {

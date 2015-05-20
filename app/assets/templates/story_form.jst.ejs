@@ -6,12 +6,25 @@
 <input type="hidden" id="story_body" name="story[body]" ><%= story.escape('body') %></textarea>
 <div id="body_content_editor" class="editable" placeholder="Write your story."><%= story.escape('body') %></div>
 
-<div id="story-options-view">
+<section id="story-status">
+  <ul class="clearfix">
+    <li class="published">
+      <% if (story.get('published')) { %>Published<% } else { %>Draft<% } %>
+    </li>
+    <li class="last-edited-at hidden">
+        Last edited<br/>
+        <span id="last-edited-at-date"><%= story.get('last-edited-at') %></span>
+    </li>
+  </ul>  
+</section>
+
+<section id="story-options">
   <button id="upload-banner">Add a banner</button>
   <input type="file" id="upload-banner-input"></input>
-  <button id="publish-story">Save</button>
+  <button id="save-as-draft">Save as draft</button>
+  <button id="publish-story">Publish</button>
   <div id="tag-form-view"></div>
-</div>
+</section>
 
 <script>
   var bodyEditor = new MediumEditor('#body_content_editor', {
