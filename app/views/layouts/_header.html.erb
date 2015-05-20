@@ -1,6 +1,10 @@
 <header id="header" class="app-header clearfix">
     <h1>Medium</h1>
     <% if logged_in? %>
-      <h2><%= current_user.username %></h2>
+      <h2>
+        <a href="#profile">
+          <%= current_user.username %>
+        </a>
+      </h2>
     <% end %>
 </header>
