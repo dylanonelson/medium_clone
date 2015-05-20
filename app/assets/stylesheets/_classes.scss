@@ -303,17 +303,30 @@ input[type="checkbox"]:checked + label {
 // ==========
 
 .story-show-header {
-  margin-bottom: $base-content-height * 2px;  
+  margin-bottom: $base-content-height * 1.5px;  
 }
 
 .story-show-head {
+  display: block;
+  clear: both;
   font-size: 24px;
   font-weight: 700;
   margin-bottom: $base-content-height * .75px;
 }
 
+.author-avatar {
+  float: left;
+  width: 35px;
+  height: 35px;
+}
+
 .author-name {
+  display: block;
+  float: left;
+  margin-left: 10px;
   margin-bottom: $base-content-height * 1px;
+  line-height: (35 / 14);
+  font-size: 14px;
   font-style: italic;
 }
 

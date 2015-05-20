@@ -10,6 +10,7 @@ end
 json.author do
   json.id story.author.id
   json.username story.author.username
+  json.avatar_url asset_path(story.author.avatar.url)
 end
 json.tags story.tags do |t|
   json.id t.id

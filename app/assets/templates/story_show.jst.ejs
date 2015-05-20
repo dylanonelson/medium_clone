@@ -1,5 +1,6 @@
 <article>
   <header class="story-show-header">
+    <img class='author-avatar' src="<%= author && author.get('avatar_url') %>">
     <h4 class='author-name'>
       <a href="#users/<%= author && author.id %>">
         <%= author && author.get('username') %>

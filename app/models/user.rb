@@ -41,6 +41,13 @@ class User < ActiveRecord::Base
     through: :passive_follows,
     source: :follower
 
+  has_attached_file :avatar,
+    styles: { thumb: "200x200^" },
+    default_url: '/images/default_avatar.png'
+
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+
+
   def self.find_by_credentials(un, pw)
     u = User.find_by(username: un)
     return nil unless u
