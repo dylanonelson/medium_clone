@@ -2,10 +2,11 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    render :profile
   end
 
   def profile
-    
+    @user = current_user
   end
 
   def update

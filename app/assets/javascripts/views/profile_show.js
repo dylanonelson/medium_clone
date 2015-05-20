@@ -1,58 +1,69 @@
-MediumClone.Views.ProfileShow = Backbone.CompositeView.extend({
+MediumClone.Views.ProfileShow = Backbone.CompositeView.extend(
+  _.extend({}, MediumClone.Mixins.MediumProfileView, {
 
-  template : JST['profile_show'],
+    template : JST['profile_show'],
 
-  render : function () {
-    var rendered = this.template();
+    render : function () {
+      MediumClone.Mixins.MediumProfileView.render.bind(this)();
 
-    this.$el.html(rendered);
+      var followFormView = new MediumClone.Views.FollowForm({
+        model : this.model,
+      });
 
-    var storiesIndex = new MediumClone.Views.StoriesIndex({
-      collection : MediumClone.stories,
-    });
+      this.addSubview('#current-user-stats-frame', followFormView, true);
+      return this;
+    },
 
-    this.addSubview('#current-user-stories', storiesIndex);
+  })
+);
 
-    return this;
-  },
+MediumClone.Views.CurrentUserProfileShow = Backbone.CompositeView.extend(
+  _.extend({}, MediumClone.Mixins.MediumProfileView, {
 
-  initialize : function () {
-    this.listenTo(MediumClone.currentUser, 'sync', this.render);
-    this.listenTo(MediumClone.stories, 'sync', this.render);
-  },
+    template : JST['profile_show'],
 
-  events : {
-    'click .current-user-avatar' : 'uploadAvatar',
-    'change #current-user-avatar' : 'changeAvatar',
-  },
+    _firstRender : true,
 
-  uploadAvatar : function (event) {
-    $('#current-user-avatar').trigger('click');
-  },
+    render : function () {
+      MediumClone.Mixins.MediumProfileView.render.bind(this)();
+      this.$('.current-user-avatar-frame').addClass('avatar-upload-hover');
+      return this;
+    },
 
-  changeAvatar : function (event) {
-    event.preventDefault();
-    var reader = new FileReader();
-    var file = event.currentTarget.files[0];
+    events : {
+      'mouseleave .current-user-avatar' : 'showUploadOption',
+      'click .current-user-avatar' : 'uploadAvatar',
+      'change #current-user-avatar' : 'changeAvatar',
+    },
 
-    reader.onloadend = function () {
-      $.ajax({
-        url : "api/user/",
-        type : "PUT",
-        data : {
-          user : {
-            avatar : reader.result,
-          }
-        },
-        success : function () {
-          MediumClone.currentUser.fetch();
-        },
-      })
-    };
+    uploadAvatar : function (event) {
+      $('#current-user-avatar').trigger('click');
+    },
 
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  },
+    changeAvatar : function (event) {
+      event.preventDefault();
+      var reader = new FileReader();
+      var file = event.currentTarget.files[0];
 
-})
+      reader.onloadend = function () {
+        $.ajax({
+          url : "api/user/",
+          type : "PUT",
+          data : {
+            user : {
+              avatar : reader.result,
+            }
+          },
+          success : function () {
+            MediumClone.currentUser.fetch();
+          },
+        })
+      };
+
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    },
+
+  })
+);

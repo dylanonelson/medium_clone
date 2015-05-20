@@ -16,11 +16,16 @@
   border-radius: 50%;
 }
 
-.current-user-avatar:hover {
+.current-user-avatar-frame {
+  margin: auto;
+  width: 75px;
+}
+
+.avatar-upload-hover:hover {
   cursor: pointer;
 }
 
-.current-user-avatar-frame:hover:after {
+.avatar-upload-hover:hover:after {
   content: 'change';
   display: block;
   position: absolute;
@@ -30,7 +35,7 @@
   z-index: 1;
 
   font-size: 14px;
-  line-height: (75 / 14);
+  line-height: 5.357142857;
 
   color: #fff;
 

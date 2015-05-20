@@ -1,7 +1,8 @@
-json.username current_user.username
-json.email current_user.email
-json.id current_user.id
-json.avatar_url current_user.avatar.url(:thumb)
-json.followers_count current_user.passive_follows.length
-json.followed_authors current_user.followed_authors, partial: 'api/users/user', as: :user
-json.followed_tags current_user.followed_tags, partial: 'api/tags/tag', as: :tag
+json.username @user.username
+json.email @user.email
+json.id @user.id
+json.avatar_url @user.avatar.url(:thumb)
+json.followers_count @user.passive_follows.length
+json.followed_authors @user.followed_authors, partial: 'api/users/user', as: :user
+json.followed_tags @user.followed_tags, partial: 'api/tags/tag', as: :tag
+json.following current_user.follows? @user unless current_user.id == @user.id

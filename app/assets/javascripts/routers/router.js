@@ -35,8 +35,14 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   profile : function () {
-    MediumClone.stories.fetch();
-    var profileView = new MediumClone.Views.ProfileShow();
+    MediumClone.currentUser.fetch();
+    MediumClone.currentUser.stories().fetch();
+
+    var profileView = new MediumClone.Views.CurrentUserProfileShow({
+      model : MediumClone.currentUser,
+      collection : MediumClone.currentUser.stories(),
+    });
+
     this._swapView(profileView);
   },
 
@@ -63,16 +69,12 @@ MediumClone.Routers.Router = Backbone.Router.extend({
       id : id,
     });
 
-    var userStories = new MediumClone.Collections.Stories([], {
-      url : user.url() + '/stories',
-    });
-
     user.fetch();
-    userStories.fetch();
+    user.stories().fetch();
     
-    var showUserView = new MediumClone.Views.UserShow({
+    var showUserView = new MediumClone.Views.ProfileShow({
       model : user,
-      collection : userStories,
+      collection : user.stories(),
     });
 
     this._swapView(showUserView);

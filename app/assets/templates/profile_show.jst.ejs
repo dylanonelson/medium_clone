@@ -1,32 +1,32 @@
 <div class="current-user-info">
   <div class="current-user-avatar-frame">
-    <img class="current-user-avatar" src="<%= MediumClone.currentUser.get('avatar_url') %>" alt=""/>
+    <img class="current-user-avatar" src="<%= user.get('avatar_url') %>" alt=""/>
   </div>
   <input id='current-user-avatar' type="file">
-  <h3 class="profile-username-head"><%= MediumClone.currentUser.get('username') %></h3>
-  <div>
+  <h3 class="profile-username-head"><%= user.get('username') %></h3>
+  <div id="current-user-stats-frame">
     <ul class="current-user-stats clearfix">
       <li class="current-user-stats-stories-count">
         <span class="current-user-stats-number">
-          <%= MediumClone.stories.length %><br/>
+          <%= user.stories().length %><br/>
         </span>
         stories
       </li>
       <li class="current-user-stats-followers-count">
         <span class="current-user-stats-number">
-          <%= MediumClone.currentUser.get('followers_count') %><br/>
+          <%= user.get('followers_count') %><br/>
         </span>
         followers
       </li>
       <li class="current-user-stats-followed-tags">
         <span class="current-user-stats-number">
-          <%= MediumClone.currentUser.followedTags().length %><br/>
+          <%= user.followedTags().length %><br/>
         </span>
         followed tags
       </li>
       <li class="current-user-stats-followed-authors">
         <span class="current-user-stats-number">
-          <%= MediumClone.currentUser.get('followedAuthors').length %><br/>
+          <%= user.followedAuthors().length %><br/>
         </span>
         followed authors
       </li>

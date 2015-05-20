@@ -1,6 +1,6 @@
 <h3>Authors you follow</h3>
 <ul class="followed-authors-list clearfix">
-  <% user.get('followedAuthors').each(function(author) { %>
+  <% user.followedAuthors().each(function(author) { %>
     <li class="followed-author clearfix">
       <a href="#users/<%= author.id %>">
         <%= author.escape('username') %>
@@ -11,7 +11,7 @@
 
 <h3>Tags you follow</h3>
 <ul class="followed-tags-list clearfix">
-  <% user.followedTags().forEach(function(tag) { %>
+  <% user.followedTags().each(function(tag) { %>
     <li class="followed-tag clearfix">
       <a href="#tags/<%= tag.id %>">
         <%= tag.escape('label') %>
