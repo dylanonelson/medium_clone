@@ -79,6 +79,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def num_followers
+    self.passive_follows.count
+  end
+
   def feed
     followed_tag_story_ids = <<-SQL
       SELECT

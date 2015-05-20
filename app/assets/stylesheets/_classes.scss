@@ -1,5 +1,5 @@
 // ============
-// Profile show
+// User profile show
 // ============
 
 .current-user-info {
@@ -86,6 +86,65 @@
   font-weight: 700;
 
   border-bottom: 1px solid #888;
+}
+
+// ===========
+// Tag profile
+// ===========
+
+.tag-profile-header {
+  display: block;
+  float: left;
+  width: 300px;
+  margin-top: $base-content-height * 2px;
+  margin-right: 25px;
+  margin-bottom: $base-content-height * .5px;
+  margin-left: 25px;
+}
+
+.tag-profile-label-text {
+  margin-bottom: $base-content-height * .25px;
+  letter-spacing: 1px;
+}
+
+.tag-profile-label {
+  display: inline-block;
+  padding: 5px;
+  font-size: 36px;
+  border: 1px solid #888;
+  border-radius: 2px;
+}
+
+.follow-tag-button {
+  margin-top: $base-content-height * 3px;
+  margin-right: 25px;
+  float: right;
+}
+
+.tag-profile-stats-list {
+  display: block;
+  float: left;
+  width: 150px;
+  padding-bottom: $base-content-height * .75px;
+  margin-left: 25px;
+
+  clear: both;
+}
+
+#tag-profile-stats {
+  margin-bottom: $base-content-height * 2px;
+  border-bottom: 1px solid #888;
+}
+
+.tag-profile-stats-list > li {
+  display: block;
+  font-style: italic;
+  line-height: $base-content-height / 16;
+}
+
+.tag-profile-stats-number {
+  font-style: normal;
+  font-weight: 700;
 }
 
 // ===========
@@ -183,24 +242,12 @@
 // User show, tag show
 // ===================
 
-.user-show-username, .tag-show-label {
-  display: block;
-  width: 300px;
-  margin: auto;
-  padding-bottom: 12px;
-  margin-bottom: 12px;
-
-  text-align: center;
-  font-size: 36px;
-  border-bottom: 4px double #888;
-}
-
 .empty-story-index {
   text-align: center;
   font-style: italic;
 }
 
-.follow-user-button, .follow-tag-button {
+.follow-user-button {
   display: block;
   margin: auto;
   margin-bottom: 36px;

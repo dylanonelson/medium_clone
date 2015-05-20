@@ -1,8 +1,27 @@
-<div id="tag-show">
-  <h2 class="tag-show-label"><%= tag.escape('label') %></h2>
+<div id="tag-show" class="clearfix">
+  <section class="tag-profile-header">
+    <h3 class="tag-profile-label-text">Tagged in</h3>
+    <h2 class="tag-profile-label"><%= tag.escape('label') %></h2>
+  </section>
   <button class="follow-tag-button">
     <% if (tag.get('following')) { %>Unfollow<% } else { %>Follow<% } %>
   </button>
+  <div id="tag-profile-stats" class="clearfix">
+    <ul class="tag-profile-stats-list clearfix">
+      <li class="tag-profile-stats-num-followers">
+        <span class="tag-profile-stats-number">
+          <%= tag.get('followers_count') %>
+        </span>
+          followers
+      </li>
+      <li class="tag-profile-stats-num-stories">
+        <span class="tag-profile-stats-number">
+          <%= tag.get('stories_count') %>
+        </span>
+          stories
+      </li>
+    </ul>
+  </div>
 </div>
 
 <div id="stories-index">

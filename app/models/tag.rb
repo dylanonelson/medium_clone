@@ -19,6 +19,14 @@ class Tag < ActiveRecord::Base
     through: :passive_follows,
     source: :follower
 
+  def num_followers
+    self.passive_follows.count
+  end
+
+  def num_stories
+    self.taggings.count
+  end
+
   def ensure_lower_case
     self.label.downcase!
   end
