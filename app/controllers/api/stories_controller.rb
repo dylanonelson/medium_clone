@@ -21,8 +21,22 @@ module Api
     def create
       @story = current_user.stories.new(story_params)
       @story.tag_ids = params[:story][:tag_ids]
+      @story.published_at = DateTime.now if @story.published
+      @story.last_edited_at = DateTime.now
 
       if @story.save
+        render :show
+      else
+        render json: @story.errors.full_messages
+      end
+    end
+
+    def update
+      @story = Story.find(params[:id])
+      @story.tag_ids = params[:story][:tag_ids]
+      @story.last_edited_at = DateTime.now
+      
+      if @story.update(story_params)
         render :show
       else
         render json: @story.errors.full_messages
@@ -32,7 +46,7 @@ module Api
     private
 
     def story_params
-      params.require(:story).permit(:title, :body, :banner)
+      params.require(:story).permit(:title, :body, :banner, :published)
     end
 
   end

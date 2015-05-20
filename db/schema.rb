@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520180750) do
+ActiveRecord::Schema.define(version: 20150520185841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,8 +61,10 @@ ActiveRecord::Schema.define(version: 20150520180750) do
     t.datetime "banner_updated_at"
     t.boolean  "published",           default: false, null: false
     t.datetime "published_at"
+    t.datetime "last_edited_at",                      null: false
   end
 
+  add_index "stories", ["last_edited_at"], name: "index_stories_on_last_edited_at", using: :btree
   add_index "stories", ["published_at"], name: "index_stories_on_published_at", using: :btree
   add_index "stories", ["title"], name: "index_stories_on_title", using: :btree
 

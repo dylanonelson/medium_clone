@@ -83,6 +83,14 @@ class User < ActiveRecord::Base
     self.passive_follows.count
   end
 
+  def published_stories
+    self.stories.where(published: true)
+  end
+
+  def drafts
+    self.stories.where(published: false)
+  end
+
   def feed
     followed_tag_story_ids = <<-SQL
       SELECT
@@ -114,7 +122,17 @@ class User < ActiveRecord::Base
         follows.follower_id = #{self.id}
     SQL
 
-    Story.where("stories.id IN (#{followed_tag_story_ids}) OR stories.author_id in (#{followed_author_ids})").order(created_at: :desc)
+    query = <<-SQL
+      (
+        stories.id IN (#{followed_tag_story_ids}) 
+      OR 
+        stories.author_id IN (#{followed_author_ids})
+      )
+      AND
+        stories.published = 'true'
+    SQL
+
+    Story.where(query).order(published_at: :desc)
   end
 
 end
