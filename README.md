@@ -17,7 +17,11 @@ A clone of Medium built on Rails and Backbone. Users can:
 - [x] View a feed of subscribed users and tags
 - [x] Tag stories
 - [x] Create new tags
-- [ ] Apply formatting to their posts
+- [x] Apply formatting to their posts
+- [x] Upload a banner image for their stories
+- [x] Upload an avatar
+- [ ] Save drafts of stories and edit them later
+- [ ] Browse popular authors and tags
 - [ ] Search for users, tags, and posts
 
 ## Design Docs
