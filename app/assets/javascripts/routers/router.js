@@ -77,8 +77,9 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   showUser : function (id) {
-    if (id === MediumClone.currentUser.id) {
+    if (id == MediumClone.currentUser.id) {
       this.profile();
+      return
     }
 
     var user = new MediumClone.Models.User({
