@@ -18,7 +18,7 @@ class Api::TagsController < ApplicationController
     if @tag.save
       render json: @tag
     else
-      render json: @tag.errors.full_messages
+      render json: @tag.errors
     end
   end
 

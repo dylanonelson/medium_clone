@@ -6,7 +6,7 @@ class Api::FollowsController < ApplicationController
     if follow.save
       render json: follow
     else
-      render json: follow.errors.full_messages
+      render json: follow.errors
     end
   end
 
@@ -16,7 +16,7 @@ class Api::FollowsController < ApplicationController
     if follow.destroy
       render json: follow
     else
-      render json: follow.errors.full_messages
+      render json: follow.errors
     end
   end
 

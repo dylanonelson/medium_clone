@@ -33,7 +33,7 @@ module Api
       if @story.save
         render :show
       else
-        render json: @story.errors.full_messages
+        render json: @story.errors
       end
     end
 
@@ -46,7 +46,7 @@ module Api
       if @story.update(story_params)
         render :show
       else
-        render json: @story.errors.full_messages
+        render json: @story.errors
       end
     end
 
@@ -56,7 +56,7 @@ module Api
       if @story.destroy
         render :show
       else
-        render json: @story.errors.full_messages
+        render json: @story.errors
       end
     end
 
