@@ -5,8 +5,8 @@ MediumClone.Routers.Router = Backbone.Router.extend({
     this.$sidebar = options.$sidebar;
     MediumClone.tags.fetch();
     MediumClone.currentUser.fetch();
-    this.listenTo(MediumClone.currentUser, 'signIn', this._renderSidebar);
-    this.listenTo(MediumClone.currentUser, 'signOut', this._removeSidebar);
+    this.listenTo(MediumClone.currentUser, 'signIn', this._renderSignedIn);
+    this.listenTo(MediumClone.currentUser, 'signOut', this._renderSignedOut);
   },
 
   routes : {
@@ -16,8 +16,10 @@ MediumClone.Routers.Router = Backbone.Router.extend({
     'stories/new' : 'newStory',
     'stories/:id/edit' : 'editStory',
     'stories/:id' : 'showStory',
+    'users/new' : 'newUser',
     'users/:id' : 'showUser',
     'tags/:id' : 'showTag',
+    'session/new' : 'newSession', 
   },
 
   welcome : function () {
@@ -104,6 +106,13 @@ MediumClone.Routers.Router = Backbone.Router.extend({
     this._swapView(showUserView);
   },
 
+  newUser : function () {
+    debugger
+    if (!this._requireSignedOut(this.profile.bind(this))) { return; }
+    var newUserView = new MediumClone.Views.UserForm();
+    this._swapView(newUserView);
+  },
+
   showTag : function (id) {
     var tag = MediumClone.tags.getOrFetch(id);
     tag.stories().fetch();
@@ -115,7 +124,7 @@ MediumClone.Routers.Router = Backbone.Router.extend({
     this._swapView(showTagView);
   },
 
-  signIn : function (callback) {
+  newSession : function (callback) {
     var sessionForm = new MediumClone.Views.SessionForm({
       callback : callback
     });
@@ -131,14 +140,24 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   _requireSignedIn : function (callback) {
     if (!MediumClone.currentUser.isSignedIn()) {
       callback = callback;
-      this.signIn(callback);
+      this.newSession(callback);
       return false;
     }
 
     return true;
   },
 
-  _renderSidebar : function () {
+  _requireSignedOut : function (callback) {
+    if (MediumClone.currentUser.isSignedIn()) {
+      debugger
+      callback();
+      return false;
+    }
+
+    return true;
+  },
+
+  _renderSignedIn : function () {
     if (!this._sidebar) {
       this._sidebar = new MediumClone.Views.UserSidebar({
         model : MediumClone.currentUser,
@@ -147,7 +166,7 @@ MediumClone.Routers.Router = Backbone.Router.extend({
     }
   },
 
-  _removeSidebar : function () {
+  _renderSignedOut : function () {
     if (this._sidebar) {
       this._sidebar.remove();
       delete this._sidebar;
