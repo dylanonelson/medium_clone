@@ -5,11 +5,17 @@ module Api
 
     def index
       if params[:user_id]
-        @stories = User.find(params[:user_id]).stories.includes(:author, :tags)
+        @stories = User.find(params[:user_id]).published_stories
+                     .includes(:author, :tags)
+                     .order(published_at: :desc)
       elsif params[:tag_id]
-        @stories = Tag.find(params[:tag_id]).stories.includes(:author, :tags)
+        @stories = Tag.find(params[:tag_id]).published_stories
+                     .includes(:author, :tags)
+                     .order(published_at: :desc)
       else
-        @stories = current_user.stories.includes(:author, :tags)
+        @stories = current_user.stories
+                     .includes(:author, :tags)
+                     .order(last_edited_at: :desc)
       end
     end
 

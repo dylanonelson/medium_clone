@@ -27,6 +27,10 @@ class Tag < ActiveRecord::Base
     self.taggings.count
   end
 
+  def published_stories
+    self.stories.where(published: true)
+  end
+
   def ensure_lower_case
     self.label.downcase!
   end
