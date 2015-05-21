@@ -5,4 +5,6 @@ json.avatar_url @user.avatar.url(:thumb)
 json.followers_count @user.passive_follows.length
 json.followed_authors @user.followed_authors, partial: 'api/users/user', as: :user
 json.followed_tags @user.followed_tags, partial: 'api/tags/tag', as: :tag
-json.following current_user.follows? @user unless current_user.id == @user.id
+if logged_in? && current_user.id != @user.id
+  json.following current_user.follows? @user 
+end

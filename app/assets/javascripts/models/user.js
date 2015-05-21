@@ -42,6 +42,10 @@ MediumClone.Models.CurrentUser = MediumClone.Models.User.extend({
 
   url : 'api/profile',
 
+  initialize : function () {
+    this.listenTo(this, 'change', this.fireSessionEvent)
+  },
+
   stories : function () {
     if (this._stories) {
       return this._stories;

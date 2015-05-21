@@ -15,7 +15,8 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   routes : {
-    '' : 'feed',
+    '' : 'welcome',
+    'feed' : 'feed',
     'profile' : 'profile',
     'stories/new' : 'newStory',
     'stories/:id/edit' : 'editStory',
@@ -24,7 +25,13 @@ MediumClone.Routers.Router = Backbone.Router.extend({
     'tags/:id' : 'showTag',
   },
 
+  welcome : function () {
+    this.$root.html('<p>Welcome to Medium</p>');
+  },
+
   feed : function () {
+    if (!this._requireSignedIn(this.feed.bind(this))) { return; }
+
     MediumClone.feed.fetch();
 
     var feedView = new MediumClone.Views.StoriesIndex({
@@ -35,6 +42,8 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   profile : function () {
+    if (!this._requireSignedIn(this.profile.bind(this))) { return; }
+
     MediumClone.currentUser.stories().fetch();
 
     var profileView = new MediumClone.Views.CurrentUserProfileShow({
@@ -46,6 +55,8 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   newStory : function () {
+    if (!this._requireSignedIn(this.newStory.bind(this))) { return; }
+
     var newStoryView = new MediumClone.Views.StoryForm({
       model : new MediumClone.Models.Story(),
     });
@@ -54,6 +65,8 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   editStory : function (id) {
+    if (!this._requireSignedIn(this.editStory.bind(this))) { return; }
+
     var forEditing = new MediumClone.Models.Story({
       id : id,
     });
@@ -107,10 +120,27 @@ MediumClone.Routers.Router = Backbone.Router.extend({
     this._swapView(showTagView);
   },
 
+  signIn : function (callback) {
+    var sessionForm = new MediumClone.Views.SessionForm({
+      callback : callback
+    });
+    this._swapView(sessionForm);
+  },
+
   _swapView : function (view) {
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$root.html(view.render().$el);
   },
+
+  _requireSignedIn : function (callback) {
+    if (!MediumClone.currentUser.isSignedIn()) {
+      callback = callback;
+      this.signIn(callback);
+      return false;
+    }
+
+    return true;
+  }
 
 })
