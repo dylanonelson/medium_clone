@@ -13,6 +13,12 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
 
     this.$el.html(rendered);
 
+    var thisView = this;
+
+    this.subviews('#tag-form-view').each(function(subview) {
+      thisView.removeSubview('#tag-form-view', subview);
+    });
+
     var tagFormView = new MediumClone.Views.TagForm({
       collection : MediumClone.tags,
     });
@@ -73,7 +79,8 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
     this.$('#title_content_editor').html(storyData.get('title'));
     this.$('.last-edited-at').removeClass('hidden');
     this.$('#last-edited-at-date').text(storyData.get('last_edited_at'));
-    storyData.get('published') ? this.$('#published').text('Published') : this.$('#published').text('Draft')
+    storyData.get('published') ? this.$('#published').text('Published') : this.$('#published').text('Draft');
+    this.subviews('#tag-form-view').first().refreshTags(storyData.get('tags'));
   },
 
   uploadBanner : function (event) {
