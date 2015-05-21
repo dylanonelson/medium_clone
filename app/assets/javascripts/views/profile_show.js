@@ -25,7 +25,37 @@ MediumClone.Views.CurrentUserProfileShow = Backbone.CompositeView.extend(
     _firstRender : true,
 
     render : function () {
-      MediumClone.Mixins.MediumProfileView.render.bind(this)();
+      
+      var rendered = this.template({
+        user : this.model,
+      });
+
+      this.$el.html(rendered);
+
+      var drafts = this.model.stories().where({
+        published : false,
+      });
+
+      var published = this.model.stories().where({
+        published : true,
+      });
+
+      var draftsIndex = new MediumClone.Views.StoriesIndex({
+        collection : new MediumClone.Collections.Stories(drafts, {
+          url : 'api/stories',
+        }),
+      });
+
+      var publishedIndex = new MediumClone.Views.StoriesIndex({
+        collection : new MediumClone.Collections.Stories(published, {
+          url : 'api/stories',
+        }),
+      });
+
+      this.addSubview('#current-user-drafts', draftsIndex);
+      this.addSubview('#current-user-stories', publishedIndex);
+
+      this.$('#current-user-drafts').removeClass('gone')
       this.$('.current-user-avatar-frame').addClass('avatar-upload-hover');
       return this;
     },
