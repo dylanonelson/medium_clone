@@ -511,6 +511,28 @@ input[type="checkbox"]:checked + label {
   font-style: italic;
 }
 
+.story-tag-list {
+  float: right;
+  line-height: (35 / 14);
+  font-size: 14px;
+}
+
+.story-tag-list li {
+  float: left;
+
+  a {
+    padding: 5px;
+    margin: 0 5px 5px 0;
+    border: 1px solid #888;
+    border-radius: 2px;
+  }
+
+  a:hover {
+    background: #ccc;
+  }
+
+}
+
 .story-content {
   position: relative;
 }

@@ -6,6 +6,15 @@
         <%= story.get('author_username') %>
       </a>
     </h4>
+    <ul class="story-tag-list">
+      <% story.get('tags') && story.get('tags').forEach(function(tag) { %>
+        <li>
+          <a class="story-tag-link" href="#tags/<%= tag.id %>">
+            <%= tag.label %>
+          </a>
+        </li>
+      <% }) %>
+    </ul>
     <% if (story.get('banner_url')) { %>
       <img class="story-banner" src="<%= story.get('banner_url').summary %>"/>
     <% } %>

@@ -28,7 +28,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
 
     resources :stories, only: [:index, :show, :create, :update, :destroy] do
-      resources :tags, only: :index
       resources :comments, only: [:index]
     end
 
