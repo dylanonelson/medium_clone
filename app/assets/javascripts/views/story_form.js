@@ -24,6 +24,8 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
 
   initialize : function () {
     this.assignedIds = [];
+    this.model.fetch();
+    this.listenTo(this.model, 'sync', this.refreshStory.bind(this))
   },
 
   events : {
@@ -60,10 +62,12 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
   },
 
   refreshStory : function (storyData) {
+    this.render();
     this.$('#body_content_editor').html(storyData.get('body')).append($('<p>&#160;</p>'));
     this.$('#title_content_editor').html(storyData.get('title'));
-    this.$('.last-edited-at').toggleClass('hidden');
+    this.$('.last-edited-at').removeClass('hidden');
     this.$('#last-edited-at-date').text(storyData.get('last_edited_at'));
+    storyData.get('published') ? this.$('#published').text('Published') : this.$('#published').text('Draft')
   },
 
   uploadBanner : function (event) {

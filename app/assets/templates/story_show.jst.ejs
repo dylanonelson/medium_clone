@@ -16,6 +16,9 @@
         <%= story.get('title') %>
       </h3>
     </a>
+    <% if (story.get('author_id') === MediumClone.currentUser.id) { %>
+      <a href="#stories/<%= story.id %>/edit" class="edit-link">Edit</a>
+    <% } %>
   </header>
   <%= body %>
   <div id="tag-index-view"></div>

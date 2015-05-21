@@ -10,8 +10,8 @@ if story.banner?
     json.original asset_path(story.banner.url)
   end
 end
+json.author_id story.author.id
 json.author do
-  json.id story.author.id
   json.username story.author.username
   json.avatar_url asset_path(story.author.avatar.url)
 end

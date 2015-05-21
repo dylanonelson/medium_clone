@@ -34,8 +34,9 @@ module Api
     def update
       @story = Story.find(params[:id])
       @story.tag_ids = params[:story][:tag_ids]
+      @story.published_at = DateTime.now if story_params[:published]
       @story.last_edited_at = DateTime.now
-      
+
       if @story.update(story_params)
         render :show
       else
