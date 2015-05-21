@@ -24,7 +24,6 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
 
   initialize : function () {
     this.assignedIds = [];
-    this.model.fetch();
     this.listenTo(this.model, 'sync', this.refreshStory.bind(this))
   },
 
