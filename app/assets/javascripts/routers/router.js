@@ -5,7 +5,6 @@ MediumClone.Routers.Router = Backbone.Router.extend({
     
     MediumClone.tags.fetch();
 
-    MediumClone.currentUser = new MediumClone.Models.CurrentUser();
     MediumClone.currentUser.fetch();
 
     var profileView = new MediumClone.Views.UserSidebar({

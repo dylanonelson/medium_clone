@@ -7,6 +7,11 @@ class Api::UsersController < ApplicationController
 
   def profile
     @user = current_user
+    if @user
+      render :profile
+    else
+      render json: {}
+    end
   end
 
   def update

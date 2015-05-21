@@ -5,6 +5,9 @@ window.MediumClone = {
   Routers: {},
   Mixins: {},
   initialize: function() {
+    
+    MediumClone.currentUser = new MediumClone.Models.CurrentUser();
+
     MediumClone.stories = new MediumClone.Collections.Stories([], {
       url : 'api/stories',
     });
@@ -17,7 +20,7 @@ window.MediumClone = {
       url : 'api/tags',
     });
 
-    MediumRouter = new MediumClone.Routers.Router({
+    MediumClone.router = new MediumClone.Routers.Router({
       $root : $('#app'),
     });
     

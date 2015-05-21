@@ -43,14 +43,63 @@ MediumClone.Models.CurrentUser = MediumClone.Models.User.extend({
   url : 'api/profile',
 
   stories : function () {
-      if (this._stories) {
-        return this._stories;
-      }
-
-      this._stories = new MediumClone.Collections.Stories([], {
-        url : 'api/stories',
-      });
+    if (this._stories) {
       return this._stories;
-    },
+    }
 
+    this._stories = new MediumClone.Collections.Stories([], {
+      url : 'api/stories',
+    });
+    return this._stories;
+  },
+
+  isSignedIn : function () {
+    return !this.isNew();
+  },
+
+  signIn : function (options) {
+    var thisModel = this;
+    var credentials = {
+      'user[username]' : options.username,
+      'user[password]' : options.password,
+    };
+
+    $.ajax({
+      url : 'api/session',
+      type : 'POST',
+      dataType : 'json',
+      data : credentials,
+      success : function (data) {
+        thisModel.set(data);
+        options.success && options.success();
+      },
+      error : function () {
+        options.error && options.error();
+      },
+    })
+  },
+
+  signOut : function (options) {
+    var thisModel = this;
+
+    $.ajax({
+      url : 'api/session',
+      type : 'DELETE',
+      dataType : 'json',
+      success : function () {
+        thisModel.clear();
+        options.success && options.success();
+      },
+    });
+  },
+
+  fireSessionEvent: function(){
+    if(this.isSignedIn()){
+      this.trigger("signIn");
+      console.log("currentUser is signed in!", this);
+    } else {
+      this.trigger("signOut");
+      console.log("currentUser is signed out!", this);
+    }
+  },
 })

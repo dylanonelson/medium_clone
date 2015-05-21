@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  before_action :ensure_logged_in, only: [:show, :index]
-
   def new
     @user = User.new
   end

@@ -44,7 +44,7 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
   publishStory : function (event) {
     event.preventDefault();
     this.model.set('published', true);
-    this.saveStory(MediumRouter.feed.bind(MediumRouter));
+    this.saveStory(MediumClone.router.feed.bind(MediumClone.router));
   },
 
   saveStoryAsDraft : function (event) {
@@ -69,7 +69,7 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
 
   destroyStory : function () {
     this.model.destroy({
-      success : MediumRouter.profile.bind(MediumRouter),
+      success : MediumClone.router.profile.bind(MediumClone.router),
     });
   },
 

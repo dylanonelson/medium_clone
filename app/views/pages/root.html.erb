@@ -1,4 +1,6 @@
-<%= render 'sidebar' %>
+<% if logged_in? %>
+  <%= render 'sidebar' %>
+<% end %>
 
 <main id="app"></main>
 
