@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     end
 
     resource :user, only: :update
+    resources :users, only: :create
 
     resources :comments, only: [:create]
 

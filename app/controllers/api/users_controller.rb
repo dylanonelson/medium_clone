@@ -1,5 +1,16 @@
 class Api::UsersController < ApplicationController
 
+  def create
+    @user = User.new(api_user_params)
+
+    if @user.save
+      log_in! @user
+      render :profile
+    else
+      render json: @user.errors, head: :unprocessable_entity
+    end
+  end
+
   def show
     @user = User.find(params[:id])
     render :profile
