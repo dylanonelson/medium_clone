@@ -26,8 +26,8 @@ Rails.application.routes.draw do
     resource :user, only: :update
 
     resources :comments, only: [:create]
-    
-    resources :stories, only: [:index, :show, :create, :update] do
+
+    resources :stories, only: [:index, :show, :create, :update, :destroy] do
       resources :tags, only: :index
       resources :comments, only: [:index]
     end

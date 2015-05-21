@@ -30,6 +30,7 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
   events : {
     "click #publish-story" : "publishStory",
     "click #save-as-draft" : "saveStoryAsDraft",
+    "click #destroy-story" : "destroyStory",
     "click #upload-banner" : "uploadBanner",
     "change #upload-banner-input" : 'bannerUploadChange',
   },
@@ -57,6 +58,12 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
         MediumClone.stories.add(thisModel);
         completionCallback && completionCallback(story);
       },
+    });
+  },
+
+  destroyStory : function () {
+    this.model.destroy({
+      success : MediumRouter.profile.bind(MediumRouter),
     });
   },
 

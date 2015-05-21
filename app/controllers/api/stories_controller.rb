@@ -44,6 +44,16 @@ module Api
       end
     end
 
+    def destroy
+      @story = Story.find(params[:id])
+
+      if @story.destroy
+        render :show
+      else
+        render json: @story.errors.full_messages
+      end
+    end
+
     private
 
     def story_params
