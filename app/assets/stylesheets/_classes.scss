@@ -1,5 +1,5 @@
 // ============
-// User profile show
+// User profile
 // ============
 
 .current-user-info {
@@ -155,7 +155,7 @@
   position: relative;
   width: 100%;
   padding-bottom: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 
   border-bottom: 1px solid #888;
 
@@ -293,6 +293,8 @@
   top: $base-content-height * 1px;
   left: 120%;
   width: 250px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 #story-status {
@@ -301,12 +303,12 @@
     line-height: $base-line-height;
   }
   .published {
-    width: 75px;
+    width: 70px;
     float: left;
     font-style: italic;
   }
   .last-edited-at {
-    width: 175px;
+    width: 170px;
     float: right;
     text-align: right;
     font-size: 14px;
@@ -324,18 +326,30 @@
   top: $base-content-height * 1px + 65;
   left: 120%;
   width: 250px;
+  height: auto;
+  padding: 20px 0 25px 0;
+  line-height: 1.75;
+  border-top: 1px solid #888;
+}
+
+#story-options a {
+  display: block;
+  padding: 5px;
+}
+
+#story-options a:hover {
+  background: #ccc;
+  cursor: pointer;
 }
 
 #story-options > input[type='file'] {
   display: none;
-}
-
-#story-options > #upload-banner {
-  margin-bottom: 15px;
+  padding: 5px;
+  width: 100%;
 }
 
 #publish-story {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 // ============
@@ -353,8 +367,8 @@
 
 .tag-select-form {
   border-top: 1px solid #888;
-  padding-top: 15px;
-  margin-bottom: 10px;
+  padding: 20px 0 0 5px;
+  margin-bottom: 20px;
 }
 
 .story_tag {
@@ -381,7 +395,8 @@ input[type="checkbox"]:checked + label {
 #tag_label_editor {
   width: 200px;
   float: left;
-  line-height: $base-content-height / 14;
+  padding: 5px;
+  line-height: 2;
   font-size: 14px;
   font-style: italic;
 }
@@ -394,7 +409,6 @@ input[type="checkbox"]:checked + label {
   display: block;
   padding-top: 10px;
   padding-bottom: 10px;
-  margin-bottom: 15px;
 
   border-top: 1px solid #888;
   border-bottom: 1px solid #888;
