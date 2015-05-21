@@ -221,28 +221,52 @@
 // Session and user form
 // =====================
 
-.new_user, .new_session {
-  width: 450px;
+.new-user, .new-session {
+  position: relative;
+  left: -75px;
+  width: 300px;
   margin: auto;
-  margin-top: $header-height + 25px;
   margin-bottom: 25px;
-  padding: 15px 15px 0 15px;
+  padding: 15px 25px 15px 25px;
 
   line-height: 1;
-
   border: 1px solid #888;
   border-radius: 10px;
 }
 
-.new_user > *, .new_session > * {
+.new-user-head, .new-session-head {
+  position: relative;
+  left: -75px;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: $base-content-height * 1.5px;
+}
+
+.new-user > *, .new-session > * {
+  text-align: center;
+}
+
+.new-user > label, .new-session > label {
+  display: block;
   margin-bottom: 15px;
 }
 
-.new_user > label, .new_session > label {
-  display: block;
+.new-user > input, .new-session > input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 20px;
+  background: #ccc;
 }
 
-.sign-up-link, .log-in-link {
+.new-user > button, .new-session > button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.new-user-link, .new-session-link {
+  position: relative;
+  left: -75px;
   display: block;
   text-align: center;
 }

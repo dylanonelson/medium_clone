@@ -107,7 +107,6 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   newUser : function () {
-    debugger
     if (!this._requireSignedOut(this.profile.bind(this))) { return; }
     var newUserView = new MediumClone.Views.UserForm();
     this._swapView(newUserView);
@@ -149,7 +148,6 @@ MediumClone.Routers.Router = Backbone.Router.extend({
 
   _requireSignedOut : function (callback) {
     if (MediumClone.currentUser.isSignedIn()) {
-      debugger
       callback();
       return false;
     }

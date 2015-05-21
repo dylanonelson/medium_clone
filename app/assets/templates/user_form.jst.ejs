@@ -1,29 +1,18 @@
-<h2>Sign Up</h2>
+<h2 class="new-user-head">Sign up</h2>
 
-<form>
+<form class="new-user">
 
-  <label>
-    Username
-    <input type="text" name="user[username]">
-  </label>
+  <label for="user_username">Username</label>
+  <input id="user_username" type="text" name="user[username]">
 
-  <br>
+  <label for="user_email">Email</label>
+  <input id="user_email" type="email" name="user[email]">
 
-  <label>
-    Email
-    <input type="email" name="user[email]">
-  </label>
+  <label for="user_password">Password</label>
+  <input id="user_password" type="password" name="user[password]">
 
-  <br>
+  <button>Sign up</button>
 
-  <label>
-    Password
-    <input type="password" name="user[password]">
-  </label>
-
-  <br>
-
-  <button>Sign Up</button>
 </form>
 
-<a href="#session/new">Sign in</a>
+<a class="new-session-link" href="#session/new">Sign in</a>
