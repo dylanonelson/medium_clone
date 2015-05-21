@@ -11,7 +11,6 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
 
     var rendered = this.template({
       story : view.model,
-      author : view.model.get('author'),
       body : storyBodyHTML,
     })
 

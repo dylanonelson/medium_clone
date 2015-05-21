@@ -1,9 +1,9 @@
 <article>
   <header class="story-show-header">
-    <img class='author-avatar' src="<%= author && author.get('avatar_url') %>">
+    <img class='author-avatar' src="<%= story.get('author_avatar_url') %>">
     <h4 class='author-name'>
-      <a href="#users/<%= author && author.id %>">
-        <%= author && author.get('username') %>
+      <a href="#users/<%= story.get('author_id') %>">
+        <%= story.get('author_username') %>
       </a>
     </h4>
     <% if (story.get('banner_url')) { %>

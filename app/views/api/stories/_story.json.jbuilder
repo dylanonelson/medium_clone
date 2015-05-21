@@ -11,10 +11,8 @@ if story.banner?
   end
 end
 json.author_id story.author.id
-json.author do
-  json.username story.author.username
-  json.avatar_url asset_path(story.author.avatar.url)
-end
+json.author_avatar_url story.author.avatar.url
+json.author_username story.author.username
 json.tags story.tags do |t|
   json.id t.id
   json.label t.label
