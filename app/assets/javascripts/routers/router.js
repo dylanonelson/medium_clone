@@ -47,8 +47,6 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   newStory : function () {
-    MediumClone.tags.fetch();
-
     var newStoryView = new MediumClone.Views.StoryForm({
       model : new MediumClone.Models.Story(),
     });
@@ -57,10 +55,14 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   editStory : function (id) {
-    MediumClone.tags.fetch();
+    var forEditing = new MediumClone.Models.Story({
+      id : id,
+    });
+
+    forEditing.fetch();
 
     var editStoryView = new MediumClone.Views.StoryForm({
-      model : MediumClone.stories.getOrFetch(id),
+      model : forEditing,
     });
 
     this._swapView(editStoryView);

@@ -14,7 +14,6 @@ MediumClone.Views.TagForm = Backbone.View.extend({
   },
 
   initialize : function () {
-    this.collection.fetch();
     this.listenTo(this.collection, 'sync', this.render);
   },
 
