@@ -24,11 +24,6 @@ body {
 
 }
 
-nav *:hover {
-  background: #ccc;
-  cursor: pointer;
-}
-
 article {
   padding: 25px;
   margin-bottom: $base-content-height * 3px;

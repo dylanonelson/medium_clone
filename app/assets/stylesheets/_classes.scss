@@ -160,7 +160,6 @@
   border-bottom: 1px solid #888;
 
   line-height: 1.75;
-
 }
 
 .sidebar-nav > a, .sidebar-nav > input,
@@ -168,6 +167,18 @@
   display: block;
   padding: 5px;
   width: 100%;
+}
+
+.sidebar-nav a {
+}
+
+.sidebar-nav > *:hover {
+  background: #ccc;
+  cursor: pointer;
+}
+
+.followed-tag a {
+  background: #ccc;
 }
 
 // ============
@@ -204,7 +215,6 @@
   display: block;
   padding: 5px;
   margin: 0px 5px 5px 0px;
-  background: #ccc;
 }
 
 // =====================

@@ -2,16 +2,11 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   
   initialize : function (options) {
     this.$root = options.$root;
-    
+    this.$sidebar = options.$sidebar;
     MediumClone.tags.fetch();
-
     MediumClone.currentUser.fetch();
-
-    var profileView = new MediumClone.Views.UserSidebar({
-      model : MediumClone.currentUser,
-    });
-
-    $('#sidebar').append(profileView.render().$el);
+    this.listenTo(MediumClone.currentUser, 'signIn', this._renderSidebar);
+    this.listenTo(MediumClone.currentUser, 'signOut', this._removeSidebar);
   },
 
   routes : {
@@ -141,6 +136,22 @@ MediumClone.Routers.Router = Backbone.Router.extend({
     }
 
     return true;
-  }
+  },
 
+  _renderSidebar : function () {
+    if (!this._sidebar) {
+      this._sidebar = new MediumClone.Views.UserSidebar({
+        model : MediumClone.currentUser,
+      });
+      this.$sidebar.append(this._sidebar.render().$el).removeClass('hidden');
+    }
+  },
+
+  _removeSidebar : function () {
+    if (this._sidebar) {
+      this._sidebar.remove();
+      delete this._sidebar;
+      this.$sidebar.addClass('hidden');
+    }
+  },
 })

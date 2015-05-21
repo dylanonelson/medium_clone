@@ -22,6 +22,7 @@ window.MediumClone = {
 
     MediumClone.router = new MediumClone.Routers.Router({
       $root : $('#app'),
+      $sidebar : $('#sidebar'),
     });
     
     Backbone.history.start();
