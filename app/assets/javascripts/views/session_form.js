@@ -37,7 +37,7 @@ MediumClone.Views.SessionForm = Backbone.View.extend({
     if(this.callback) {
       this.callback();
     } else {
-      MediumClone.router.feed();
+      Backbone.history.navigate('feed', { trigger : true });
     }
   }
 

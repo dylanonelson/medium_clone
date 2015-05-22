@@ -31,7 +31,10 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   feed : function () {
-    if (!this._requireSignedIn(this.feed.bind(this))) { return; }
+    if (!this._requireSignedIn(function () {
+      MediumClone.router.feed();
+      Backbone.history.navigate('feed');
+    })) { return; }
 
     MediumClone.feed.fetch();
 
@@ -43,7 +46,10 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   profile : function () {
-    if (!this._requireSignedIn(this.profile.bind(this))) { return; }
+    if (!this._requireSignedIn(function () {
+      MediumClone.router.profile();
+      Backbone.history.navigate('profile');
+    })) { return; }
 
     MediumClone.currentUser.stories().fetch();
 
@@ -56,7 +62,10 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   newStory : function () {
-    if (!this._requireSignedIn(this.newStory.bind(this))) { return; }
+    if (!this._requireSignedIn(function () {
+      MediumClone.router.newStory();
+      Backbone.history.navigate('stories/new');
+    })) { return; }
 
     var newStoryView = new MediumClone.Views.StoryForm({
       model : new MediumClone.Models.Story(),
@@ -66,7 +75,10 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   editStory : function (id) {
-    if (!this._requireSignedIn(this.editStory.bind(this))) { return; }
+    if (!this._requireSignedIn(function () {
+      MediumClone.router.editStory(id);
+      Backbone.history.navigate('stories/' + id + '/edit');
+    })) { return; }
 
     var forEditing = new MediumClone.Models.Story({
       id : id,
@@ -111,7 +123,10 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   newUser : function () {
-    if (!this._requireSignedOut(this.profile.bind(this))) { return; }
+    if (!this._requireSignedOut(function () {
+      MediumClone.router.newUser();
+      Backbone.history.navigate('profile');
+    })) { return; }
     var newUserView = new MediumClone.Views.UserForm();
     this._swapView(newUserView);
   },
@@ -128,7 +143,10 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   newSession : function (callback) {
-    if (!this._requireSignedOut(this.profile.bind(this))) { return; }
+    if (!this._requireSignedOut(function () {
+      MediumClone.router.newSession();
+      Backbone.history.navigate('session/new');
+    })) { return; }
     var sessionForm = new MediumClone.Views.SessionForm({
       callback : callback
     });

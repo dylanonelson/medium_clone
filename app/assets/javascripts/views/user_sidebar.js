@@ -30,7 +30,7 @@ MediumClone.Views.UserSidebar = Backbone.View.extend({
     event.preventDefault();
     MediumClone.currentUser.signOut({
       success : function () {
-        MediumClone.router.welcome();
+        Backbone.history.navigate('', { trigger : true });
       },
     });
   },
