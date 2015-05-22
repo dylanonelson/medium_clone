@@ -118,6 +118,14 @@
 // Tag profile
 // ===========
 
+#tag-show {
+  width: $body-width + 150;
+  padding: 0 75px;
+  margin: auto;
+  margin-bottom: $base-content-height * 2px;
+  border-bottom: 1px solid #888;
+}
+
 .tag-profile-header {
   display: block;
   float: left;
@@ -158,8 +166,6 @@
 }
 
 #tag-profile-stats {
-  margin-bottom: $base-content-height * 2px;
-  border-bottom: 1px solid #888;
 }
 
 .tag-profile-stats-list > li {
