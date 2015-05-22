@@ -614,10 +614,10 @@ input[type="checkbox"]:checked + label {
 
 .teaser {
   display: block;
-  margin-top: 25px;
+  width: 50%;
+  float: left;
 
-  font-style: italic;
-  color: $selected-text;
+  line-height: $base-line-height * 3;
 }
 
 .comment-count {
