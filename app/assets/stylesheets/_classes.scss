@@ -576,12 +576,18 @@ input[type="checkbox"]:checked + label {
 }
 
 .story-show-head-wide {
+  width: 400px;
   text-align: center;
   margin-left: 0;
   font-size: 36px;
   font-weight: 700;
+  padding: 15px 0 15px 0;
   margin-top: $base-content-height * 1px;
+  margin-right: auto;
   margin-bottom: $base-content-height * 3px;
+  margin-left: auto;
+  border-top: 1px solid #888;
+  border-bottom: 1px solid #888;
 }
 
 #author-details-view {

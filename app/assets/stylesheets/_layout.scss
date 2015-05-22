@@ -45,6 +45,7 @@
 
 .story-show-full {
   position: absolute;
+  width: 100%;
   left: 0;
   margin-bottom: 100px;
 }
@@ -52,6 +53,13 @@
 .story-show-full .story-content {
     width: 550px;
     margin: auto;
+    margin-bottom: $base-content-height * 1.5px;
+}
+
+.story-show-header {
+  position: relative;
+  width: 100%;
+  left: 0px;
 }
 
 .story-summary {
@@ -59,12 +67,6 @@
   margin: auto;
   max-width: 600px;
   transition: left 750ms ease-in;
-}
-
-.story-show-header {
-  position: relative;
-  width: 100%;
-  left: 0px;
 }
 
 .story-show-header-wide {
