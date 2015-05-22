@@ -75,6 +75,8 @@ MediumClone.Models.CurrentUser = MediumClone.Models.User.extend({
       data : credentials,
       success : function (data) {
         thisModel.set(data);
+        thisModel.followedAuthors().set(data.followed_authors);
+        thisModel.followedTags().set(data.followed_tags);
         options.success && options.success();
       },
       error : function () {
