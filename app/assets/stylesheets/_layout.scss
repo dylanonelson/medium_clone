@@ -10,16 +10,23 @@
   border-bottom: 4px double #000;
 }
 
-#sidebar {
+.sidebar {
   position: absolute;
   width: $sidebar-width + 0px;
   top: $header-height + 4px;
   bottom: 0;
+  left: 0;
   padding-top: 25px;
   padding-right: 25px;
   padding-left: 25px;
 
   background: #eee;
+
+  transition: left 750ms ease-in;
+}
+
+.slide-out {
+  left: $sidebar-width * -1px;
 }
 
 #app {
