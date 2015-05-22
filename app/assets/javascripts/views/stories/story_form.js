@@ -25,6 +25,8 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
 
     this.addSubview('#tag-form-view', tagFormView);
 
+    this.$('#published').text('Unsaved draft');
+
     return this;
   },
 
