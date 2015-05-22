@@ -1,3 +1,11 @@
+.welcome-text {
+  font-size: 72px;
+  position: relative;
+  top: $base-content-height * 10px;
+  left: ($sidebar-width / 2) * -1px;
+  text-align: center;
+}
+
 // ================
 // Logged in status
 // ================

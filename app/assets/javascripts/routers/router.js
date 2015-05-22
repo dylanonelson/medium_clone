@@ -31,7 +31,7 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   welcome : function () {
-    this.$root.html('<p>Welcome to Medium</p>');
+    this.$root.html('<p class="welcome-text">Welcome to Medium</p>');
   },
 
   feed : function () {
