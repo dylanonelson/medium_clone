@@ -1,0 +1,10 @@
+<ul class="clearfix">
+  <% if (user.isSignedIn()) { %>
+    <a class="signed-in" href="#profile">
+      <li><img class="logged-in-status-avatar" src="<%= user.get('avatar_url') %>" /></li>
+      <li class="logged-in-status-username"><%= user.escape('username') %></li>
+    </a>
+  <% } else { %>
+    <a class="signed-out" href="#session/new">Sign in</a>
+  <% } %>
+</ul>

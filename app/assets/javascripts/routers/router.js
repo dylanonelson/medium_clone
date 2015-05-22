@@ -3,6 +3,10 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   initialize : function (options) {
     this.$root = options.$root;
     this.$sidebar = options.$sidebar;
+
+    var loggedInStatus = new MediumClone.Views.LoggedInStatus();
+    options.$status.html(loggedInStatus.render().$el);
+
     MediumClone.tags.fetch();
     MediumClone.currentUser.fetch();
     this.listenTo(MediumClone.currentUser, 'signIn', this._renderSignedIn);

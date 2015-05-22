@@ -1,3 +1,35 @@
+// ================
+// Logged in status
+// ================
+
+#logged-in-status {
+  position: absolute;
+  top: 0;
+  right: 0;
+  li {
+    float: right;
+  }
+}
+
+.logged-in-status-username {
+  display: block;
+  line-height: 60 / $base-font-size;
+  text-align: right;
+  padding-right: 15px;
+}
+
+.logged-in-status-avatar {
+  width: 40px;
+  margin-top: 10px;
+  margin-right: 30px;
+  border-radius: 50%;
+}
+
+.signed-out {
+  margin-right: 30px;
+  line-height: 60 / $base-font-size;
+}
+
 // ============
 // User profile
 // ============
