@@ -27,7 +27,7 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
     });
     this.comments.fetch();
 
-    this.listenTo(this.model, 'sync', this.render)
+    this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.comments, 'sync', this.showCommentCounts);
   },
 
@@ -95,6 +95,10 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
     return this.comments.where({
       fragment_id : fragmentId,
     }).length;
+  },
+
+  expandHeader : function () {
+    this.$('.story-show-header').addClass('wide-header');
   },
 
 })

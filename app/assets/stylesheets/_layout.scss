@@ -40,9 +40,23 @@
   margin-top: 25px;
 }
 
-#app > * {
+.story-show {
   position: relative;
   left: $main-offset + 0px;
   margin: auto;
   max-width: 600px;
+  transition: left 750ms ease-in;
+}
+
+.story-show-header {
+  position: relative;
+  width: 100%;
+  left: 0px;
+  transition: all 750ms ease-in;
+}
+
+.wide-header {
+  position: relative;
+  left: -150px;
+  width: 900px;
 }
