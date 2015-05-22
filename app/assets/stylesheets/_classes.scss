@@ -309,6 +309,14 @@
 // Story form
 // ==========
 
+.new_story {
+  display: block;
+  width: $body-width;
+  margin-top: $base-content-height * 3px; 
+  margin-bottom: $base-content-height * 5px;
+  margin-left: 100px;
+}
+
 .story-banner {
   background: #000;
   margin-bottom: $base-content-height * 1px;
@@ -316,8 +324,8 @@
 
 #title_content_editor {
   width: 100%;
-  min-height: $base-content-height + 0px;
-  margin-bottom: 25px;
+  min-height: $base-content-height * 1px;
+  margin-bottom: $base-content-height * 2px;
 
   font-size: 36px;
   font-weight: 700;
