@@ -128,6 +128,7 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   newSession : function (callback) {
+    if (!this._requireSignedOut(this.profile.bind(this))) { return; }
     var sessionForm = new MediumClone.Views.SessionForm({
       callback : callback
     });
