@@ -4,7 +4,7 @@ MediumClone.Views.CommentForm = Backbone.View.extend({
 
   className : 'comment-form',
 
-  template : JST['comment_form'],
+  template : JST['comments/comment_form'],
 
   render : function () {
     var rendered = this.template();

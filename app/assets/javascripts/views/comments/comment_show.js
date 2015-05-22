@@ -4,7 +4,7 @@ MediumClone.Views.CommentShow = Backbone.View.extend({
 
   className : 'comment-view',
 
-  template : JST['comment_show'],
+  template : JST['comments/comment_show'],
 
   render : function  () {
     var rendered = this.template({

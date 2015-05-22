@@ -1,6 +1,6 @@
 MediumClone.Views.UserForm = Backbone.View.extend({
 
-  template : JST['user_form'], 
+  template : JST['users/user_form'], 
 
   className : 'user-form-frame',
 

@@ -2,7 +2,7 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
 
   className : 'story-show',
 
-  template : JST['story_show'],
+  template : JST['stories/story_show'],
 
   render : function () {
     view = this;

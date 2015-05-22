@@ -1,6 +1,6 @@
 MediumClone.Views.LoggedInStatus = Backbone.View.extend({
   
-  template : JST['logged_in_status'],
+  template : JST['users/logged_in_status'],
 
   render : function () {
     var rendered = this.template({

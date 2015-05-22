@@ -4,7 +4,7 @@ MediumClone.Views.CommentSidebar = Backbone.CompositeView.extend({
 
   className : 'comment-sidebar-frame',
 
-  template : JST['comment_sidebar'],
+  template : JST['comments/comment_sidebar'],
 
   render : function () {
     thisView = this;

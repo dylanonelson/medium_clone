@@ -1,7 +1,7 @@
 MediumClone.Views.ProfileShow = Backbone.CompositeView.extend(
   _.extend({}, MediumClone.Mixins.MediumProfileView, {
 
-    template : JST['profile_show'],
+    template : JST['users/profile_show'],
 
     render : function () {
       MediumClone.Mixins.MediumProfileView.render.bind(this)();
@@ -20,7 +20,7 @@ MediumClone.Views.ProfileShow = Backbone.CompositeView.extend(
 MediumClone.Views.CurrentUserProfileShow = Backbone.CompositeView.extend(
   _.extend({}, MediumClone.Mixins.MediumProfileView, {
 
-    template : JST['profile_show'],
+    template : JST['users/profile_show'],
 
     _firstRender : true,
 

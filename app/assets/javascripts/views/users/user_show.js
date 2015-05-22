@@ -1,6 +1,6 @@
 MediumClone.Views.UserShow = Backbone.CompositeView.extend({
 
-  template : JST['user_show'],
+  template : JST['users/user_show'],
 
   render : function () {
     var rendered = this.template({

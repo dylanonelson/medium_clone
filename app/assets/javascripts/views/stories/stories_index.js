@@ -2,7 +2,7 @@ MediumClone.Views.StoriesIndex = Backbone.CompositeView.extend({
 
   tagName : 'section',
 
-  template : JST['stories_index'],
+  template : JST['stories/stories_index'],
 
   render : function () {
     var rendered = this.template();

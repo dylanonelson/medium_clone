@@ -2,7 +2,7 @@ MediumClone.Views.TagForm = Backbone.View.extend({
 
   tagName : 'fieldset',
 
-  template : JST['tag_form'],
+  template : JST['tags/tag_form'],
 
   render : function () {
     var rendered = this.template({

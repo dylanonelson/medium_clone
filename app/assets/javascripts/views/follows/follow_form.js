@@ -1,6 +1,6 @@
 MediumClone.Views.FollowForm = Backbone.View.extend({
 
-  template : JST['follow_form'],
+  template : JST['follows/follow_form'],
 
   render : function () {
     var rendered = this.template({

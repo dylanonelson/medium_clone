@@ -4,7 +4,7 @@ MediumClone.Views.UserSidebar = Backbone.View.extend({
 
   className : 'user-sidebar',
 
-  template : JST['user_sidebar'],
+  template : JST['users/user_sidebar'],
 
   render : function () {
     var rendered = this.template({

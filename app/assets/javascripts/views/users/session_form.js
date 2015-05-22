@@ -1,6 +1,6 @@
 MediumClone.Views.SessionForm = Backbone.View.extend({
 
-  template : JST['session_form'],
+  template : JST['users/session_form'],
 
   className : 'session-form-frame',
 

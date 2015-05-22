@@ -1,6 +1,6 @@
 MediumClone.Views.StorySummary = Backbone.View.extend({
 
-  template : JST['story_show'],
+  template : JST['stories/story_show'],
 
   render : function () {
     var summaryBody = this.model.getSummary();

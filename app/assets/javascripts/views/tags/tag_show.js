@@ -1,6 +1,6 @@
 MediumClone.Views.TagShow = Backbone.CompositeView.extend({
 
-  template : JST['tag_show'],
+  template : JST['tags/tag_show'],
 
   render : function () {
     var rendered = this.template({
