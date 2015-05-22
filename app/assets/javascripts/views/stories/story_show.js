@@ -116,8 +116,4 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
     }).length;
   },
 
-  expandHeader : function () {
-    this.$('.story-show-header').addClass('wide-header');
-  },
-
 })
