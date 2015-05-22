@@ -36,16 +36,22 @@
   bottom: 0px;
   left: $sidebar-width + 0px;
   overflow: auto;
-
-  margin-top: 25px;
+  margin-top: 4px;
 }
 
 .story-show {
   position: relative;
-  left: $main-offset + 0px;
-  margin: auto;
-  max-width: 600px;
-  transition: left 750ms ease-in;
+}
+
+.story-show-full {
+  position: absolute;
+  left: 0;
+  margin-bottom: 100px;
+}
+
+.story-show-full .story-content {
+    width: 550px;
+    margin: auto;
 }
 
 .story-summary {
@@ -59,11 +65,8 @@
   position: relative;
   width: 100%;
   left: 0px;
-  transition: all 750ms ease-in;
 }
 
 .story-show-header-wide {
-  position: relative;
-  left: -150px;
-  width: 900px;
+  width: 100%;
 }

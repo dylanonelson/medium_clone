@@ -555,6 +555,7 @@ input[type="checkbox"]:checked + label {
 }
 
 .story-show-header {
+  margin-top: $base-content-height * 1.5px;  
   margin-bottom: $base-content-height * 1.5px;  
 }
 
@@ -576,9 +577,12 @@ input[type="checkbox"]:checked + label {
 }
 
 #author-details-view {
+  width: 550px;
+  margin: auto;
   border-top: 1px solid #888;
   padding-top: $base-content-height * 1px;
   padding-bottom: $base-content-height * 1px;
+  margin-top: $base-content-height * 3px;
 }
 
 .author-avatar {
@@ -604,6 +608,8 @@ input[type="checkbox"]:checked + label {
 
 #tag-index-view {
   display: block;
+  width: 550px;
+  margin: auto;
 }
 
 .story-tag-list {
