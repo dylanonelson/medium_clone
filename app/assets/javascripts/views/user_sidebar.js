@@ -19,7 +19,8 @@ MediumClone.Views.UserSidebar = Backbone.View.extend({
     this.listenTo(MediumClone.currentUser, 'sync', this.render);
     this.listenTo(MediumClone.currentUser.followedAuthors(), 'sync add remove', this.render);
     this.listenTo(MediumClone.currentUser.followedTags(), 'sync add remove', this.render);
-    this.listenTo(MediumClone.router, 'route', this.slide);
+    this.listenTo(MediumClone.currentUser, 'signIn', this.slideIn);
+    this.listenTo(MediumClone.currentUser, 'signOut', this.slideOut);
   },
 
   events : {
@@ -35,12 +36,12 @@ MediumClone.Views.UserSidebar = Backbone.View.extend({
     });
   },
 
-  slide : function (route, params) {
-    if (route === "showStory") {
-      this.$el.parent().addClass('slide-out');
-    } else {
-      this.$el.parent().removeClass('slide-out');
-    }
+  slideIn : function () {
+    this.$el.parent().removeClass('slide-out');
   },
-  
+
+  slideOut : function () {
+    this.$el.parent().addClass('slide-out');
+  },
+
 })

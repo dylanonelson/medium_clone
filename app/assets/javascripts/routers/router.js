@@ -3,9 +3,13 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   initialize : function (options) {
     this.$root = options.$root;
     this.$sidebar = options.$sidebar;
+    this.$status = options.$status
+
+    var sidebar = new MediumClone.Views.UserSidebar();
+    this.$sidebar.append(sidebar.render().$el);
 
     var loggedInStatus = new MediumClone.Views.LoggedInStatus();
-    options.$status.html(loggedInStatus.render().$el);
+    this.$status.html(loggedInStatus.render().$el);
 
     MediumClone.tags.fetch();
     MediumClone.currentUser.fetch();
@@ -178,20 +182,4 @@ MediumClone.Routers.Router = Backbone.Router.extend({
     return true;
   },
 
-  _renderSignedIn : function () {
-    if (!this._sidebar) {
-      this._sidebar = new MediumClone.Views.UserSidebar({
-        model : MediumClone.currentUser,
-      });
-      this.$sidebar.append(this._sidebar.render().$el).removeClass('hidden');
-    }
-  },
-
-  _renderSignedOut : function () {
-    if (this._sidebar) {
-      this._sidebar.remove();
-      delete this._sidebar;
-      this.$sidebar.addClass('hidden');
-    }
-  },
 })
