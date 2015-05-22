@@ -566,6 +566,21 @@ input[type="checkbox"]:checked + label {
   margin-bottom: $base-content-height * .75px;
 }
 
+.story-show-head-wide {
+  text-align: center;
+  margin-left: 0;
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: $base-content-height * 1px;
+  margin-bottom: $base-content-height * 3px;
+}
+
+#author-details-view {
+  border-top: 1px solid #888;
+  padding-top: $base-content-height * 1px;
+  padding-bottom: $base-content-height * 1px;
+}
+
 .author-avatar {
   float: left;
   width: 35px;
@@ -576,10 +591,19 @@ input[type="checkbox"]:checked + label {
   display: block;
   float: left;
   margin-left: 10px;
+  margin-right: 15px;
   margin-bottom: $base-content-height * 1px;
   line-height: (35 / 14);
   font-size: 14px;
-  font-style: italic;
+  font-weight: 700;
+}
+
+#author-follow-form * {
+  margin: 0;
+}
+
+#tag-index-view {
+  display: block;
 }
 
 .story-tag-list {
@@ -588,7 +612,17 @@ input[type="checkbox"]:checked + label {
   font-size: 14px;
 }
 
-.story-tag-list li {
+#tag-index-view {
+  clear: both;
+  display: block;
+}
+
+.story-tag-list-wide-head, .author-details-view-head {
+  padding: 5px 0 5px 0;
+  letter-spacing: 1px;
+}
+
+.story-tag-list li, .story-tag-list-wide li {
   float: left;
 
   a {
@@ -604,12 +638,28 @@ input[type="checkbox"]:checked + label {
 
 }
 
+.story-tag-list-wide {
+  float: left;
+  line-height: (35 / 14);
+  font-size: 14px;
+}
+
+.edit-link {
+  display: block;
+  width: 50%;
+  float: right;
+  text-align: right;
+
+  line-height: $base-line-height * 3;
+}
+
 .story-content {
   position: relative;
+  line-height: $base-line-height;
+  margin-bottom: $base-content-height * 1px;
 }
 
 .story-content:hover {
-  color: $selected-text;
 }
 
 .teaser {

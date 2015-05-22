@@ -1,12 +1,24 @@
-<article class="story-show">
-  <header class="story-show-header">
+<article class="story-show-full">
+  <header class="story-show-header-wide clearfix">
+    <img class="story-banner" src="<%= story.get('banner_url') && story.get('banner_url').original %>"/>
+    <h3 class="story-show-head-wide">
+      <%= story.get('title') %>
+    </h3>
+  </header>
+  <%= body %>
+  <div id="author-details-view">
+    <h4 class="author-details-view-head">Written by</h4>
     <img class='author-avatar' src="<%= story.get('author_avatar_url') %>">
-    <h4 class='author-name'>
+    <h3 class='author-name'>
       <a href="#users/<%= story.get('author_id') %>">
         <%= story.get('author_username') %>
       </a>
     </h4>
-    <ul class="story-tag-list">
+    <div id="author-follow-form"></div>
+  </div>
+  <div id="tag-index-view">
+    <h4 class="story-tag-list-wide-head">Tagged in</h4>
+    <ul class="story-tag-list-wide clearfix">
       <% story.get('tags') && story.get('tags').forEach(function(tag) { %>
         <li>
           <a class="story-tag-link" href="#tags/<%= tag.id %>">
@@ -15,20 +27,5 @@
         </li>
       <% }) %>
     </ul>
-    <% if (story.get('banner_url')) { %>
-      <img class="story-banner" src="<%= story.get('banner_url').summary %>"/>
-    <% } %>
-    <a 
-      class="story-view" 
-      href="#stories/<%= story.id %>">
-      <h3 class="story-show-head">
-        <%= story.get('title') %>
-      </h3>
-    </a>
-    <% if (story.get('author_id') === MediumClone.currentUser.id) { %>
-      <a href="#stories/<%= story.id %>/edit" class="edit-link">Edit</a>
-    <% } %>
-  </header>
-  <%= body %>
-  <div id="tag-index-view"></div>
+  </div>
 </article>

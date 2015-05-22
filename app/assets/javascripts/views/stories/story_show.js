@@ -14,8 +14,27 @@ MediumClone.Views.StoryShow = Backbone.CompositeView.extend({
       body : storyBodyHTML,
     })
 
+
+    var author = new MediumClone.Models.User({
+      id : this.model.get('author_id'),
+    });
+
+    var authorFollowForm = new MediumClone.Views.FollowForm({
+      model : author,
+    });
+
     this.$el.html(rendered);
     this.showCommentCounts();
+
+    var thisView = this;
+
+    if (!author.isNew()) {
+      author.fetch({
+        success : function () {
+          thisView.addSubview('#author-follow-form', authorFollowForm);
+        }
+      });
+    }
 
     var thisView = this;
     return this;

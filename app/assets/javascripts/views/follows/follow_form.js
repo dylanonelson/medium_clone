@@ -11,6 +11,10 @@ MediumClone.Views.FollowForm = Backbone.View.extend({
     return this;
   },
 
+  initialize : function () {
+    this.listenTo(this.model, 'sync', this.render);
+  },
+
   events : {
     'click .follow-user-button' : 'toggleFollowUser',
   },
