@@ -39,8 +39,9 @@ MediumClone.Views.TagForm = Backbone.View.extend({
     });
   },
 
-  refreshTags : function (tagData) {
+  refreshTags : function (storyData) {
     var thisView = this;
+    var tagData = storyData.get('tags');
     tagData.forEach(function (tag) {
       thisView.$('#tag-checkbox-' + tag.id).attr('checked', true);
     });

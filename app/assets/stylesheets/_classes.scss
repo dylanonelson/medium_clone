@@ -374,7 +374,7 @@
 #story-status {
   li {
     display: block;
-    line-height: $base-line-height;
+    margin-bottom: $base-content-height * 1px;
   }
   .published {
     width: 75px;
@@ -388,8 +388,22 @@
     font-size: 16px;
   }
   #last-edited-at-date {
+    line-height: $base-content-height / 12;
     font-size: 12px;
   }
+}
+
+.banner-preview {
+  width: 100%;
+  height: $base-content-height * 3px;
+  clear: both;
+}
+
+.missing-banner-text {
+  font-size: 14px;
+  font-style: italic;
+  line-height: $base-content-height * 3 / 14;
+  text-align: center;
 }
 
 // ==================
@@ -398,7 +412,7 @@
 
 #story-options {
   position: absolute;
-  top: $base-content-height * 3px + ($base-line-height * 12);
+  top: $base-content-height * 7px + ($base-line-height * 12);
   right: 100px;
   width: 250px;
   height: auto;

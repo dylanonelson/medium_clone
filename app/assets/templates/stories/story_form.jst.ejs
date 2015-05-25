@@ -7,18 +7,11 @@
 <div id="body_content_editor" class="editable" placeholder="Write your story."><%= story.escape('body') %></div>
 
 <section id="story-status">
-  <ul class="clearfix">
-    <li id="published" class="published">
-    </li>
-    <li class="last-edited-at hidden">
-        Last edited<br/>
-        <span id="last-edited-at-date"><%= story.get('last-edited-at') %></span>
-    </li>
-  </ul>  
+  
 </section>
 
 <section id="story-options">
-  <a id="upload-banner">Add a banner</a>
+  <a id="upload-banner">Upload banner image</a>
   <input type="file" id="upload-banner-input"></input>
   <a id="save-as-draft">Save as draft</a>
   <a id="publish-story">Publish</a>

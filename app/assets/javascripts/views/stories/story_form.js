@@ -25,7 +25,10 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
 
     this.addSubview('#tag-form-view', tagFormView);
 
-    this.$('#published').text('Unsaved draft');
+    var storyStatusView = new MediumClone.Views.StoryStatus({
+      model : this.model,
+    });
+    this.addSubview('#story-status', storyStatusView);
 
     return this;
   },
@@ -64,10 +67,12 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
     $body = $('body')
     $body.addClass('loading');
     thisModel.save({}, {
-      success : function (story) {
+      success : function (storyData) {
         $body.removeClass('loading');
+        thisModel.set(storyData)
         MediumClone.stories.add(thisModel);
-        completionCallback && completionCallback(story);
+        Backbone.history.navigate('#stories/' + storyData.id + '/edit');
+        completionCallback && completionCallback(storyData);
       },
     });
   },
@@ -82,10 +87,7 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
     this.render();
     this.$('#body_content_editor').html(storyData.get('body')).append($('<p>&#160;</p>'));
     this.$('#title_content_editor').html(storyData.get('title'));
-    this.$('.last-edited-at').removeClass('hidden');
-    this.$('#last-edited-at-date').text(storyData.get('last_edited_at'));
-    storyData.get('published') ? this.$('#published').text('Published') : this.$('#published').text('Draft');
-    this.subviews('#tag-form-view').first().refreshTags(storyData.get('tags'));
+    this.subviews('#tag-form-view').first().refreshTags(storyData);
   },
 
   uploadBanner : function (event) {
@@ -105,6 +107,7 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
     reader.onloadend = function () {
       $body.removeClass('loading');
       thisView.model._banner = reader.result;
+      thisView.saveStory();
     };
 
     if (file) {

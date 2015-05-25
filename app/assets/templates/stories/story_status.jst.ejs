@@ -1,0 +1,20 @@
+<ul class="clearfix">
+  <li id="published" class="published">
+    <% if (story.get('published') === true) { %> 
+      Published 
+    <% } else if (story.get('published') === false) { %> 
+      Draft 
+    <% } else { %> 
+      Unsaved draft 
+    <% } %>
+  </li>
+  <li class="last-edited-at">
+    <% if (story.get('last_edited_at')) { %>
+      Last edited<br/>
+      <span id="last-edited-at-date"><%= story.get('last_edited_at') %></span>
+    <% } %>
+  </li>
+  <li class="banner-preview">
+    
+  </li>
+</ul>
