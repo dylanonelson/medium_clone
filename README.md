@@ -20,9 +20,9 @@ A clone of Medium built on Rails and Backbone. Users can:
 - [x] Apply formatting to their posts
 - [x] Upload a banner image for their stories
 - [x] Upload an avatar
-- [ ] Save drafts of stories and edit them later
-- [ ] Browse popular authors and tags
-- [ ] Search for users, tags, and posts
+- [x] View posts and users without signing in
+- [x] Save drafts of stories and edit them later
+- [x] Browse popular authors and stories
 
 ## Design Docs
 * [View Wireframes][views]
@@ -78,13 +78,12 @@ genuine apostrophes for user generated text.
 ###Phase 6: Featured stories (~2 days)
 I will implement authentication in Backbone so that users new to the site can still
 read stories. I will build a home page for the site that will feature new or popular
-stories so that users can find new authors and tags to follow. In this phase I would
-also like to provide stable URLs for stories, whether or not you are signed in.
+stories so that users can find new authors and tags to follow. I will also tweak my
+stylesheets so that the site layout adjusts to accommodate the sidebar upon login.
 
 ### Bonus Features (TBD)
 - [ ] Search for users and tags
 - [ ] Mobile responsive stylesheet
-- [ ] View posts and users without signing in
 - [ ] Bookmark posts to read later
 - [ ] Automatically post stories to Twitter
 - [ ] Recommend posts
