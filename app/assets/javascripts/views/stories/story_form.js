@@ -66,10 +66,10 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
 
     $body = $('body')
     $body.addClass('loading');
+
     thisModel.save({}, {
       success : function (storyData) {
         $body.removeClass('loading');
-        thisModel.set(storyData)
         MediumClone.stories.add(thisModel);
         Backbone.history.navigate('#stories/' + storyData.id + '/edit');
         completionCallback && completionCallback(storyData);
