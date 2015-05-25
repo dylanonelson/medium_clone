@@ -37,10 +37,12 @@ MediumClone.Views.UserSidebar = Backbone.View.extend({
 
   slideIn : function () {
     this.$el.parent().removeClass('slide-out');
+    $('#app').removeClass('sidebar-offset');
   },
 
   slideOut : function () {
     this.$el.parent().addClass('slide-out');
+    $('#app').addClass('sidebar-offset');
   },
 
 })

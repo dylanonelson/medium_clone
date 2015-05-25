@@ -263,8 +263,6 @@
 // =====================
 
 .new-user, .new-session {
-  position: relative;
-  left: -75px;
   width: 300px;
   margin: auto;
   margin-bottom: 25px;
@@ -276,10 +274,9 @@
 }
 
 .new-user-head, .new-session-head {
-  position: relative;
-  left: -75px;
   font-size: 30px;
   text-align: center;
+  margin-top: $base-content-height * 3px;
   margin-bottom: $base-content-height * 1.5px;
 }
 
@@ -306,8 +303,6 @@
 }
 
 .new-user-link, .new-session-link {
-  position: relative;
-  left: -75px;
   display: block;
   text-align: center;
 }

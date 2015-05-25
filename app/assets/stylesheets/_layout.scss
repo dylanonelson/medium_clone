@@ -1,3 +1,12 @@
+.sidebar-offset {
+  position: relative;
+  left: $sidebar-width / 2 * -1px;
+}
+
+#app.sidebar-offset {
+  left: 0;
+}
+
 #header {
   box-sizing: content-box;
   display: block;
