@@ -88,7 +88,14 @@ MediumClone.Routers.Router = Backbone.Router.extend({
       id : id,
     });
 
-    forEditing.fetch();
+    forEditing.fetch({
+      success : function (storyData) {
+        if (MediumClone.currentUser.id !== storyData.get('author_id')) {
+          Backbone.history.navigate('#stories/' + id, { trigger : true });
+          return;
+        }
+      }
+    });
 
     var editStoryView = new MediumClone.Views.StoryForm({
       model : forEditing,
