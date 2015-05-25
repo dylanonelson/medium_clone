@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
 
+    get 'trends/stories', to: 'trends#stories'
+
+    get 'trends/authors', to: 'trends#authors'
+
     resource :session, only: [:create, :destroy]
 
     get 'profile', to: 'users#profile'
