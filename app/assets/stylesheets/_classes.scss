@@ -1,9 +1,12 @@
-.welcome-text {
-  font-size: 72px;
-  position: relative;
-  top: $base-content-height * 10px;
-  left: ($sidebar-width / 2) * -1px;
+.comment-stories-head, .author-stories-head {
+  padding-bottom: $base-content-height * 1px;
+  margin-top: $base-content-height * 6px;
+  margin-right: 400px;
+  margin-bottom: $base-content-height * 3px;
+  margin-left: 400px;
+  font-size: 45px;
   text-align: center;
+  border-bottom: 1px solid #888;
 }
 
 // ================

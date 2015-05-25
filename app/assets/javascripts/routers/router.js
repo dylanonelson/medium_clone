@@ -13,8 +13,6 @@ MediumClone.Routers.Router = Backbone.Router.extend({
 
     MediumClone.tags.fetch();
     MediumClone.currentUser.fetch();
-    this.listenTo(MediumClone.currentUser, 'signIn', this._renderSignedIn);
-    this.listenTo(MediumClone.currentUser, 'signOut', this._renderSignedOut);
   },
 
   routes : {
@@ -31,7 +29,20 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   },
 
   welcome : function () {
-    this.$root.html('<p class="welcome-text">Welcome to Medium</p>');
+    var mostCommentedStories = new MediumClone.Collections.Stories([], {
+      url : 'api/trends/stories',
+    });
+
+    var fromPopularAuthors = new MediumClone.Collections.Stories([], {
+      url : 'api/trends/authors',
+    });
+
+    var trendingStoriesView = new MediumClone.Views.TrendingStoriesIndex({
+      commentStories : mostCommentedStories,
+      authorStories : fromPopularAuthors,
+    });
+
+    this._swapView(trendingStoriesView);
   },
 
   feed : function () {
