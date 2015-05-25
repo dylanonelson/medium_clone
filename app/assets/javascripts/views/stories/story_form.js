@@ -61,8 +61,11 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
     var thisModel = this.model;
     thisModel.set(this.$el.serializeJSON().story);
 
+    $body = $('body')
+    $body.addClass('loading');
     thisModel.save({}, {
       success : function (story) {
+        $body.removeClass('loading');
         MediumClone.stories.add(thisModel);
         completionCallback && completionCallback(story);
       },
@@ -93,10 +96,14 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
   bannerUploadChange : function (event) {
     var reader = new FileReader();
     var file = event.currentTarget.files[0];
+    $body = $('body');
 
     var thisView = this;
 
+    $body.addClass('loading');
+
     reader.onloadend = function () {
+      $body.removeClass('loading');
       thisView.model._banner = reader.result;
     };
 
