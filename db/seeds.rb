@@ -1,64 +1,75 @@
+seeds_dir = "#{Rails.root}/app/assets/seeds"
+
 c = User.create(
   username: "chesterton",
   password: "gkchesterton",
   email: "chesterton@gutenberg.com",
-  avatar: File.open("#{Rails.root}/app/assets/seeds/avatars/chesterton.png")
+  avatar: File.open("#{seeds_dir}/avatars/chesterton.png")
 )
 
 e = User.create(
   username: "emerson",
   password: "rwemerson",
   email: "emerson@gutenberg.com",
-  avatar: File.open("#{Rails.root}/app/assets/seeds/avatars/emerson.jpg")
+  avatar: File.open("#{seeds_dir}/avatars/emerson.jpg")
 )
 
 s = User.create(
   username: "seneca",
   password: "lcseneca",
   email: "seneca@gutenberg.com",
-  avatar: File.open("#{Rails.root}/app/assets/seeds/avatars/seneca.jpg")
+  avatar: File.open("#{seeds_dir}/avatars/seneca.jpg")
 )
 
 t = User.create(
   username: "twain",
   password: "mtwain",
   email: "twain@gutenberg.com",
-  avatar: File.open("#{Rails.root}/app/assets/seeds/avatars/twain.jpg")
+  avatar: File.open("#{seeds_dir}/avatars/twain.jpg")
+)
+
+mdm = User.create(
+  username: "montaigne",
+  password: "mdmontaigne",
+  email: "montaigne@gutenberg.com",
+  avatar: File.open("#{seeds_dir}/avatars/montaigne.jpg")
 )
 
 c.stories.create!(
   title: "A Piece of Chalk",
-  body: File.read("#{Rails.root}/app/assets/seeds/stories/chesterton/a_piece_of_chalk.txt"),
+  body: File.read("#{seeds_dir}/stories/chesterton/a_piece_of_chalk.txt"),
   last_edited_at: DateTime.now,
   published_at: DateTime.now,
   published: true,
-  banner: File.open("#{Rails.root}/app/assets/seeds/banners/chesterton/a_piece_of_chalk.jpg")
+  banner: File.open("#{seeds_dir}/banners/chesterton/a_piece_of_chalk.jpg")
 )
 c.stories.create!(
   title: "On Lying in Bed",
-  body: File.read("#{Rails.root}/app/assets/seeds/stories/chesterton/on_lying_in_bed.txt"),
+  body: File.read("#{seeds_dir}/stories/chesterton/on_lying_in_bed.txt"),
   last_edited_at: DateTime.now,
   published_at: DateTime.now,
-  published: true
+  published: true,
+  banner: File.open("#{seeds_dir}/banners/chesterton/on_lying_in_bed.jpg")
 )
 
 e.stories.create!(
   title: "Experience",
-  body: File.read("#{Rails.root}/app/assets/seeds/stories/emerson/experience.txt"),
+  body: File.read("#{seeds_dir}/stories/emerson/experience.txt"),
   last_edited_at: DateTime.now,
   published_at: DateTime.now,
   published: true
 )
 e.stories.create!(
-  title: "Ilusions",
-  body: File.read("#{Rails.root}/app/assets/seeds/stories/emerson/illusions.txt"),
+  title: "Illusions",
+  body: File.read("#{seeds_dir}/stories/emerson/illusions.txt"),
   last_edited_at: DateTime.now,
   published_at: DateTime.now,
-  published: true
+  published: true,
+  banner: File.open("#{seeds_dir}/banners/emerson/illusions.jpg")
 )
 e.stories.create!(
   title: "Montaigne; Or the Skeptic",
-  body: File.read("#{Rails.root}/app/assets/seeds/stories/emerson/montaigne_or_the_skeptic.txt"),
+  body: File.read("#{seeds_dir}/stories/emerson/montaigne_or_the_skeptic.txt"),
   last_edited_at: DateTime.now,
   published_at: DateTime.now,
   published: true
@@ -66,14 +77,14 @@ e.stories.create!(
 
 s.stories.create!(
   title: "On the Diseases of the Soul",
-  body: File.read("#{Rails.root}/app/assets/seeds/stories/seneca/on_the_diseases_of_the_soul.txt"),
+  body: File.read("#{seeds_dir}/stories/seneca/on_the_diseases_of_the_soul.txt"),
   last_edited_at: DateTime.now,
   published_at: DateTime.now,
   published: true
 )
 s.stories.create!(
   title: "Some Arguments in Favor of the Simple Life",
-  body: File.read("#{Rails.root}/app/assets/seeds/stories/seneca/some_arguments_in_favor_of_the_simple_life.txt"),
+  body: File.read("#{seeds_dir}/stories/seneca/some_arguments_in_favor_of_the_simple_life.txt"),
   last_edited_at: DateTime.now,
   published_at: DateTime.now,
   published: true
@@ -81,14 +92,30 @@ s.stories.create!(
 
 t.stories.create!(
   title: "Hygiene and Sentiment",
-  body: File.read("#{Rails.root}/app/assets/seeds/stories/twain/hygiene_and_sentiment.txt")  ,
+  body: File.read("#{seeds_dir}/stories/twain/hygiene_and_sentiment.txt")  ,
+  last_edited_at: DateTime.now,
+  published_at: DateTime.now,
+  published: true,
+  banner: File.open("#{seeds_dir}/banners/twain/hygiene_and_sentiment.jpg")
+)
+t.stories.create!(
+  title: "The Art of Inhumation",
+  body: File.read("#{seeds_dir}/stories/twain/the_art_of_inhumation.txt")  ,
   last_edited_at: DateTime.now,
   published_at: DateTime.now,
   published: true
 )
-t.stories.create!(
-  title: "The Art of Inhumation",
-  body: File.read("#{Rails.root}/app/assets/seeds/stories/twain/the_art_of_inhumation.txt")  ,
+
+mdm.stories.create!(
+  title: "Of Cannibals",
+  body: File.read("#{seeds_dir}/stories/montaigne/of_cannibals.txt")  ,
+  last_edited_at: DateTime.now,
+  published_at: DateTime.now,
+  published: true
+)
+mdm.stories.create!(
+  title: "Of Sleep",
+  body: File.read("#{seeds_dir}/stories/montaigne/of_sleep.txt")  ,
   last_edited_at: DateTime.now,
   published_at: DateTime.now,
   published: true
