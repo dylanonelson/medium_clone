@@ -46,6 +46,7 @@
 // ============
 
 .current-user-info {
+  margin-top: $base-content-height * 3px;
   position: relative;
 }
 
@@ -133,7 +134,7 @@
   display: block;
   float: left;
   width: 300px;
-  margin-top: $base-content-height * 2px;
+  margin-top: $base-content-height * 3px;
   margin-right: 25px;
   margin-bottom: $base-content-height * .5px;
   margin-left: 25px;
@@ -616,9 +617,9 @@ input[type="checkbox"]:checked + label {
   font-size: 36px;
   font-weight: 700;
   padding: 15px 0 15px 0;
-  margin-top: $base-content-height * 1px;
+  margin-top: $base-content-height * 4px;
   margin-right: auto;
-  margin-bottom: $base-content-height * 3px;
+  margin-bottom: $base-content-height * 2px;
   margin-left: auto;
   border-top: 1px solid #888;
   border-bottom: 1px solid #888;
