@@ -15,7 +15,9 @@
         </li>
       <% }) %>
     </ul>
-    <img class="story-banner" src="<%= story.get('banner_url') && story.get('banner_url').summary %>"/>
+    <% if (story.get('banner_url')) { %>
+      <img class="story-banner" src="<%= story.get('banner_url') && story.get('banner_url').summary %>"/>
+    <% } %>
     <a 
       class="story-view" 
       href="#stories/<%= story.id %>">

@@ -1,11 +1,18 @@
 .comment-stories-head, .author-stories-head {
+  width: $body-width;
+  padding-top: $base-content-height * 1px;
   padding-bottom: $base-content-height * 1px;
-  margin-top: $base-content-height * 6px;
-  margin-right: 400px;
-  margin-bottom: $base-content-height * 3px;
-  margin-left: 400px;
-  font-size: 45px;
-  text-align: center;
+  margin-top: $base-content-height * 4px;
+  margin-right: auto;
+  margin-bottom: $base-content-height * 2px;
+  margin-left: auto;
+
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   border-bottom: 1px solid #888;
 }
 
@@ -17,6 +24,7 @@
   position: absolute;
   top: 0;
   right: 0;
+  font-family: 'Merriweather Sans', sans-serif;
   li {
     float: right;
   }
@@ -196,6 +204,8 @@
 
   border-bottom: 1px solid #888;
 
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 300;
   line-height: 1.75;
 }
 
@@ -376,6 +386,9 @@
   right: 100px;
   padding-right: 5px;
   padding-left: 5px;
+
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 300;
 }
 
 #story-status {
@@ -424,6 +437,9 @@
   width: 250px;
   height: auto;
   padding: 20px 0 25px 0;
+
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 300;
   line-height: 1.75;
   border-top: 1px solid #888;
 }
@@ -605,6 +621,7 @@ input[type="checkbox"]:checked + label {
 .story-show-head {
   display: block;
   clear: both;
+  font-family: 'Merriweather Sans', sans-serif;
   font-size: 24px;
   font-weight: 700;
   margin-bottom: $base-content-height * .75px;
@@ -626,7 +643,7 @@ input[type="checkbox"]:checked + label {
 }
 
 #author-details-view {
-  width: 550px;
+  width: 600px;
   margin: auto;
   border-top: 1px solid #888;
   padding-top: $base-content-height * 1px;
@@ -646,9 +663,11 @@ input[type="checkbox"]:checked + label {
   margin-left: 10px;
   margin-right: 15px;
   margin-bottom: $base-content-height * 1px;
+
+  font-family: 'Merriweather Sans', sans-serif;
   line-height: (35 / 14);
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 #author-follow-form * {
@@ -657,7 +676,7 @@ input[type="checkbox"]:checked + label {
 
 #tag-index-view {
   display: block;
-  width: 550px;
+  width: 600px;
   margin: auto;
 }
 
@@ -673,7 +692,10 @@ input[type="checkbox"]:checked + label {
 }
 
 .story-tag-list-wide-head, .author-details-view-head {
-  padding: 5px 0 5px 0;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 300;
+
+  padding: 5px 0 10px 0;
   letter-spacing: 1px;
 }
 
@@ -708,10 +730,9 @@ input[type="checkbox"]:checked + label {
   line-height: $base-line-height * 3;
 }
 
-.story-content {
-  position: relative;
-  line-height: $base-line-height;
-  margin-bottom: $base-content-height * 1px;
+blockquote.story-content {
+  padding-left: 25px;
+  font-size: 14px;
 }
 
 .story-content:hover .comment-count {
@@ -737,6 +758,7 @@ input[type="checkbox"]:checked + label {
   width: 50%;
   float: left;
 
+  font-family: 'Merriweather Sans', sans-serif;
   line-height: $base-line-height * 3;
 }
 
@@ -768,6 +790,7 @@ input[type="checkbox"]:checked + label {
 
 .comment-sidebar {
   position: absolute;
+  width: 200px;
   left: 85%;
 
   border: 1px solid #888;
@@ -795,12 +818,23 @@ input[type="checkbox"]:checked + label {
 // Comment form
 // ============
 
-.comment-form {
+.comment-form label {
+  padding: 5px;
+
+  font-family: 'Merriweather Sans', sans-serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 12px;
 }
 
 .comment-form > textarea {
-  width: 100px;
+  width: 100%;
   height: 150px;
+  padding: 5px;
+
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
 }
 
 .comment-form > button {

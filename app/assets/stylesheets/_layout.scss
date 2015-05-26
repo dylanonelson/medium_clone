@@ -58,9 +58,10 @@
 }
 
 .story-show-full .story-content {
-    width: 550px;
-    margin: auto;
-    margin-bottom: $base-content-height * 1.5px;
+  position: relative;
+  width: 600px;
+  margin: auto;
+  margin-bottom: $base-content-height * 1.1px;
 }
 
 .story-show-header {
