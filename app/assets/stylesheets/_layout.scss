@@ -60,8 +60,17 @@
 .story-show-full .story-content {
   position: relative;
   width: 600px;
+  padding: 0 5px 0 5px;
   margin: auto;
   margin-bottom: $base-content-height * 1.1px;
+  cursor: pointer;
+}
+
+.story-show-full .story-content:hover, .story-show-full .selected-for-comment {
+  position: relative;
+  left: -1px;
+  border-left: 2px solid $selected-text;
+  width: 602px;
 }
 
 .story-show-header {
