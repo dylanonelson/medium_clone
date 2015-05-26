@@ -27,16 +27,19 @@ MediumClone.Views.CommentForm = Backbone.View.extend({
 
     var thisView = this;
 
-    if (!MediumClone.router._requireSignedIn(this.submitComment.bind(this))) { return; }
-
-    thisView.model.set('body', thisView.$el.serializeJSON().body);
-      thisView.model.save({}, {
-        success : function () {
-          thisView.collection.add(thisView.model);
-        }
-      });
+    if (!MediumClone.router._requireSignedIn(function() {
+      thisView.submitComment();
       MediumClone.router.showStory(thisView.model.get('story_id'));
       Backbone.history.navigate('stories/' + thisView.model.get('story_id'));
+    })) { return; }
+
+    thisView.model.set('body', thisView.$el.serializeJSON().body);
+
+    thisView.model.save({}, {
+      success : function () {
+        thisView.collection.add(thisView.model);
+      }
+    });
   },
 
 })
