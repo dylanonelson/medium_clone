@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
 
+    get 'search', to: 'trends#search'
+
     get 'trends/stories', to: 'trends#stories'
 
     get 'trends/authors', to: 'trends#authors'

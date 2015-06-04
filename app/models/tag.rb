@@ -1,5 +1,9 @@
 class Tag < ActiveRecord::Base
 
+  include PgSearch
+
+  multisearchable against: [:label]
+
   validates :label, uniqueness: true, presence: true
 
   before_save :ensure_lower_case

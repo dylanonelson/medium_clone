@@ -1,5 +1,9 @@
 class Story < ActiveRecord::Base
 
+  include PgSearch
+
+  multisearchable against: [:title, :body]
+
   validates :title, presence: true
   validates :body, presence: true
   validates_inclusion_of :published, in: [true, false]

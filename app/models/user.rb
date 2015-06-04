@@ -2,6 +2,10 @@ class User < ActiveRecord::Base
 
   EMAIL_REGEX = /\A([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})\z/i
 
+  include PgSearch
+
+  multisearchable against: [:username]
+
   attr_reader :password
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
