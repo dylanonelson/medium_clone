@@ -11,16 +11,22 @@ class Api::TrendsController < ApplicationController
   end
 
   def search
-    @search_results = PgSearch.multisearch(params[:query]).includes(:searchable)
-    @stories = @search_results.where(searchable_type: 'Story').find_each.map do |story|
-      story.searchable
+    @search_results = PgSearch.multisearch(params[:query])
+    
+    story_ids = @search_results.where(searchable_type: 'Story').find_each.map do |story|
+      story.searchable_id
     end
-    @users = @search_results.where(searchable_type: 'User').find_each.map do |user|
-      user.searchable
+    @stories = Story.where(id: story_ids)
+
+    user_ids = @search_results.where(searchable_type: 'User').find_each.map do |user|
+      user.searchable_id
     end
-    @tags = @search_results.where(searchable_type: 'Tag').find_each.map do |tag|
-      tag.searchable
+    @users = User.where(id: user_ids)
+
+    tag_ids = @search_results.where(searchable_type: 'Tag').find_each.map do |tag|
+      tag.searchable_id
     end
+    @tags = Tag.where(id: tag_ids)
   end
 
 end
