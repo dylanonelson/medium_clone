@@ -95,6 +95,10 @@ class User < ActiveRecord::Base
     self.stories.where(published: false)
   end
 
+  def num_stories
+    self.stories.count
+  end
+
   def feed
     followed_tag_story_ids = <<-SQL
       SELECT
