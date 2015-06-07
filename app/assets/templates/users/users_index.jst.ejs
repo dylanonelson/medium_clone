@@ -1,0 +1,10 @@
+<% users.each(function (user) { %>
+  <a href="#users/<%= user.id %>">
+    <img class="author-avatar" src="<%= user.get('avatar_url') %>" alt="">
+    <h3 class="author-username"><%= user.get('username') %></h3>
+  </a>
+  <ul class="author-stats clearfix">
+    <li><em>followers</em><br> <strong><%= user.get('followers_count') %></strong></li>
+    <li><em>stories</em><br> <strong><%= user.get('stories_count') %></strong></li>
+  </ul>
+<% }) %>

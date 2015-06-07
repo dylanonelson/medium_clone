@@ -1,0 +1,13 @@
+<% tags.each(function (tag) { %>
+  <a href="#tags/<%= tag.id %>">
+    <h3 class="tag-index-label"><%= tag.get('label') %></h3>
+  </a>
+  <ul class="tag-stats clearfix">
+    <li>
+      <em>followers</em><br> <strong><%= tag.get('followers_count') %></strong>
+    </li>
+    <li>
+      <em>stories</em><br> <strong><%= tag.get('stories_count') %></strong>
+    </li>
+  </ul>
+<% }) %>

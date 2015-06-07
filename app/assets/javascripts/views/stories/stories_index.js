@@ -26,7 +26,7 @@ MediumClone.Views.StoriesIndex = Backbone.CompositeView.extend({
       })
     } else {
       var $emptySummary = $('<p>');
-      $emptySummary.addClass('empty-story-index');
+      $emptySummary.addClass('empty-index');
       $emptySummary.text('There are no stories to display.');
       this.$('#stories-index').append($emptySummary);
     }

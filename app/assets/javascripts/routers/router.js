@@ -3,10 +3,14 @@ MediumClone.Routers.Router = Backbone.Router.extend({
   initialize : function (options) {
     this.$root = options.$root;
     this.$sidebar = options.$sidebar;
-    this.$status = options.$status
+    this.$status = options.$status;
+    this.$search = options.$search;
 
     var sidebar = new MediumClone.Views.UserSidebar();
     this.$sidebar.append(sidebar.render().$el);
+
+    this._search = new MediumClone.Views.Search();
+    this.$search.append(this._search.render().$el);
 
     var loggedInStatus = new MediumClone.Views.LoggedInStatus();
     this.$status.html(loggedInStatus.render().$el);
@@ -25,7 +29,8 @@ MediumClone.Routers.Router = Backbone.Router.extend({
     'users/new' : 'newUser',
     'users/:id' : 'showUser',
     'tags/:id' : 'showTag',
-    'session/new' : 'newSession', 
+    'session/new' : 'newSession',
+    'search?query=:query' : 'search',
   },
 
   welcome : function () {
@@ -173,6 +178,19 @@ MediumClone.Routers.Router = Backbone.Router.extend({
       callback : callback
     });
     this._swapView(sessionForm);
+  },
+
+  search : function (query) {
+    this._search.search(query);
+  },
+
+  searchResults : function (results) {
+    var searchResultsView = new MediumClone.Views.SearchResults({
+      results : results,
+    })
+    this._currentView && this._currentView.remove();
+    this._currentView = searchResultsView;
+    this.$root.html(searchResultsView.$el);
   },
 
   _swapView : function (view) {

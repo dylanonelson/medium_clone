@@ -24,6 +24,7 @@ window.MediumClone = {
       $root : $('#app'),
       $sidebar : $('#sidebar'),
       $status : $('#logged-in-status'),
+      $search : $('#search'),
     });
     
     Backbone.history.start();

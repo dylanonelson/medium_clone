@@ -6,11 +6,97 @@
   font-weight: 700;
 }
 
+// ======
+// Search
+// ======
+#search {
+  float: left;
+  width: 100px;
+  height: 60px;
+
+  margin-left: 25px;
+}
+
+.search-form {
+  position: relative;
+  height: 25px;
+  width: 175px;
+  left: 20px;
+  margin-top: 17px;
+  margin-bottom: 16px;
+
+  background: #eee;
+  border: 1px solid #888;
+  border-radius: 2px;
+}
+
+.search-input-label {
+  float: left;
+  height: 15px;
+  width: 15px;
+  margin: 5px 0px;
+  margin-left: 5px;
+  background-size: contain;
+  background-image: image-url('search.png');
+  background-repeat: no-repeat;
+}
+
+.search-input {
+  float: left;
+  height: 25px;
+  width: 140px;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+// ==============
+// Search results
+// ==============
+
+.search-results-frame {
+  margin-bottom: 250px;
+}
+
+.author-username {
+  float: left;
+  padding-left: 15px;
+  line-height: (35 / 16);
+}
+
+.author-stats, .tag-stats {
+  float: right;
+  font-size: 14px;
+  line-height: (35 / 28);
+  text-align: center;
+
+  li {
+    margin-left: 15px;
+    float: left;
+  }
+
+}
+
+.body-column {
+  width: 600px;
+  margin: auto;
+}
+
+.tag-index-label {
+  display: inline-block;
+  padding: 5px;
+  border: 1px solid #888;
+  border-radius: 2px;
+}
+
+.tag-index-label:hover {
+  background: #ccc;
+}
+
 // =========
 // Home page
 // =========
 
-.comment-stories-head, .author-stories-head {
+.centered-section-head {
   width: $body-width;
   padding-top: $base-content-height * 1px;
   padding-bottom: $base-content-height * 1px;
@@ -337,7 +423,7 @@
 // User show, tag show
 // ===================
 
-.empty-story-index {
+.empty-index {
   text-align: center;
   font-style: italic;
 }
@@ -623,6 +709,9 @@ input[type="checkbox"]:checked + label {
 
 .author-avatar {
   border-radius: 50%;
+  float: left;
+  width: 35px;
+  height: 35px;
 }
 
 .story-show-header {
@@ -661,12 +750,6 @@ input[type="checkbox"]:checked + label {
   padding-top: $base-content-height * 1px;
   padding-bottom: $base-content-height * 1px;
   margin-top: $base-content-height * 3px;
-}
-
-.author-avatar {
-  float: left;
-  width: 35px;
-  height: 35px;
 }
 
 .author-name {
