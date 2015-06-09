@@ -12,9 +12,10 @@
   display: block;
   position: fixed;
   top: 0px;
-  height: $header-height + 0px;
+  height: $header-height + 2px;
   width: 100%;
-  border-bottom: 4px double #000;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 0 2px rgba(0,0,0,0.15);
 }
 
 .sidebar {
@@ -43,7 +44,7 @@
   bottom: 0px;
   left: $sidebar-width + 0px;
   overflow: auto;
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
 .story-show {
