@@ -1,5 +1,4 @@
 json.username @user.username
-json.email @user.email
 json.id @user.id
 json.avatar_url @user.avatar.url(:thumb)
 json.followers_count @user.passive_follows.length

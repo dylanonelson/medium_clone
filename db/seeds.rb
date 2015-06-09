@@ -3,35 +3,30 @@ seeds_dir = "#{Rails.root}/app/assets/seeds"
 c = User.create(
   username: "chesterton",
   password: "gkchesterton",
-  email: "chesterton@gutenberg.com",
   avatar: File.open("#{seeds_dir}/avatars/chesterton.png")
 )
 
 e = User.create(
   username: "emerson",
   password: "rwemerson",
-  email: "emerson@gutenberg.com",
   avatar: File.open("#{seeds_dir}/avatars/emerson.jpg")
 )
 
 s = User.create(
   username: "seneca",
   password: "lcseneca",
-  email: "seneca@gutenberg.com",
   avatar: File.open("#{seeds_dir}/avatars/seneca.jpg")
 )
 
 t = User.create(
   username: "twain",
   password: "mtwain",
-  email: "twain@gutenberg.com",
   avatar: File.open("#{seeds_dir}/avatars/twain.jpg")
 )
 
 mdm = User.create(
   username: "montaigne",
   password: "mdmontaigne",
-  email: "montaigne@gutenberg.com",
   avatar: File.open("#{seeds_dir}/avatars/montaigne.jpg")
 )
 
@@ -128,7 +123,6 @@ e.follow(s)
 
 m = User.create!(
   username: "marshall",
-  email: "marshall@gutenberg.com",
   password: "mmcluhan"
 )
 

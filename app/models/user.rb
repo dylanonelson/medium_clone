@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
 
-  EMAIL_REGEX = /\A([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})\z/i
-
   include PgSearch
 
   multisearchable against: [:username]
@@ -9,8 +7,6 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
-  validates :email, presence: true, uniqueness: { case_sensitive: false }
-  validates_format_of :email, with: EMAIL_REGEX
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validates :password_digest, presence: true
 
@@ -57,6 +53,25 @@ class User < ActiveRecord::Base
     u = User.find_by(username: un)
     return nil unless u
     u.is_password?(pw) ? u : nil
+  end
+
+  def self.find_or_create_by_auth_hash(auth_hash)
+    user = User.find_by(
+            provider: auth_hash[:provider],
+            uid: auth_hash[:uid]
+    )
+
+    unless user
+      user = User.create!(
+            provider: auth_hash[:provider],
+            uid: auth_hash[:uid],
+            username: auth_hash[:info][:nickname],
+            avatar: URI.parse(auth_hash[:info][:image]),
+            password: SecureRandom::urlsafe_base64
+      )
+    end
+
+    user
   end
 
   def password=(pw)

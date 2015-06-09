@@ -54,3 +54,4 @@ gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
 gem 'figaro', '>= 1.0'
 gem 'aws-sdk'
 gem 'pg_search', '~> 0.7.8'
+gem 'omniauth-twitter'

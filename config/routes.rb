@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#root'
 
+  get '/auth/:provider/callback', to: 'api/sessions#omniauth', defaults: { format: :json }
+
   namespace :api, defaults: { format: :json } do
 
     get 'search', to: 'trends#search'
