@@ -381,12 +381,23 @@
   margin-bottom: 25px;
   padding: 15px 25px 15px 25px;
 
-  line-height: 1;
+  font-family: 'Merriweather Sans';
+
   border: 1px solid #888;
   border-radius: 10px;
 }
 
+.new-user label, .new-session label {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 200;
+
+  line-height: 2;
+}
+
 .new-user-head, .new-session-head {
+  font-family: 'Merriweather Sans';
+  font-weight: 700;
   font-size: 30px;
   text-align: center;
   margin-top: $base-content-height * 3px;
@@ -406,19 +417,42 @@
   width: 100%;
   padding: 5px;
   margin-bottom: 20px;
-  background: #ccc;
+  outline: 1px solid #888;
 }
 
 .new-user > button, .new-session > button {
   display: block;
+  width: 100%;
+  padding: 5px;
+  margin-top: 15px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.new-user-link, .new-session-link {
+.form-links {
   display: block;
-  text-align: center;
+  width: 300px;
+  margin: auto;
+
+  font-family: 'Merriweather Sans';
+  font-size: 14px;
+  line-height: 1.75;
+  font-weight: 200;
 }
+
+.new-user-link, .new-session-link, .twitter-auth-link {
+  display: block;
+  margin: auto;
+  width: 200px;
+  padding: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid #888;
+  border-radius: 2px;
+  margin-bottom: 15px;
+}
+
+
 
 // ===================
 // User show, tag show
