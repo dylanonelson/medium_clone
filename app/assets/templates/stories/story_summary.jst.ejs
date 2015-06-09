@@ -1,11 +1,11 @@
 <article class="story-summary clearfix">
   <header class="story-show-header">
-    <img class='author-avatar' src="<%= story.get('author_avatar_url') %>">
-    <h4 class='author-name'>
-      <a href="#users/<%= story.get('author_id') %>">
+    <a href="#users/<%= story.get('author_id') %>">
+      <img class='author-avatar' src="<%= story.get('author_avatar_url') %>">
+      <h4 class='author-name'>
         <%= story.get('author_username') %>
-      </a>
-    </h4>
+      </h4>
+    </a>
     <ul class="story-tag-list">
       <% story.get('tags') && story.get('tags').forEach(function(tag) { %>
         <li>
@@ -15,12 +15,12 @@
         </li>
       <% }) %>
     </ul>
-    <% if (story.get('banner_url')) { %>
-      <img class="story-banner" src="<%= story.get('banner_url') && story.get('banner_url').summary %>"/>
-    <% } %>
     <a 
       class="story-view" 
       href="#stories/<%= story.id %>">
+      <% if (story.get('banner_url')) { %>
+        <img class="story-banner" src="<%= story.get('banner_url') && story.get('banner_url').summary %>"/>
+      <% } %>
       <h3 class="story-show-head">
         <%= story.get('title') %>
       </h3>
