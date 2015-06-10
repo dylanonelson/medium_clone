@@ -5,7 +5,12 @@ class Story < ActiveRecord::Base
   multisearchable against: [:title, :body]
 
   validates :title, presence: true, if: :published
-  validates :body, presence: true, if: :published
+  validates :body, presence: true, if: :published, length: {
+    minimum: 50,
+    tokenizer: lambda { |str| str.scan(/\w+/) },
+    too_short: 'must be at least fifty words'
+  }
+  
   validates_inclusion_of :published, in: [true, false]
   validates :published_at, presence: true, if: :published
 
