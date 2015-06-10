@@ -60,7 +60,7 @@
 
 .story-show-full .story-content {
   position: relative;
-  width: 600px;
+  width: 550px;
   padding: 0 5px 0 5px;
   margin: auto;
   margin-bottom: $base-content-height * 1.1px;
@@ -71,7 +71,7 @@
   position: relative;
   left: -1px;
   border-left: 2px solid $selected-text;
-  width: 602px;
+  width: $body-width + 2;
 }
 
 .story-show-header {

@@ -915,19 +915,22 @@ blockquote.story-content {
 
 .comment-sidebar-frame {
   position: relative;
-  width: 100%;
+  width: $body-width;
+  margin: auto;
   height: 0;
 }
 
 .comment-sidebar {
   position: absolute;
   width: 200px;
-  left: 85%;
+  left: $body-width + 55;
 
   border: 1px solid #888;
   border-radius: 2px;
 
   box-sizing: border-box;
+
+  z-index: 1000;
 }
 
 .comment-view {
