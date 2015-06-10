@@ -886,6 +886,11 @@ input[type="checkbox"]:checked + label {
   float: right;
   text-align: right;
 
+  font-family: 'Merriweather Sans';
+  color: $selected-text;
+  font-size: 14px;
+  font-weight: 200;
+  text-decoration: underline;
   line-height: $base-line-height * 3;
 }
 
@@ -919,6 +924,10 @@ blockquote.story-content {
   float: left;
 
   font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 200;
+  font-size: 14px;
+  text-decoration: underline;
+  color: $selected-text;
   line-height: $base-line-height * 3;
 }
 
