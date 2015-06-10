@@ -29,6 +29,7 @@ Users can:
 * Sidebar view slides in and out using CSS3 transformations upon completion of an AJAX authentication request
 * Custom SQL fetches trending stories in one query using aggregate functions and sub-queries
 * Story editor uses HTML5’s contentEditable attribute and parses the resulting HTML to save unique IDs for each previously unsaved paragraph so that comments can be persistently associated with individual fragments
+* Story model uses regex to validate length in words, but only if story is meant for publication
 * Story display pages memoize comment sidebar so that users can select and deselect one paragraph at a time
 * Backbone “Followable” mixin consumes Rails API’s polymorphic association for following both users and tags
 * Profile view mixin DRYs up code for current user’s vs. other users’ profile pages
