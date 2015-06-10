@@ -58,7 +58,7 @@ MediumClone.Routers.Router = Backbone.Router.extend({
 
     MediumClone.feed.fetch();
 
-    var feedView = new MediumClone.Views.StoriesIndex({
+    var feedView = new MediumClone.Views.FeedStoriesIndex({
       collection : MediumClone.feed,
     })
 
