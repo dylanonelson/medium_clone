@@ -25,7 +25,12 @@ MediumClone.Models.Story = Backbone.Model.extend({
     var $body = $(this.get('body'));
     
     var $summary = $('<div>');
-    var summary = $body.text().match(/\S+/g).slice(0, this.numWordsInSummary).join(" ");
+    var words = $body.text().match(/\S+/g);
+    if (words === null) {
+      return "<em>This story has no saved body.</em>";
+    }
+
+    var summary = words.slice(0, this.numWordsInSummary).join(" ");
 
     // Add an ellipsis to end of summary text
     for (var i = 0; i < 3; i++) {
