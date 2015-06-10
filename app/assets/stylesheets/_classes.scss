@@ -925,6 +925,7 @@ blockquote.story-content {
   width: 200px;
   left: $body-width + 55;
 
+  background: #ddd;
   border: 1px solid #888;
   border-radius: 2px;
 
@@ -935,8 +936,9 @@ blockquote.story-content {
 
 .comment-view {
   border-bottom: 1px solid #888;
-  padding: 5px;
-
+  padding: 10px;
+  font-family: 'Merriweather Sans';
+  font-weight: 200;
   font-size: 14px;
 }
 
@@ -944,27 +946,60 @@ blockquote.story-content {
   font-style: italic;
 }
 
-.comment-view:hover {
-  color: $selected-text;
-}
-
 // ============
 // Comment form
 // ============
 
-.comment-form label {
-  padding: 5px;
+.comment-form figure {
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 
-  font-family: 'Merriweather Sans', sans-serif;
-  font-style: italic;
-  font-weight: 300;
+.comment-avatar {
+  width: 35px;
+  float: left;
+  border-radius: 50%;
+}
+
+.comment-username {
+  float: left;
+  margin-left: 5px;
+
+  font-family: 'Merriweather Sans';
+  font-weight: 200;
   font-size: 12px;
+  line-height: (35 / 12);
+}
+
+.comment-body {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.comment-not-signed-in {
+  height: 35px;
+  width: 140px;
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+
+  font-family: 'Merriweather Sans';
+  font-weight: 200;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.comment-sign-up {
+  text-decoration: underline;
+  color: $selected-text;
 }
 
 .comment-form > textarea {
   width: 100%;
   height: 150px;
-  padding: 5px;
+  padding: 10px;
 
   font-family: 'Merriweather Sans', sans-serif;
   font-weight: 300;
@@ -974,6 +1009,12 @@ blockquote.story-content {
 .comment-form > button {
   display: block;
   margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
 
-  font-size: 14px;
+  font-size: 12px;
+  text-align: center;
+  width: 170px;
+  background: #fff;
+  border: 1px solid #888;
 }

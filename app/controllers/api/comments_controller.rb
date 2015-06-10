@@ -2,7 +2,7 @@ class Api::CommentsController < ApplicationController
 
   def index
     @story = Story.find(params[:story_id])
-    @comments = @story.comments
+    @comments = @story.comments.includes(:commenter)
     render :index
   end
 

@@ -1,3 +1,11 @@
-<label for="body">Leave a comment.</label>
+<% if (MediumClone.currentUser.isSignedIn())  { %>
+  <figure class="clearfix">
+    <img class="comment-avatar" src="<%= MediumClone.currentUser.get('avatar_url')%>" alt="">
+    <h4 class="comment-username"><%= MediumClone.currentUser.get('username') %></h4>
+  </figure>
+<% } else { %>
+  <p class="comment-not-signed-in">Submit your comment to sign in. Or <a class="comment-sign-up" href="#users/new">sign up</a>.</p>
+<% } %>
+
 <textarea name="body"></textarea>
-<button>Save</button>
+<button>Leave a comment</button>

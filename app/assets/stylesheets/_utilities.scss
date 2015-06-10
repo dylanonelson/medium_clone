@@ -17,6 +17,10 @@ textarea, figure, fieldset {
   color: inherit;
 }
 
+textarea {
+  resize: none;
+}
+
 ul {
   list-style-type: none;
 }

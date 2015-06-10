@@ -5,4 +5,5 @@ json.body comment.body
 json.commenter do
   json.id comment.commenter.id
   json.username comment.commenter.username
+  json.avatar_url comment.commenter.avatar.url
 end

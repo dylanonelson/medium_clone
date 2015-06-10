@@ -1,2 +1,5 @@
-<h4><%= comment.get('commenter').get('username') %></h4>
-<p><%= comment.get('body') %></p>
+<a class="clearfix" href="#users/<%= comment.get('commenter').id %>">
+  <img class="comment-avatar" src="<%= comment.get('commenter').get('avatar_url') %>" alt="">
+  <h4 class="comment-username"><%= comment.get('commenter').get('username') %></h4>
+</a>
+<p class="comment-body"><%= comment.get('body') %></p>
