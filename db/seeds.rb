@@ -124,7 +124,16 @@ e.follow(s)
 m = User.create!(
   username: "marshall",
   password: "mmcluhan",
-  avatar: File.open("#{seeds_dir}/avatars/mcluhan.png")
+  avatar: File.open("#{seeds_dir}/avatars/mcluhan.jpg")
+)
+
+m.stories.create(
+  title: "The Medium is the Message",
+  body: File.read("#{seeds_dir}/stories/mcluhan/the_medium_is_the_message.txt"),
+  last_edited_at: DateTime.now,
+  published_at: DateTime.now,
+  published: true,
+  banner: File.open("#{seeds_dir}/banners/mcluhan/the_medium_is_the_message.jpg")
 )
 
 m.follow(t)
