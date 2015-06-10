@@ -420,6 +420,10 @@
   outline: 1px solid #888;
 }
 
+.new-user > input:focus, .new-session > input:focus {
+  outline: 1px solid $selected-text;
+}
+
 .new-user > button, .new-session > button {
   display: block;
   width: 100%;
@@ -440,7 +444,7 @@
   font-weight: 200;
 }
 
-.new-user-link, .new-session-link, .twitter-auth-link {
+.demo-user-link, .new-user-link, .new-session-link, .twitter-auth-link {
   display: block;
   margin: auto;
   width: 200px;
@@ -450,9 +454,14 @@
   border: 1px solid #888;
   border-radius: 2px;
   margin-bottom: 15px;
+
+  transition: all 250ms linear;
 }
 
-
+.demo-user-link:hover, .new-user-link:hover, .new-session-link:hover, .twitter-auth-link:hover {
+  color: $selected-text;
+  border: 1px solid $selected-text;
+}
 
 // ===================
 // User show, tag show

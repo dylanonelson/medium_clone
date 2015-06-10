@@ -17,6 +17,7 @@ MediumClone.Views.SessionForm = Backbone.View.extend({
 
   events : {
     'submit form' : 'submit',
+    'click #demo-user-link' : 'signInAsMarshall',
   },
 
   submit : function (event) {
@@ -30,6 +31,14 @@ MediumClone.Views.SessionForm = Backbone.View.extend({
       error : function () {
         alert('Sign in failed');
       },
+    });
+  },
+
+  signInAsMarshall : function (event) {
+    event.preventDefault();
+    MediumClone.currentUser.signIn({
+      username : 'marshall',
+      password : 'mmcluhan'
     });
   },
 
