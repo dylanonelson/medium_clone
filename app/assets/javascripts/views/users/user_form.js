@@ -18,8 +18,12 @@ MediumClone.Views.UserForm = Backbone.View.extend({
     event.preventDefault();
     var userData = this.$('form').serializeJSON();
     var newUser = new MediumClone.Models.User(userData);
+    var $errors = this.$('#errors');
+
     newUser.save({}, {
       success : function(userData) {
+        $errors.addClass('gone');
+
         MediumClone.currentUser.set(userData);
         MediumClone.currentUser.trigger('signIn');
         MediumClone.currentUser.fetch({
@@ -28,6 +32,16 @@ MediumClone.Views.UserForm = Backbone.View.extend({
           },
         })
       },
+      error : function (userData, xhr) {
+        $errors.empty();
+        $errors.removeClass('gone');
+
+        var errors = xhr.responseJSON.errors;
+        errors.forEach(function (error) {
+          $error = $('<li>').text(error + '.');
+          $errors.append($error);
+        })
+      }
     });
   }
 

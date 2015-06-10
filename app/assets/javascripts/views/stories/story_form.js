@@ -64,15 +64,29 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
     var thisModel = this.model;
     thisModel.set(this.$el.serializeJSON().story);
 
-    $body = $('body')
+    var $errors = this.$('#errors');
+    var $body = $('body')
     $body.addClass('loading');
 
     thisModel.save({}, {
       success : function (storyData) {
         $body.removeClass('loading');
+        $errors.addClass('gone');
+
         MediumClone.stories.add(thisModel);
         Backbone.history.navigate('#stories/' + storyData.id + '/edit');
         completionCallback && completionCallback(storyData);
+      },
+      error : function (storyData, xhr) {
+        $body.removeClass('loading');
+        $errors.empty();
+        $errors.removeClass('gone');
+
+        var errors = xhr.responseJSON.errors;
+        errors.forEach(function (error) {
+          $error = $('<li>').text(error + '.');
+          $errors.append($error);
+        })
       },
     });
   },

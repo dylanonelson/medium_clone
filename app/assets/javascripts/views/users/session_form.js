@@ -25,11 +25,20 @@ MediumClone.Views.SessionForm = Backbone.View.extend({
     
     var $form = $(event.currentTarget);
     var formData = $form.serializeJSON().user;
+    var $errors = $('#errors');
+
     MediumClone.currentUser.signIn({
       username : formData.username,
       password : formData.password,
-      error : function () {
-        alert('Sign in failed');
+      error : function (xhr) {
+        $errors.empty();
+        $errors.removeClass('gone');
+
+        var errors = xhr.responseJSON.errors;
+        errors.forEach(function  (error) {
+          $error = $('<li>').text(error);
+          $errors.append($error);
+        })
       },
     });
   },

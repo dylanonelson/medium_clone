@@ -7,7 +7,7 @@ class Api::UsersController < ApplicationController
       log_in! @user
       render :profile
     else
-      render json: @user.errors, head: :unprocessable_entity
+      render json: { errors: @user.errors.full_messages }, status: 422
     end
   end
 
@@ -31,7 +31,7 @@ class Api::UsersController < ApplicationController
     if current_user.update(api_user_params)
       render :show
     else
-      render json: current_user.errors
+      render json: { errors: current_user.errors.full_messages }, status: 422
     end
   end
 

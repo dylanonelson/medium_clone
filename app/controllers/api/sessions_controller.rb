@@ -10,7 +10,7 @@ class Api::SessionsController < ApplicationController
       log_in!(@user)
       render 'api/users/profile'
     else
-      head :unprocessable_entity
+      render json: { errors: ['A user could not be found that matches those credentials.'] }, status: 422
     end
   end
 
