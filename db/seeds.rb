@@ -123,7 +123,8 @@ e.follow(s)
 
 m = User.create!(
   username: "marshall",
-  password: "mmcluhan"
+  password: "mmcluhan",
+  avatar: File.open("#{seeds_dir}/avatars/mcluhan.png")
 )
 
 m.follow(t)
