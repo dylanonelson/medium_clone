@@ -83,7 +83,7 @@
 .story-summary {
   position: relative;
   margin: auto;
-  max-width: 600px;
+  max-width: $body-width;
   transition: left 750ms ease-in;
 }
 

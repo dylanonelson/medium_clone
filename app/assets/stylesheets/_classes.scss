@@ -77,7 +77,7 @@
 }
 
 .body-column {
-  width: 600px;
+  width: $body-width;
   margin: auto;
 }
 
@@ -779,7 +779,7 @@ input[type="checkbox"]:checked + label {
 }
 
 #author-details-view {
-  width: 600px;
+  width: $body-width;
   margin: auto;
   border-top: 1px solid #888;
   padding-top: $base-content-height * 1px;
@@ -806,7 +806,7 @@ input[type="checkbox"]:checked + label {
 
 #tag-index-view {
   display: block;
-  width: 600px;
+  width: $body-width;
   margin: auto;
 }
 
