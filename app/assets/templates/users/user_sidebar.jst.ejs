@@ -30,7 +30,7 @@
 <ul class="followed-tags-list clearfix">
   <% user.followedTags().each(function(tag) { %>
     <li class="followed-tag clearfix">
-      <a class="followed-tag href="#tags/<%= tag.id %>">
+      <a class="followed-tag" href="#tags/<%= tag.id %>">
         <%= tag.escape('label') %>
       </a>
     </li>
