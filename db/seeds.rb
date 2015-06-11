@@ -30,6 +30,12 @@ mdm = User.create(
   avatar: File.open("#{seeds_dir}/avatars/montaigne.jpg")
 )
 
+sontag = User.create(
+  username: "sontag",
+  password: "ssontag",
+  avatar: File.open("#{seeds_dir}/avatars/sontag.jpg")
+)
+
 c.stories.create!(
   title: "A Piece of Chalk",
   body: File.read("#{seeds_dir}/stories/chesterton/a_piece_of_chalk.txt"),
@@ -38,7 +44,7 @@ c.stories.create!(
   published: true,
   banner: File.open("#{seeds_dir}/banners/chesterton/a_piece_of_chalk.jpg")
 )
-c.stories.create!(
+on_lying_in_bed = c.stories.create!(
   title: "On Lying in Bed",
   body: File.read("#{seeds_dir}/stories/chesterton/on_lying_in_bed.txt"),
   last_edited_at: DateTime.now,
@@ -116,6 +122,23 @@ mdm.stories.create!(
   published: true
 )
 
+on_photography = sontag.stories.create!(
+  title: "On Photography (excerpt)",
+  body: File.read("#{seeds_dir}/stories/sontag/on_photography.txt"),
+  last_edited_at: DateTime.now,
+  published_at: DateTime.now,
+  published: true,  
+  banner: File.open("#{seeds_dir}/banners/sontag/on_photography.jpg")
+)
+
+media_tag = Tag.create!(
+  label: "media"  
+)
+
+on_photography.taggings.create(
+  tag_id: media_tag.id
+)
+
 t.follow(c)
 c.follow(s)
 t.follow(e)
@@ -140,3 +163,22 @@ m.follow(t)
 m.follow(c)
 m.follow(e)
 m.follow(s)
+m.follow(media_tag)
+
+m.comments.create!(
+  body: "I too have felt this way on many occasions when looking at my bedroom ceiling.",
+  fragment_id: "\\\"BZVpEs\\\"",
+  story_id: on_lying_in_bed.id
+)
+
+m.comments.create!(
+  body: "There is a true freedom in rejecting our mechanically-minded society's obsession with justification.",
+  fragment_id: "\\\"d9yyO4\\\"",
+  story_id: on_lying_in_bed.id
+)
+
+m.comments.create!(
+  body: "Sontag understands perfectly how the qualities of the medium can alter reality for its users. I would also add that she accurately pinpoints artists as the prophets of this alteration.",
+  fragment_id: "asdf",
+  story_id: on_photography.id
+)
