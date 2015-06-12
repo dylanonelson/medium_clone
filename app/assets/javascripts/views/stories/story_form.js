@@ -93,7 +93,10 @@ MediumClone.Views.StoryForm = Backbone.CompositeView.extend({
 
   destroyStory : function () {
     this.model.destroy({
-      success : MediumClone.router.profile.bind(MediumClone.router),
+      success : function() {
+        Backbone.history.navigate('#profile');
+        MediumClone.router.profile();
+      },
     });
   },
 
