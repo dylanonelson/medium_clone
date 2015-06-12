@@ -723,7 +723,7 @@ input[type="checkbox"]:checked + label {
   border-radius: 2px;
 }
 
-.medium-editor-toolbar-actions:after {
+.medium-editor-toolbar-actions:after, .medium-editor-toolbar-form-anchor:after {
   display: block;
   position: absolute;
   bottom: -8px;
@@ -737,7 +737,11 @@ input[type="checkbox"]:checked + label {
   border-left: 6px solid transparent;
 }
 
-
+.medium-editor-toolbar-form-anchor {
+  padding: 5px;
+  font-family: 'Merriweather Sans';
+  font-size: 14px;
+}
 
 // =============
 // Stories index
@@ -894,7 +898,7 @@ input[type="checkbox"]:checked + label {
   line-height: $base-line-height * 3;
 }
 
-blockquote.story-content {
+.story-show-full blockquote.story-content {
   padding-left: 25px;
   font-size: 14px;
 }
@@ -902,6 +906,24 @@ blockquote.story-content {
 .story-content:hover .comment-count {
   display: block;
   font-family: sans-serif;
+}
+
+.story-content a, #body_content_editor a {
+  text-decoration: underline;
+  color: $selected-text;
+}
+
+.story-show-full h3.story-content, #body_content_editor h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: $base-content-height * 2px;
+}
+
+.story-show-full h4.story-content, #body_content_editor h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: $base-content-height * 2px;
+  text-indent: 25px;
 }
 
 .comment-count {
