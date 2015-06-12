@@ -916,7 +916,8 @@ input[type="checkbox"]:checked + label {
 .story-show-full h3.story-content, #body_content_editor h3 {
   font-size: 28px;
   font-weight: 700;
-  margin-bottom: $base-content-height * 2px;
+  margin-top: $base-content-height * 2px;
+  margin-bottom: $base-content-height * 1px;
 }
 
 .story-show-full h4.story-content, #body_content_editor h4 {
