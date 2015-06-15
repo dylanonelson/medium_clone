@@ -51,7 +51,7 @@ class Story < ActiveRecord::Base
       ORDER BY
         COUNT(comments.id) DESC
       LIMIT 
-        15
+        10
     SQL
 
     find_by_sql(query)
@@ -87,13 +87,13 @@ class Story < ActiveRecord::Base
       FROM
         stories
       WHERE
-        stories.id
+        stories.author_id
       IN
         (#{popular_authors_query})
       ORDER BY
-        stories.published_at
+        stories.published_at DESC
       LIMIT
-        15
+        10
     SQL
 
     find_by_sql(stories_query)
