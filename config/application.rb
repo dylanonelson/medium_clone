@@ -31,5 +31,17 @@ module MediumClone
         :secret_access_key => ENV["s3_secret_access_key"]
       }
     }
+
+    config.generators do |g|
+      g.test_framework :rspec,
+        fixtures: false,
+        view_specs: false,
+        helper_specs: false,
+        router_specs: false,
+        controller_specs: false,
+        request_specs: false
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+    end
+
   end
 end

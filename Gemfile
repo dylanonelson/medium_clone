@@ -42,10 +42,18 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 group :production do
   gem 'rails_12factor'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
 end
 
 gem 'backbone-on-rails'
