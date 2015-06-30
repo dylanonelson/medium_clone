@@ -23,8 +23,9 @@
 
 <script>
   var bodyEditor = new MediumEditor('#body_content_editor', {
-    forcePlainText : false,
-    cleanPastedHTML : true,
+    paste : {
+      forcePlainText : true,
+    },
     placeholder : '',
     disableDoubleReturn : true,
   });
